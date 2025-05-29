@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenkai Go!</title>
+    <title>Fitness App - Tailwind Design</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -14,6 +14,7 @@
         }
 
         .app-container {
+            max-width: 420px;
             margin: auto;
             background-color: #1E1E1E;
             color: #E0E0E0;
@@ -30,11 +31,12 @@
             overflow-y: auto;
         }
 
-        .bottom-nav {
+        .restored-bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
+            max-width: 420px;
             margin-left: auto;
             margin-right: auto;
             background-color: #1E1E1E;
@@ -47,7 +49,7 @@
             height: 60px;
         }
 
-        .nav-item {
+        .restored-nav-item {
             background-color: transparent;
             border: none;
             color: #a0aec0;
@@ -64,21 +66,21 @@
             position: relative;
         }
 
-        .nav-icon {
+        .restored-nav-icon {
             width: 24px;
             height: 24px;
             margin-bottom: 0.125rem;
             transition: color 0.2s ease-out;
         }
 
-        .nav-icon svg {
+        .restored-nav-icon svg {
             width: 100%;
             height: 100%;
             display: block;
             stroke-width: 1.5;
         }
 
-        .nav-label {
+        .restored-nav-label {
             font-size: 0.65rem;
             display: block;
             font-weight: 500;
@@ -88,26 +90,26 @@
             transition: color 0.2s ease-out;
         }
 
-        .nav-item.active .nav-icon,
-        .nav-item.active .nav-label {
-            color: #6400c1;
+        .restored-nav-item.active .restored-nav-icon,
+        .restored-nav-item.active .restored-nav-label {
+            color: #00ACC1;
         }
 
-        .nav-item.active .nav-label {
+        .restored-nav-item.active .restored-nav-label {
             font-weight: 600;
         }
 
-        .nav-item:not(.active):hover {
+        .restored-nav-item:not(.active):hover {
             background-color: #2C2C2C;
         }
 
-        .nav-item:not(.active):hover .nav-icon,
-        .nav-item:not(.active):hover .nav-label {
+        .restored-nav-item:not(.active):hover .restored-nav-icon,
+        .restored-nav-item:not(.active):hover .restored-nav-label {
             color: #E0E0E0;
         }
 
         .fab {
-            background-color: #6400c1;
+            background-color: #00ACC1;
         }
 
         .fab:hover {
@@ -143,7 +145,7 @@
         input[type="time"]:focus,
         select:focus,
         textarea:focus {
-            border-color: #6400c1 !important;
+            border-color: #00ACC1 !important;
             box-shadow: 0 0 0 2px rgba(0, 172, 193, 0.3) !important;
             outline: none;
         }
@@ -210,12 +212,12 @@
         }
 
         .success-message {
-            color: #6400c1;
+            color: #00ACC1;
             font-size: 0.875em;
             margin-top: 8px;
             padding: 8px 12px;
             background-color: rgba(0, 172, 193, 0.1);
-            border: 1px solid #6400c1;
+            border: 1px solid #00ACC1;
             border-radius: 0.375rem;
             display: block;
             min-height: 1.2em;
@@ -223,7 +225,7 @@
 
         .exercise-suggestion {
             background-color: rgba(0, 172, 193, 0.1);
-            border: 1px dashed #6400c1;
+            border: 1px dashed #00ACC1;
             color: #b0f0ff;
             padding: 0.5rem 0.75rem;
             border-radius: 0.375rem;
@@ -232,7 +234,7 @@
         }
 
         .exercise-suggestion strong {
-            color: #6400c1;
+            color: #00ACC1;
             font-weight: 600;
         }
 
@@ -322,9 +324,9 @@
         }
 
         .button.filled-button {
-            background-color: #6400c1;
+            background-color: #00ACC1;
             color: #FFFFFF;
-            border-color: #6400c1;
+            border-color: #00ACC1;
         }
 
         .button.filled-button:hover {
@@ -359,7 +361,7 @@
 
         .button.text-button {
             background-color: transparent;
-            color: #6400c1;
+            color: #00ACC1;
         }
 
         .button.text-button:hover {
@@ -646,6 +648,14 @@
                 class="fixed bottom-20 right-4 sm:right-8 fab text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg text-2xl">+</button>
         </div>
 
+        <div id="screen-charts" class="screen" style="display: none;">
+            <header class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-semibold text-white">Charts</h1>
+                <div>&nbsp;</div>
+            </header>
+            <p class="text-neutral-400 text-center">Charts feature coming soon!</p>
+        </div>
+
         <div id="addExerciseModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -928,9 +938,9 @@
             </div>
         </div>
 
-        <nav class="bottom-nav">
-            <button class="nav-item active" data-tab="workoutsTab"><span class="nav-icon"><svg viewBox="0 0 24 24"
-                        fill="none" xmlns="http://www.w3.org/2000/svg">
+        <nav class="restored-bottom-nav">
+            <button class="restored-nav-item active" data-tab="workoutsTab"><span class="restored-nav-icon"><svg
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M15.5 9L15.5 15C15.5 15.465 15.5 15.6975 15.5511 15.8882C15.6898 16.4059 16.0941 16.8102 16.6118 16.9489C16.8025 17 17.035 17 17.5 17C17.965 17 18.1975 17 18.3882 16.9489C18.9059 16.8102 19.3102 16.4059 19.4489 15.8882C19.5 15.6975 19.5 15.465 19.5 15V9C19.5 8.53501 19.5 8.30252 19.4489 8.11177C19.3102 7.59413 18.9059 7.18981 18.3882 7.05111C18.1975 7 17.965 7 17.5 7C17.035 7 16.8025 7 16.6118 7.05111C16.0941 7.18981 15.6898 7.59413 15.5511 8.11177C15.5 8.30252 15.5 8.53501 15.5 9Z"
                             stroke="currentColor" />
@@ -940,19 +950,24 @@
                         <path
                             d="M2 12L1.25 12L2 12ZM22 12L21.25 12L22 12ZM11 12.75C11.4142 12.75 11.75 12.4142 11.75 12C11.75 11.5858 11.4142 11.25 11 11.25V12.75ZM14 11.25C13.5858 11.25 13.25 11.5858 13.25 12C13.25 12.4142 13.5858 12.75 14 12.75V11.25ZM4 13.25C3.30964 13.25 2.75 12.6904 2.75 12L1.25 12C1.25 13.5188 2.48122 14.75 4 14.75V13.25ZM20 14.75C21.5188 14.75 22.75 13.5188 22.75 12L21.25 12C21.25 12.6904 20.6904 13.25 20 13.25V14.75ZM20 10.75C20.6904 10.75 21.25 11.3096 21.25 12L22.75 12C22.75 10.4812 21.5188 9.25 20 9.25V10.75ZM4 9.25C2.48122 9.25 1.25 10.4812 1.25 12L2.75 12C2.75 11.3096 3.30964 10.75 4 10.75V9.25ZM4 10.75H5V9.25H4V10.75ZM5 13.25H4V14.75H5V13.25ZM20 13.25H19V14.75H20V13.25ZM19 10.75H20V9.25H19V10.75ZM9 12.75H11V11.25H9V12.75ZM14 12.75H15V11.25H14V12.75Z"
                             fill="currentColor" />
-                    </svg></span><span class="nav-label">Workouts</span></button>
-            <button class="nav-item" data-tab="templatesTab"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    </svg></span><span class="restored-nav-label">Workouts</span></button>
+            <button class="restored-nav-item" data-tab="templatesTab"><span class="restored-nav-icon"><svg
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9 18L7 21M15 18L17 21M7 14H17M8 14V11M12 14V6M16 14V9M6.2 18H17.8C18.9201 18 19.4802 18 19.908 17.782C20.2843 17.5903 20.5903 17.2843 20.782 16.908C21 16.4802 21 15.9201 21 14.8V6.2C21 5.0799 21 4.51984 20.782 4.09202C20.5903 3.71569 20.2843 3.40973 19.908 3.21799C19.4802 3 18.9201 3 17.8 3H6.2C5.0799 3 4.51984 3 4.09202 3.21799C3.71569 3.40973 3.40973 3.71569 3.21799 4.09202C3 4.51984 3 5.07989 3 6.2V14.8C3 15.9201 3 16.4802 3.21799 16.908C3.40973 17.2843 3.71569 17.5903 4.09202 17.782C4.51984 18 5.07989 18 6.2 18Z"
                             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></span><span class="nav-label">Templates</span></button>
-            <button class="nav-item" data-tab="nutritionTab"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    </svg></span><span class="restored-nav-label">Templates</span></button>
+            <button class="restored-nav-item" data-tab="nutritionTab"><span class="restored-nav-icon"><svg
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10.5 12h3M10.5 15h3M5.25 7.5V5.625c0-1.036.84-1.875 1.875-1.875h9.75c1.036 0 1.875.84 1.875 1.875V7.5"
                             stroke="currentColor" />
-                    </svg></span><span class="nav-label">Nutrition</span></button>
+                    </svg></span><span class="restored-nav-label">Nutrition</span></button>
+            <button class="restored-nav-item" data-tab="chartsTab"><span class="restored-nav-icon"><svg
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                    </svg></span><span class="restored-nav-label">Charts</span></button>
         </nav>
     </div>
 
@@ -966,8 +981,9 @@
                 templates: document.getElementById('screen-templates'),
                 templateCreation: document.getElementById('screen-template-creation'),
                 nutrition: document.getElementById('screen-nutrition'),
+                charts: document.getElementById('screen-charts')
             };
-            const navItems = document.querySelectorAll('.nav-item');
+            const navItems = document.querySelectorAll('.restored-nav-item');
             const currentTimeDisplay = document.getElementById('currentTimeDisplay');
             const workoutDashboardMessage = document.getElementById('workoutDashboardMessage');
             const activeWorkoutInfoContainer = document.getElementById('activeWorkoutInfoContainer');
@@ -1207,6 +1223,8 @@
                     }
                 });
             }
+
+            // --- Data Management & Export/Import (Moved up for availability) ---
             function exportDataAsJSON() {
                 const allData = { workouts, nutritionData, exerciseDatabase, workoutTemplates, customFoods };
                 const jsonString = JSON.stringify(allData, null, 2); const blob = new Blob([jsonString], { type: "application/json" });
@@ -1233,6 +1251,8 @@
                 document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
                 displayTemporaryMessage(dataManagementMessage, 'Workout data exported as CSV.', 'success');
             }
+
+
             function switchScreen(targetScreenKey) {
                 Object.values(screens).forEach(screen => { if (screen) screen.style.display = 'none'; });
                 const screenElementId = `screen-${targetScreenKey}`;
@@ -1244,6 +1264,7 @@
                 if (activeScreenKey === 'workouts') { if (currentWorkout) switchScreen('activeWorkout'); else renderWorkoutDashboardState(); }
                 else if (activeScreenKey === 'templates') renderTemplateLibrary();
                 else if (activeScreenKey === 'nutrition') { handleDailyNutritionReset(); loadNutritionForToday(); renderCustomFoodLibrary(); renderTempDailyLoggedFoods(); updateNutritionDisplay(); }
+                else if (activeScreenKey === 'charts' && screens.charts) screens.charts.innerHTML = '<div class="p-4 text-center text-neutral-400">Charts feature coming soon!</div>';
             }
             function renderWorkoutDashboardState() { if (currentWorkout) { activeWorkoutInfoContainer.style.display = 'block'; saveCurrentWorkoutAsTemplateBtn.style.display = currentWorkout.exercises.length > 0 ? 'block' : 'none'; } else activeWorkoutInfoContainer.style.display = 'none'; }
             function startWorkoutTimer() { stopWorkoutTimer(); if (!currentWorkout) return; if (!currentWorkout.startTimeEpoch) currentWorkout.startTimeEpoch = Date.now() - (currentWorkout.elapsedSeconds ? currentWorkout.elapsedSeconds * 1000 : 0); workoutTimerInterval = setInterval(() => { if (!currentWorkout) { stopWorkoutTimer(); resetWorkoutTimerDisplay(); return; } const elapsedMilliseconds = Date.now() - currentWorkout.startTimeEpoch; currentWorkout.elapsedSeconds = Math.floor(elapsedMilliseconds / 1000); const h = Math.floor(currentWorkout.elapsedSeconds / 3600); const m = Math.floor((currentWorkout.elapsedSeconds % 3600) / 60); const s = currentWorkout.elapsedSeconds % 60; if (workoutTimerDisplay) workoutTimerDisplay.textContent = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; }, 1000); }
