@@ -1174,10 +1174,14 @@
             function updateNutritionDisplay() {
                 const today = getTodayDateString();
                 const data = nutritionData[today] || {};
-                const targets = data.targets || {};
+                const dailyTargets = data.targets || {}; // Get targets for *today*
 
-                let currentTargetCalories = parseInt(localStorage.getItem('fitnessApp_userTDEE')) || (targets.calories || 0);
-                if (targetCaloriesDisplay) targetCaloriesDisplay.textContent = currentTargetCalories > 0 ? `${currentTargetCalories} kcal` : "Set TDEE";
+                // Prioritize today's specific target calories if set, otherwise use general TDEE from storage
+                let currentTargetCalories = dailyTargets.calories || parseInt(localStorage.getItem('fitnessApp_userTDEE')) || 0;
+
+                if (targetCaloriesDisplay) {
+                    targetCaloriesDisplay.textContent = currentTargetCalories > 0 ? `${currentTargetCalories} kcal` : "Set TDEE/Macros";
+                }
 
                 const loggedCalories = parseFloat(caloriesInput.value) || 0;
                 const remainingCalories = currentTargetCalories - loggedCalories;
@@ -1191,7 +1195,7 @@
                 const macros = ['Protein', 'Carbs', 'Fats'];
                 macros.forEach(macro => {
                     const lowerMacro = macro.toLowerCase();
-                    const targetInputEl = document.getElementById(`target${macro}Input`); // Renamed to avoid conflict
+                    const targetInputEl = document.getElementById(`target${macro}Input`);
                     const loggedInputEl = document.getElementById(lowerMacro);
                     const remainingDisplayEl = document.getElementById(`remaining${macro}Display`);
 
@@ -1273,16 +1277,23 @@
             function clearNutritionInputs() { if (caloriesInput) caloriesInput.value = ''; if (proteinInput) proteinInput.value = ''; if (carbsInput) carbsInput.value = ''; if (fatsInput) fatsInput.value = ''; if (targetProteinInput) targetProteinInput.value = ''; if (targetCarbsInput) targetCarbsInput.value = ''; if (targetFatsInput) targetFatsInput.value = '';[caloriesError, proteinError, carbsError, fatsError, targetProteinError, targetCarbsError, targetFatsError].forEach(el => { if (el) el.textContent = ''; });[caloriesInput, proteinInput, carbsInput, fatsInput, targetProteinInput, targetCarbsInput, targetFatsInput].forEach(el => { if (el) el.classList.remove('invalid'); }); tempDailyLoggedFoods = []; renderTempDailyLoggedFoods(); updateNutritionDisplay(); }
             function loadNutritionForToday() {
                 const today = getTodayDateString(); const data = nutritionData[today] || {};
-                const targets = data.targets || {};
-                let userTDEE = parseInt(localStorage.getItem('fitnessApp_userTDEE')) || 0;
-                if (targetCaloriesDisplay) targetCaloriesDisplay.textContent = userTDEE > 0 ? `${userTDEE} kcal` : "Set TDEE";
+                const dailyTargets = data.targets || {}; // Get targets for *today*
+
+                // Use today's specific target calories if available, otherwise general TDEE
+                let currentTargetCaloriesForDisplay = dailyTargets.calories || parseInt(localStorage.getItem('fitnessApp_userTDEE')) || 0;
+                if (targetCaloriesDisplay) {
+                    targetCaloriesDisplay.textContent = currentTargetCaloriesForDisplay > 0 ? `${currentTargetCaloriesForDisplay} kcal` : "Set TDEE/Macros";
+                }
+
                 if (caloriesInput) caloriesInput.value = data.calories || '';
                 if (proteinInput) proteinInput.value = data.protein || '';
                 if (carbsInput) carbsInput.value = data.carbs || '';
                 if (fatsInput) fatsInput.value = data.fats || '';
-                if (targetProteinInput) targetProteinInput.value = targets.protein || '';
-                if (targetCarbsInput) targetCarbsInput.value = targets.carbs || '';
-                if (targetFatsInput) targetFatsInput.value = targets.fats || '';
+
+                if (targetProteinInput) targetProteinInput.value = dailyTargets.protein || '';
+                if (targetCarbsInput) targetCarbsInput.value = dailyTargets.carbs || '';
+                if (targetFatsInput) targetFatsInput.value = dailyTargets.fats || '';
+
                 tempDailyLoggedFoods = data.loggedFoods || [];
                 renderTempDailyLoggedFoods(); updateNutritionDisplay();
             }
@@ -1386,13 +1397,13 @@
                     if (tdeeMultiplierResult) tdeeMultiplierResult.textContent = `Activity Multiplier: x${activityMultiplier}`;
                     if (tdeeFinalResult) tdeeFinalResult.textContent = `Estimated TDEE: ${tdee} kcal/day`;
                     localStorage.setItem('fitnessApp_userTDEE', tdee);
-                    localStorage.setItem('fitnessApp_userWeightKg', weight.toFixed(2)); // Store weight in KG for macro calcs
+                    localStorage.setItem('fitnessApp_userWeightKg', weight.toFixed(2));
 
                     let objectiveText = `Suggested Intake (Maintain): ${tdee} kcal/day`;
                     if (objective === 'lose') objectiveText = `Suggested Intake (Deficit): ${tdee - 500} to ${tdee - 300} kcal/day`;
                     else if (objective === 'gain') objectiveText = `Suggested Intake (Surplus): ${tdee + 250} to ${tdee + 500} kcal/day`;
                     if (tdeeObjectiveResult) tdeeObjectiveResult.textContent = objectiveText;
-                    if (openMacroBuilderBtn) openMacroBuilderBtn.style.display = 'block'; // Show button to proceed
+                    if (openMacroBuilderBtn) openMacroBuilderBtn.style.display = 'block';
                     updateNutritionDisplay();
                 });
                 if (openMacroBuilderBtn) openMacroBuilderBtn.addEventListener('click', () => { closeModal(tdeeCalculatorModal); openMacroBuilderModal(); });
@@ -1559,6 +1570,11 @@
                 displayTemporaryMessage(nutritionMessage, "Targets populated. Adjust as needed and save.", 'success', 4000);
             }
 
+            function openMacroBuilderModal() { const tdee = parseInt(localStorage.getItem('fitnessApp_userTDEE')); if (!tdee || tdee <= 0) { showConfirmation("TDEE Not Set", "Please calculate your TDEE first before setting macro goals.", () => { closeModal(macroBuilderModal); switchScreen('nutrition'); if (openTdeeCalcBtn) openTdeeCalcBtn.click(); }); return; } macroBuilderStep1.style.display = 'block'; macroBuilderStep2.style.display = 'none'; macroBuilderResults.style.display = 'none'; macroGoalError.textContent = ''; macroPaceError.textContent = ''; macroBuilderGeneralError.textContent = ''; document.querySelectorAll('input[name="macroGoal"]').forEach(r => r.checked = false); document.querySelectorAll('input[name="fatLossPace"]').forEach(r => r.checked = false); showModal(macroBuilderModal); }
+            function handleMacroBuilderNextToPace() { const selectedGoal = document.querySelector('input[name="macroGoal"]:checked'); if (!selectedGoal) { macroGoalError.textContent = "Please select a primary goal."; return; } macroGoalError.textContent = ""; if (selectedGoal.value === "loseFat") { macroBuilderStep1.style.display = 'none'; macroBuilderStep2.style.display = 'block'; } else { handleCalculateMacros(); } }
+            function handleCalculateMacros() { const selectedGoal = document.querySelector('input[name="macroGoal"]:checked'); const selectedPaceRadio = document.querySelector('input[name="fatLossPace"]:checked'); const pace = selectedGoal.value === 'loseFat' ? (selectedPaceRadio ? selectedPaceRadio.value : null) : null; if (selectedGoal.value === 'loseFat' && !pace) { macroPaceError.textContent = "Please select a fat loss pace."; return; } macroPaceError.textContent = ""; macroBuilderGeneralError.textContent = ""; const tdee = parseInt(localStorage.getItem('fitnessApp_userTDEE')); let weightKg = parseFloat(localStorage.getItem('fitnessApp_userWeightKg')); if (!tdee || tdee <= 0 || !weightKg || weightKg <= 0) { macroBuilderGeneralError.textContent = "TDEE or weight not available. Calculate TDEE first."; return; } let targetCalories = tdee; if (selectedGoal.value === 'loseFat') { if (pace === 'normal') targetCalories = tdee - Math.min(500, tdee * 0.20); else if (pace === 'fast') targetCalories = tdee - Math.min(750, tdee * 0.25); else if (pace === 'superFast') targetCalories = tdee - Math.min(1000, tdee * 0.30); targetCalories = Math.max(1200, targetCalories); } else if (selectedGoal.value === 'gainMuscle') targetCalories = tdee + Math.min(500, tdee * 0.15); targetCalories = Math.round(targetCalories); let proteinPerKg = 1.6; if (selectedGoal.value === 'loseFat') proteinPerKg = 2.0; else if (selectedGoal.value === 'maintain') proteinPerKg = 1.4; else if (selectedGoal.value === 'gainMuscle') proteinPerKg = 1.8; let targetProteinGrams = Math.round(weightKg * proteinPerKg); let targetFatGrams = Math.round((targetCalories * 0.25) / 9); const minFatGrams = Math.round(weightKg * 0.5); targetFatGrams = Math.max(targetFatGrams, minFatGrams, 20); const caloriesFromProtein = targetProteinGrams * 4; const caloriesFromFat = targetFatGrams * 9; const remainingCaloriesForCarbs = targetCalories - caloriesFromProtein - caloriesFromFat; let targetCarbsGrams = Math.round(remainingCaloriesForCarbs / 4); targetCarbsGrams = Math.max(0, targetCarbsGrams); resultCalories.textContent = targetCalories; resultProtein.textContent = targetProteinGrams; resultFat.textContent = targetFatGrams; resultCarbs.textContent = targetCarbsGrams; const totalCalculatedCals = (targetProteinGrams * 4) + (targetFatGrams * 9) + (targetCarbsGrams * 4); macroCalculationNote.textContent = `Total from macros: ~${totalCalculatedCals} kcal. Adjust if needed.`; macroBuilderStep1.style.display = 'none'; macroBuilderStep2.style.display = 'none'; macroBuilderResults.style.display = 'block'; }
+            function handleAcceptMacroTargets() { const today = getTodayDateString(); if (!nutritionData[today]) nutritionData[today] = { targets: {}, loggedFoods: [] }; if (!nutritionData[today].targets) nutritionData[today].targets = {}; const acceptedCalories = parseInt(resultCalories.textContent) || 0; nutritionData[today].targets.calories = acceptedCalories; nutritionData[today].targets.protein = parseFloat(resultProtein.textContent) || 0; nutritionData[today].targets.fats = parseFloat(resultFat.textContent) || 0; nutritionData[today].targets.carbs = parseFloat(resultCarbs.textContent) || 0; localStorage.setItem('fitnessApp_userTDEE', acceptedCalories); targetProteinInput.value = nutritionData[today].targets.protein; targetCarbsInput.value = nutritionData[today].targets.carbs; targetFatsInput.value = nutritionData[today].targets.fats; saveData(); updateNutritionDisplay(); closeModal(macroBuilderModal); switchScreen('nutrition'); displayTemporaryMessage(nutritionMessage, "Macro targets updated and applied!", 'success'); }
+            function handleManualAdjustMacros() { targetProteinInput.value = parseFloat(resultProtein.textContent) || ''; targetCarbsInput.value = parseFloat(resultCarbs.textContent) || ''; targetFatsInput.value = parseFloat(resultFat.textContent) || ''; updateNutritionDisplay(); closeModal(macroBuilderModal); switchScreen('nutrition'); displayTemporaryMessage(nutritionMessage, "Targets populated. Adjust as needed and save.", 'success', 4000); }
 
             // --- App Initialization ---
             loadData();
