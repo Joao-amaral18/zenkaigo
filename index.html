@@ -616,6 +616,70 @@
         }
 
         /* White for values */
+
+        /* Styles for the sticky timer */
+        #workoutTimerDisplay.sticky-timer {
+            position: fixed;
+            top: 10px;
+            /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.25rem;
+            /* Increased font size */
+            color: #059669;
+            /* Tailwind green-600, or your preferred color */
+            background-color: rgba(18, 18, 18, 0.85);
+            /* Dark semi-transparent background */
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.5rem;
+            /* rounded-lg */
+            z-index: 1050;
+            /* Ensure it's above most other elements */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            font-weight: 600;
+        }
+
+        /* Styles for collapsible exercises */
+        .exercise-header-toggle {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            /* Prevent text selection on click */
+        }
+
+        .exercise-header-toggle .exercise-name {
+            flex-grow: 1;
+        }
+
+        .exercise-toggle-icon {
+            transition: transform 0.2s ease-in-out;
+            width: 20px;
+            /* Adjust size as needed */
+            height: 20px;
+        }
+
+        .exercise-toggle-icon.expanded {
+            transform: rotate(180deg);
+        }
+
+        .exercise-content-collapsible {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            /* Add other transitions if needed, e.g., opacity */
+        }
+
+        .exercise-content-collapsible.expanded {
+            max-height: 1000px;
+            /* Set to a large enough value to show all content */
+            /* Consider a more dynamic max-height if content varies greatly, or use display: block/none without animation */
+            transition: max-height 0.4s ease-in;
+        }
     </style>
 </head>
 
@@ -647,15 +711,15 @@
         </div>
 
         <div id="screen-active-workout" class="screen" style="display: none;">
-            <header class="flex justify-between items-center mb-6">
-                <button id="backToWorkoutsDashboardBtn" class="p-2 rounded-full hover:bg-neutral-700">
+            <header class="flex justify-between items-center mb-6 pt-16"> <button id="backToWorkoutsDashboardBtn"
+                    class="p-2 rounded-full hover:bg-neutral-700">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                     </svg>
                 </button>
                 <h1 class="text-xl font-semibold text-white">Active Workout</h1>
-                <div id="workoutTimerDisplay" class="text-sm text-teal-400">00:00:00</div>
+                <div id="workoutTimerDisplay" class="sticky-timer">00:00:00</div>
             </header>
 
             <div class="mb-3">
@@ -1569,6 +1633,7 @@
                         return {
                             name: templateEx.name,
                             sets: copiedSets,
+                            isCollapsed: false // Add isCollapsed state for each exercise
                             // Exercise-level suggestion might still be useful for quick add, or can be removed
                             // suggestedPerformance: { ...calculateExerciseSuggestion(templateEx.name), shown: true }
                         };
@@ -1580,23 +1645,33 @@
                 currentDateTimeSpan.textContent = `Started: ${formatDate(currentWorkout.date)} ${currentWorkout.startTime}`;
                 saveData();
                 switchScreen('activeWorkout');
-                renderCurrentWorkoutExercises(); // This will need significant update
+                renderCurrentWorkoutExercises();
                 updateSaveWorkoutButtonState();
                 startWorkoutTimer();
             }
 
             function renderExerciseDatabaseForModal() { exerciseListContainer.innerHTML = ''; const searchTerm = exerciseSearchInput.value.toLowerCase(); const exerciseGroupsDiv = document.createElement('div'); exerciseGroupsDiv.className = 'space-y-3'; for (const groupName in exerciseDatabase) { const groupExercises = Array.isArray(exerciseDatabase[groupName]) ? exerciseDatabase[groupName] : []; const filteredExercises = groupExercises.filter(ex => ex.toLowerCase().includes(searchTerm)); if (filteredExercises.length > 0) { const groupDiv = document.createElement('div'); groupDiv.innerHTML = `<h4 class="text-sm font-medium text-neutral-400 mb-1">${groupName} (${filteredExercises.length})</h4>`; const exercisesInGroupUl = document.createElement('ul'); exercisesInGroupUl.className = 'space-y-1'; filteredExercises.forEach(exName => { const exLi = document.createElement('li'); exLi.className = 'list-item p-2 rounded-md text-sm cursor-pointer hover:bg-neutral-600'; exLi.textContent = exName; exLi.addEventListener('click', () => { if (currentExerciseAddContext === 'workout') { addExerciseToCurrentWorkout(exName); } else if (currentExerciseAddContext === 'template') { addExerciseToCurrentTemplateBuilder(exName); } closeModal(addExerciseModal); exerciseSearchInput.value = ''; }); exercisesInGroupUl.appendChild(exLi); }); groupDiv.appendChild(exercisesInGroupUl); exerciseGroupsDiv.appendChild(groupDiv); } } exerciseListContainer.appendChild(exerciseGroupsDiv); if (exerciseGroupsDiv.children.length === 0 && searchTerm) exerciseListContainer.innerHTML = '<p class="text-neutral-400 text-sm text-center">No exercises match. Add custom below.</p>'; else if (exerciseGroupsDiv.children.length === 0 && !searchTerm && exerciseDatabase.Custom.length === 0 && Object.keys(exerciseDatabase).length === 1) exerciseListContainer.innerHTML = '<p class="text-neutral-400 text-sm text-center">No exercises. Add custom below.</p>'; }
 
-            function addExerciseToCurrentWorkout(exerciseName) { // This is for adding exercises ad-hoc to a workout, not from template
+            function addExerciseToCurrentWorkout(exerciseName) {
                 if (currentWorkout && !currentWorkout.exercises.find(ex => ex.name === exerciseName)) {
                     currentWorkout.exercises.push({
                         name: exerciseName,
-                        sets: [], // Ad-hoc exercises start with no predefined sets
-                        suggestedPerformance: { ...calculateExerciseSuggestion(exerciseName), shown: true } // Keep suggestion for ad-hoc
+                        sets: [],
+                        isCollapsed: false, // Default to not collapsed
+                        suggestedPerformance: { ...calculateExerciseSuggestion(exerciseName), shown: true }
                     });
                     saveData();
                     renderCurrentWorkoutExercises();
                     updateSaveWorkoutButtonState();
+                }
+            }
+
+            function toggleExerciseCollapse(exerciseIndex) {
+                if (currentWorkout && currentWorkout.exercises[exerciseIndex]) {
+                    currentWorkout.exercises[exerciseIndex].isCollapsed = !currentWorkout.exercises[exerciseIndex].isCollapsed;
+                    // No need to call saveData() here if only affecting display, but if isCollapsed is persisted, then yes.
+                    // For this implementation, isCollapsed is transient for the session, so re-rendering handles it.
+                    renderCurrentWorkoutExercises(); // Re-render to reflect the change
                 }
             }
 
@@ -1611,15 +1686,14 @@
 
                 currentWorkout.exercises.forEach((exercise, exerciseIndex) => {
                     const exerciseCard = document.createElement('div');
-                    exerciseCard.className = 'list-item p-3 rounded-lg'; // Existing class for glass effect
+                    exerciseCard.className = 'list-item p-3 rounded-lg';
                     exerciseCard.dataset.exerciseCardIndex = exerciseIndex;
 
                     let setsHTML = '';
                     const setsArray = Array.isArray(exercise.sets) ? exercise.sets : [];
 
-                    if (setsArray.length > 0) { // Sets came from a template or were added
+                    if (setsArray.length > 0) {
                         setsArray.forEach((set, setIndex) => {
-                            // Display templated set info and inputs for actuals
                             setsHTML += `
                         <div class="grid grid-cols-12 gap-2 items-center mb-2 p-1.5 rounded-md hover:bg-neutral-700/50 exercise-set-item ${set.type === 'warmup' ? 'opacity-70' : ''}" data-exercise-index="${exerciseIndex}" data-set-index="${setIndex}">
                             <div class="col-span-1 text-center text-xs input-like py-1 rounded-md flex items-center justify-center">${setIndex + 1}</div>
@@ -1642,10 +1716,9 @@
                             </div>
                         </div>`;
                         });
-                    } else { // No sets from template, allow ad-hoc set addition (existing logic)
-                        // Fallback to old rendering if no predefined sets (or adapt to new structure)
+                    } else {
                         let adHocSetsHTML = '';
-                        const adHocSetsArray = Array.isArray(exercise.adHocSets) ? exercise.adHocSets : []; // Assuming a new property for ad-hoc
+                        const adHocSetsArray = Array.isArray(exercise.adHocSets) ? exercise.adHocSets : [];
                         adHocSetsArray.forEach((set, setIndex) => {
                             adHocSetsHTML += `<div class="grid grid-cols-12 gap-2 items-center mb-2 p-1.5 rounded-md hover:bg-neutral-700/50 exercise-set-item ${set.isWarmup ? 'opacity-70' : ''}" data-exercise-index="${exerciseIndex}" data-set-index="${setIndex}" data-adhoc="true"><div class="col-span-1 text-center text-sm input-like py-1.5 rounded-md flex items-center justify-center">${setIndex + 1}${set.isPR ? '<span class="ml-1 pr-badge font-semibold px-1 py-0.5 rounded">PR</span>' : ''}</div><input type="number" class="col-span-3 weight-input input-like py-1.5 rounded-md text-center text-sm" value="${set.weight || ''}" placeholder="0 ${tdeeUnitWeightSelect.value || 'kg'}" step="0.1" min="0"><input type="number" class="col-span-2 reps-input input-like py-1.5 rounded-md text-center text-sm" value="${set.reps || ''}" placeholder="Reps" min="1" max="999"><textarea class="col-span-4 notes-text-input input-like py-1.5 px-2 rounded-md text-sm h-[34px] resize-none" maxlength="50" placeholder="Notes...">${set.notes || ''}</textarea><div class="col-span-2 flex items-center justify-around"><button class="toggle-warmup-btn p-1 rounded hover:bg-neutral-600 ${set.isWarmup ? 'text-teal-400' : 'text-neutral-500'}" title="Toggle Warmup"> W </button><button class="remove-set-btn p-1 rounded hover:bg-neutral-600 text-red-500/70 hover:text-red-500" title="Delete Set"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button></div></div>`;
                         });
@@ -1655,30 +1728,46 @@
                         }
                     }
 
+                    const isCollapsed = exercise.isCollapsed || false; // Default to not collapsed if undefined
 
                     exerciseCard.innerHTML = `
-                <div class="flex justify-between items-center mb-2">
-                    <h2 class="text-lg font-medium text-white">${exercise.name}</h2>
-                    <button class="remove-exercise-from-workout-btn p-1 rounded-full hover:bg-neutral-600 text-red-400 hover:text-red-300" data-exercise-index="${exerciseIndex}" title="Remove Exercise">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12.56 0c1.153 0 2.242.078 3.324.214M15 5.039V4.687a2.25 2.25 0 00-2.25-2.25H11.25A2.25 2.25 0 009 4.687v.352M9 15h6" /></svg>
-                    </button>
-                </div>
-                <div id="summary-stats-${exerciseIndex}" class="text-xs text-neutral-400 mb-2 grid grid-cols-3 gap-1"></div>
-                <div class="set-prefill-notification-area text-xs italic text-teal-500/70 mb-2" style="min-height: 1.2em;"></div>
-                <div class="grid grid-cols-12 gap-2 text-xs text-neutral-500 mb-1 px-1.5">
-                    <div class="col-span-1 text-center">Set</div>
-                    <div class="col-span-3 text-center">Actual Wt</div>
-                    <div class="col-span-2 text-center">Actual Reps</div>
-                    <div class="col-span-5 text-center">Your Notes</div>
-                    <div class="col-span-1 text-center">Del</div>
-                </div>
-                <div class="sets-container space-y-1">${setsHTML}</div>
-                <button class="add-set-btn w-full button tonal-button button-small mt-3" data-exercise-index="${exerciseIndex}" data-context="active-workout">Add Ad-hoc Set</button>
-            `;
+                        <div class="exercise-header-toggle" data-exercise-index="${exerciseIndex}">
+                            <h2 class="text-lg font-medium text-white exercise-name">${exercise.name}</h2>
+                            <div class="flex items-center">
+                                <button class="remove-exercise-from-workout-btn p-1 rounded-full hover:bg-neutral-600 text-red-400 hover:text-red-300 mr-2" data-exercise-index="${exerciseIndex}" title="Remove Exercise">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12.56 0c1.153 0 2.242.078 3.324.214M15 5.039V4.687a2.25 2.25 0 00-2.25-2.25H11.25A2.25 2.25 0 009 4.687v.352M9 15h6" /></svg>
+                                </button>
+                                <svg class="exercise-toggle-icon ${isCollapsed ? '' : 'expanded'}" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="exercise-content-collapsible ${isCollapsed ? '' : 'expanded'}">
+                            <div id="summary-stats-${exerciseIndex}" class="text-xs text-neutral-400 my-2 grid grid-cols-3 gap-1"></div>
+                            <div class="set-prefill-notification-area text-xs italic text-teal-500/70 mb-2" style="min-height: 1.2em;"></div>
+                            <div class="grid grid-cols-12 gap-2 text-xs text-neutral-500 mb-1 px-1.5">
+                                <div class="col-span-1 text-center">Set</div>
+                                <div class="col-span-3 text-center">Actual Wt</div>
+                                <div class="col-span-2 text-center">Actual Reps</div>
+                                <div class="col-span-5 text-center">Your Notes</div>
+                                <div class="col-span-1 text-center">Del</div>
+                            </div>
+                            <div class="sets-container space-y-1">${setsHTML}</div>
+                            <button class="add-set-btn w-full button tonal-button button-small mt-3" data-exercise-index="${exerciseIndex}" data-context="active-workout">Add Ad-hoc Set</button>
+                        </div>
+                    `;
                     currentWorkoutExercisesDiv.appendChild(exerciseCard);
-                    updateExerciseSummaryStats(exerciseIndex); // This function will also need update if structure changes
+                    updateExerciseSummaryStats(exerciseIndex);
+                });
+                // Add event listeners for new collapse toggles
+                document.querySelectorAll('.exercise-header-toggle').forEach(toggle => {
+                    toggle.addEventListener('click', function () {
+                        const exerciseIndex = parseInt(this.dataset.exerciseIndex);
+                        toggleExerciseCollapse(exerciseIndex);
+                    });
                 });
             }
+
 
             function updateExerciseSummaryStats(exerciseIndex) { if (!currentWorkout || !currentWorkout.exercises[exerciseIndex]) return; const exercise = currentWorkout.exercises[exerciseIndex]; const setsArray = Array.isArray(exercise.sets) ? exercise.sets : []; let totalVolume = 0; let totalReps = 0; let weightedSum = 0; setsArray.forEach(set => { const reps = parseFloat(set.actualReps); const weight = parseFloat(set.actualWeight); if (!isNaN(reps) && reps > 0 && (weight !== null && weight !== undefined && weight !== '') && !isNaN(weight) && weight >= 0 && set.type !== 'warmup') { totalVolume += reps * weight; totalReps += reps; weightedSum += weight * reps; } }); const avgWeight = totalReps > 0 ? (weightedSum / totalReps) : 0; const statsDiv = document.getElementById(`summary-stats-${exerciseIndex}`); if (statsDiv) statsDiv.innerHTML = `<span>Volume: <strong>${totalVolume.toFixed(1)}</strong></span> <span>Total Reps: <strong>${totalReps}</strong></span> <span>Avg Wt: <strong>${avgWeight.toFixed(1)}</strong></span>`; }
             function findPreviousSetData(exerciseName, currentExerciseIndexInWorkout) { if (currentWorkout && currentWorkout.exercises[currentExerciseIndexInWorkout] && Array.isArray(currentWorkout.exercises[currentExerciseIndexInWorkout].sets)) { const currentExSets = currentWorkout.exercises[currentExerciseIndexInWorkout].sets; for (let i = currentExSets.length - 1; i >= 0; i--) { if (currentExSets[i].type !== 'warmup' && currentExSets[i].actualReps && (currentExSets[i].actualWeight !== null && currentExSets[i].actualWeight !== undefined && currentExSets[i].actualWeight !== '')) return { reps: currentExSets[i].actualReps, weight: currentExSets[i].actualWeight, found: true }; } } if (currentWorkout && currentWorkout.exercises[currentExerciseIndexInWorkout] && currentWorkout.exercises[currentExerciseIndexInWorkout].suggestedPerformance && currentWorkout.exercises[currentExerciseIndexInWorkout].suggestedPerformance.weight !== null) { const suggestion = currentWorkout.exercises[currentExerciseIndexInWorkout].suggestedPerformance; return { reps: suggestion.reps, weight: suggestion.weight, found: true, fromSuggestion: true }; } for (let i = 0; i < workouts.length; i++) { const pastWorkout = workouts[i]; for (let j = pastWorkout.exercises.length - 1; j >= 0; j--) { if (pastWorkout.exercises[j].name === exerciseName && Array.isArray(pastWorkout.exercises[j].sets)) { const pastExSets = pastWorkout.exercises[j].sets; for (let k = pastExSets.length - 1; k >= 0; k--) if (pastExSets[k].type !== 'warmup' && pastExSets[k].actualReps && (pastExSets[k].actualWeight !== null && pastExSets[k].actualWeight !== undefined && pastExSets[k].actualWeight !== '')) return { reps: pastExSets[k].actualReps, weight: pastExSets[k].actualWeight, found: true }; } } } return { reps: '', weight: '', found: false }; }
@@ -1880,7 +1969,18 @@
                 if (saveWorkoutBtn) saveWorkoutBtn.addEventListener('click', () => { if (saveWorkoutBtn.disabled) { if (saveWorkoutError) saveWorkoutError.textContent = "Cannot save. Add sets with reps & weight."; return; } if (!currentWorkout) { if (saveWorkoutError) saveWorkoutError.textContent = "No active workout."; if (saveWorkoutBtn) saveWorkoutBtn.disabled = true; return; } currentWorkout.date = workoutDateInput.value; currentWorkout.startTime = workoutStartTimeInput.value; let allSetsValid = true; currentWorkout.exercises.forEach((ex, exIdx) => { const setsArray = Array.isArray(ex.sets) ? ex.sets : []; setsArray.forEach((s, setIdx) => { if (!validateSetInputs(exIdx, setIdx)) allSetsValid = false; }); }); if (!allSetsValid) { if (saveWorkoutError) saveWorkoutError.textContent = "Correct invalid sets."; return; } if (saveWorkoutError) saveWorkoutError.textContent = ""; showConfirmation("Save Workout?", "Are you sure you want to save this session?", () => { if (!currentWorkout) { displayTemporaryMessage(workoutDashboardMessage, "Error: No workout to save.", 'error'); switchScreen('workouts'); return; } stopWorkoutTimer(); currentWorkout.endTime = getCurrentTimeString(); const [startH, startM] = currentWorkout.startTime.split(':').map(Number); const [endH, endM] = currentWorkout.endTime.split(':').map(Number); let durationMinutes = (endH * 60 + endM) - (startH * 60 + startM); if (durationMinutes < 0) durationMinutes += 1440; currentWorkout.duration = `${Math.floor(durationMinutes / 60)}h ${durationMinutes % 60}m`; if (currentWorkout.elapsedSeconds) { const h = Math.floor(currentWorkout.elapsedSeconds / 3600); const m = Math.floor((currentWorkout.elapsedSeconds % 3600) / 60); const s = currentWorkout.elapsedSeconds % 60; currentWorkout.timerDuration = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; } workouts.unshift({ ...currentWorkout }); currentWorkout = null; saveData(); switchScreen('workouts'); displayTemporaryMessage(workoutDashboardMessage, "Workout Saved Successfully!", 'success'); resetWorkoutTimerDisplay(); }); });
                 if (cancelWorkoutBtn) cancelWorkoutBtn.addEventListener('click', () => { showConfirmation("Cancel Workout", "Are you sure you want to cancel? All unsaved progress for this workout will be lost.", () => { currentWorkout = null; saveData(); switchScreen('workouts'); if (saveWorkoutError) saveWorkoutError.textContent = ''; stopWorkoutTimer(); resetWorkoutTimerDisplay(); }); });
                 if (saveCurrentWorkoutAsTemplateBtn) saveCurrentWorkoutAsTemplateBtn.addEventListener('click', () => { if (!currentWorkout || currentWorkout.exercises.length === 0) { displayTemporaryMessage(workoutDashboardMessage, "Add exercises to the current workout first.", 'error'); return; } saveAsTemplateNameInput.value = `My Workout - ${formatDate(getTodayDateString())}`; saveAsTemplateNameInput.dispatchEvent(new Event('input')); saveAsTemplateExercisePreview.innerHTML = currentWorkout.exercises.map(ex => `<li>${ex.name}</li>`).join(''); saveAsTemplateNameError.textContent = ''; saveAsTemplateError.textContent = ''; showModal(saveAsTemplateModal); });
-                currentWorkoutExercisesDiv.addEventListener('click', function (e) { const target = e.target.closest('button'); if (!target) return; if (handleWorkoutAddSet(target)) return; if (handleWorkoutRemoveExercise(target)) return; if (handleWorkoutSetActions(target)) return; });
+                currentWorkoutExercisesDiv.addEventListener('click', function (e) {
+                    const target = e.target.closest('button');
+                    if (!target) return;
+                    // Check for remove exercise button first, as it's outside the collapsible content logic
+                    if (target.classList.contains('remove-exercise-from-workout-btn')) {
+                        handleWorkoutRemoveExercise(target);
+                        return;
+                    }
+                    // Then check for other buttons like add-set or set actions
+                    if (handleWorkoutAddSet(target)) return;
+                    if (handleWorkoutSetActions(target)) return;
+                });
                 currentWorkoutExercisesDiv.addEventListener('input', function (e) { const target = e.target; const setItem = target.closest('.exercise-set-item'); if (!setItem) return; const exerciseIndex = parseInt(setItem.dataset.exerciseIndex); const setIndex = parseInt(setItem.dataset.setIndex); if (!currentWorkout || !currentWorkout.exercises[exerciseIndex] || !Array.isArray(currentWorkout.exercises[exerciseIndex].sets) || !currentWorkout.exercises[exerciseIndex].sets[setIndex]) { console.error("Data inconsistency in set input event."); return; } const set = currentWorkout.exercises[exerciseIndex].sets[setIndex]; if (target.classList.contains('reps-input')) set.actualReps = target.value; else if (target.classList.contains('weight-input')) set.actualWeight = target.value; else if (target.classList.contains('notes-text-input')) { set.userNotes = target.value.substring(0, 50); target.value = set.userNotes; } validateSetInputs(exerciseIndex, setIndex); updateExerciseSummaryStats(exerciseIndex); saveData(); updateSaveWorkoutButtonState(); });
                 if (backToWorkoutsFromHistoryBtn) backToWorkoutsFromHistoryBtn.addEventListener('click', () => switchScreen('workouts'));
                 if (searchWorkoutHistoryInput) searchWorkoutHistoryInput.addEventListener('input', debounce(renderWorkoutHistory, 300));
@@ -2235,9 +2335,52 @@
             initializeAppEventListeners();
             switchScreen('workouts'); // Start on workouts screen
             updateCurrentTimeDisplay();
-            setInterval(updateCurrentTimeDisplay, 10000); // Update time every 10s
+            setInterval(updateCurrentTimeDisplay, 1000); // Update time every 1s
             if (currentWorkout) startWorkoutTimer(); else resetWorkoutTimerDisplay();
             updateSaveWorkoutButtonState();
+
+            // --- Notifications (Placeholder for lock screen functionality) ---
+            // To implement web notifications (which *might* show on lock screen depending on OS/browser):
+            // 1. Request permission (ideally on a user action, not on page load):
+
+            function requestNotificationPermission() {
+                if (!("Notification" in window)) {
+                    console.log("This browser does not support desktop notification");
+                } else if (Notification.permission === "granted") {
+                    // If permission is already granted, you can create a notification
+                    // new Notification("Hi there - permission already granted!");
+                } else if (Notification.permission !== "denied") {
+                    Notification.requestPermission().then(function (permission) {
+                        if (permission === "granted") {
+                            // new Notification("Thanks for the permission!");
+                        }
+                    });
+                }
+            }
+            // Call requestNotificationPermission() when appropriate, e.g., from a settings button.
+
+
+            // 2. To show a notification (e.g., when timer ends, or a rest period is over):
+
+            function showTimerNotification(title, body) {
+                if (Notification.permission === "granted") {
+                    navigator.serviceWorker.ready.then(function (registration) {
+                        registration.showNotification(title, {
+                            body: body,
+                            icon: '<svg viewBox="-5.5 0 247 247" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style> .cls-3 { fill: #ff1b3f; } .cls-4 { fill: #000000; } .cls-5 { fill: #000000; } .cls-6 { fill: #e14747; } .cls-7 { fill: #ffffff; } </style> </defs> <g id="stopwatch"> <path d="M227.730,51.039 C227.730,51.039 221.945,57.933 221.945,57.933 C221.945,57.933 172.918,16.795 172.918,16.795 C172.918,16.795 178.703,9.900 178.703,9.900 C184.383,3.131 194.475,2.248 201.244,7.928 C201.244,7.928 225.758,28.497 225.758,28.497 C232.527,34.178 233.410,44.270 227.730,51.039 ZM89.500,16.000 C89.500,7.163 96.663,-0.000 105.500,-0.000 C105.500,-0.000 128.500,-0.000 128.500,-0.000 C137.336,-0.000 144.500,7.163 144.500,16.000 C144.500,16.000 144.500,26.000 144.500,26.000 C144.500,26.000 89.500,26.000 89.500,26.000 C89.500,26.000 89.500,16.000 89.500,16.000 ZM7.270,51.039 C1.590,44.270 2.473,34.178 9.242,28.497 C9.242,28.497 33.755,7.928 33.755,7.928 C40.525,2.248 50.617,3.131 56.297,9.900 C56.297,9.900 62.082,16.795 62.082,16.795 C62.082,16.795 13.055,57.933 13.055,57.933 C13.055,57.933 7.270,51.039 7.270,51.039 Z" id="path-1" class="cls-3" fill-rule="evenodd"></path> <path d="M220.210,70.000 C230.250,87.356 236.000,107.506 236.000,129.000 C236.000,194.170 183.169,247.000 118.000,247.000 C52.830,247.000 -0.000,194.170 -0.000,129.000 C-0.000,107.506 5.749,87.356 15.790,70.000 C15.790,70.000 220.210,70.000 220.210,70.000 Z" id="path-2" class="cls-4" fill-rule="evenodd"></path> <path d="M222.358,94.225 C226.002,105.158 228.000,116.842 228.000,129.000 C228.000,189.751 178.751,239.000 118.000,239.000 C57.249,239.000 8.000,189.751 8.000,129.000 C8.000,116.842 9.998,105.158 13.641,94.225 C14.627,89.875 16.542,81.429 12.849,71.860 C11.041,67.177 9.477,62.363 13.928,56.235 C26.665,38.700 43.164,23.865 62.905,14.563 C69.755,11.336 73.699,13.975 76.388,15.099 C89.174,20.446 102.680,24.879 117.501,24.982 C132.344,24.879 146.826,20.446 159.612,15.099 C162.301,13.975 166.245,11.336 173.094,14.563 C192.835,23.865 209.335,38.700 222.072,56.235 C226.523,62.363 224.958,67.177 223.151,71.860 C219.457,81.429 221.373,89.875 222.358,94.225 Z" id="path-3" class="cls-5" fill-rule="evenodd"></path> <path d="M62.000,92.000 C62.000,92.000 174.000,92.000 174.000,92.000 C182.837,92.000 190.000,99.163 190.000,108.000 C190.000,108.000 190.000,150.000 190.000,150.000 C190.000,158.836 182.837,166.000 174.000,166.000 C174.000,166.000 62.000,166.000 62.000,166.000 C53.163,166.000 46.000,158.836 46.000,150.000 C46.000,150.000 46.000,108.000 46.000,108.000 C46.000,99.163 53.163,92.000 62.000,92.000 Z" id="path-4" class="cls-6" fill-rule="evenodd"></path> <path d="M155.500,152.000 C147.492,152.000 141.000,145.508 141.000,137.500 C141.000,137.500 141.000,120.500 141.000,120.500 C141.000,112.492 147.492,106.000 155.500,106.000 C163.508,106.000 170.000,112.492 170.000,120.500 C170.000,120.500 170.000,137.500 170.000,137.500 C170.000,145.508 163.508,152.000 155.500,152.000 ZM162.000,120.500 C162.000,116.910 159.090,114.000 155.500,114.000 C151.910,114.000 149.000,116.910 149.000,120.500 C149.000,120.500 149.000,137.500 149.000,137.500 C149.000,141.090 151.910,144.000 155.500,144.000 C159.090,144.000 162.000,141.090 162.000,137.500 C162.000,137.500 162.000,120.500 162.000,120.500 ZM118.500,152.000 C110.492,152.000 104.000,145.508 104.000,137.500 C104.000,137.500 104.000,120.500 104.000,120.500 C104.000,112.492 110.492,106.000 118.500,106.000 C126.508,106.000 133.000,112.492 133.000,120.500 C133.000,120.500 133.000,137.500 133.000,137.500 C133.000,145.508 126.508,152.000 118.500,152.000 ZM125.000,120.500 C125.000,116.910 122.090,114.000 118.500,114.000 C114.910,114.000 112.000,116.910 112.000,120.500 C112.000,120.500 112.000,137.500 112.000,137.500 C112.000,141.090 114.910,144.000 118.500,144.000 C122.090,144.000 125.000,141.090 125.000,137.500 C125.000,137.500 125.000,120.500 125.000,120.500 ZM81.500,152.000 C73.492,152.000 67.000,145.508 67.000,137.500 C67.000,137.500 67.000,120.500 67.000,120.500 C67.000,112.492 73.492,106.000 81.500,106.000 C89.508,106.000 96.000,112.492 96.000,120.500 C96.000,120.500 96.000,137.500 96.000,137.500 C96.000,145.508 89.508,152.000 81.500,152.000 ZM88.000,120.500 C88.000,116.910 85.090,114.000 81.500,114.000 C77.910,114.000 75.000,116.910 75.000,120.500 C75.000,120.500 75.000,137.500 75.000,137.500 C75.000,141.090 77.910,144.000 81.500,144.000 C85.090,144.000 88.000,141.090 88.000,137.500 C88.000,137.500 88.000,120.500 88.000,120.500 Z" id="path-5" class="cls-7" fill-rule="evenodd"></path> </g> </g></svg>', // Optional icon
+                            vibrate: [200, 100, 200] // Optional vibration pattern
+                        });
+                    });
+                    // Or, for simpler non-service-worker notifications (less reliable for background/lock screen):
+                    // new Notification(title, { body: body });
+                }
+            }
+            // Example usage: showTimerNotification("Workout Timer", "Your rest is over!");
+
+            // Note: True lock screen display and control are limited for web apps.
+            // The above uses the Web Notifications API. For more robust background behavior,
+            // a Service Worker would be necessary. The "sticky timer" style addresses the
+            // "bigger, centralized, sticky" parts of the request for on-screen visibility.
 
         });
     </script>
