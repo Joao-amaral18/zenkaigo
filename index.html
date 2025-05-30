@@ -11,11 +11,14 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #121212;
+            /* Added a subtle gradient for better glass visibility */
             background-image: linear-gradient(to bottom right, #1a1a1a, #0d0d0d);
         }
 
         .app-container {
             margin: auto;
+            /* background-color: #1E1E1E; */
+            /* Replaced with transparent for body background to show through for glass effect */
             background-color: transparent;
             color: #E0E0E0;
             min-height: 100vh;
@@ -27,16 +30,22 @@
         .screen {
             padding: 1rem;
             padding-bottom: 70px;
+            /* For bottom nav */
             flex-grow: 1;
             overflow-y: auto;
         }
 
+        /* Glass Effect Base Styles */
         .glass-effect {
             background-color: rgba(44, 44, 44, 0.65);
+            /* Semi-transparent background */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            /* Safari support */
             border: 1px solid rgba(255, 255, 255, 0.12);
+            /* Subtle light border */
             border-radius: 0.5rem;
+            /* rounded-lg, ensure consistency */
         }
 
         .bottom-nav {
@@ -46,7 +55,9 @@
             right: 0;
             margin-left: auto;
             margin-right: auto;
+            /* background-color: #1E1E1E; */
             background-color: rgba(30, 30, 30, 0.75);
+            /* Glassy nav */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             display: flex;
@@ -56,14 +67,17 @@
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             height: 60px;
+            /* Explicit height */
         }
 
         .nav-item {
             background-color: transparent;
             border: none;
             color: #a0aec0;
+            /* Tailwind gray-500 */
             cursor: pointer;
             border-radius: 0.375rem;
+            /* rounded-md */
             transition: color 0.2s ease-out, background-color 0.2s ease-out;
             flex-grow: 1;
             display: flex;
@@ -71,6 +85,7 @@
             align-items: center;
             justify-content: center;
             padding: 0.25rem 0.125rem;
+            /* Reduced padding slightly */
             margin: 0 0.125rem;
             position: relative;
         }
@@ -79,6 +94,7 @@
             width: 24px;
             height: 24px;
             margin-bottom: 0.125rem;
+            /* Small margin */
             transition: color 0.2s ease-out;
         }
 
@@ -91,10 +107,12 @@
 
         .nav-label {
             font-size: 0.65rem;
+            /* Slightly smaller */
             display: block;
             font-weight: 500;
             line-height: 1;
             color: #a0aec0;
+            /* Tailwind gray-500 */
             margin-top: 0.125rem;
             transition: color 0.2s ease-out;
         }
@@ -102,6 +120,7 @@
         .nav-item.active .nav-icon,
         .nav-item.active .nav-label {
             color: #6400c1;
+            /* Teal-400 for active */
         }
 
         .nav-item.active .nav-label {
@@ -110,6 +129,7 @@
 
         .nav-item:not(.active):hover {
             background-color: rgba(255, 255, 255, 0.05);
+            /* Subtle hover for glass */
         }
 
         .nav-item:not(.active):hover .nav-icon,
@@ -118,7 +138,10 @@
         }
 
         .fab {
+            /* background-color: #6400c1; */
+            /* Primary color */
             background-color: rgba(100, 0, 193, 0.7);
+            /* Glassy primary */
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -127,22 +150,32 @@
 
         .fab:hover {
             background-color: rgba(0, 138, 154, 0.75);
+            /* Darker teal, glassy */
         }
 
         .list-item {
+            /* background-color: #2C2C2C; */
+            /* Darker gray for list items */
+            /* border: 1px solid #383838; */
+            /* Applying glass effect to list items (cards) */
             background-color: rgba(44, 44, 44, 0.6);
+            /* Semi-transparent */
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 0.5rem;
+            /* rounded-lg */
+            /* transition for hover effect */
             transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
         }
 
         .list-item:hover {
             background-color: rgba(58, 58, 58, 0.7);
+            /* Slightly lighter on hover */
             border-color: rgba(255, 255, 255, 0.2);
         }
 
+        /* Inputs should remain mostly opaque for usability but can have a subtle touch */
         .input-like,
         input[type="text"],
         input[type="number"],
@@ -151,9 +184,12 @@
         select,
         textarea {
             background-color: rgba(44, 44, 44, 0.8) !important;
+            /* Slightly more opaque */
             border: 1px solid rgba(74, 74, 74, 0.7) !important;
+            /* border-neutral-600 with alpha */
             color: #E0E0E0 !important;
             border-radius: 0.375rem;
+            /* rounded-md */
         }
 
         input[type="text"]:focus,
@@ -163,6 +199,7 @@
         select:focus,
         textarea:focus {
             border-color: #6400c1 !important;
+            /* Teal-400 */
             box-shadow: 0 0 0 2px rgba(0, 172, 193, 0.3) !important;
             outline: none;
         }
@@ -171,6 +208,7 @@
         select.invalid,
         textarea.invalid {
             border-color: #ff3b5b !important;
+            /* Red for invalid */
         }
 
         input.invalid:focus,
@@ -180,10 +218,13 @@
             box-shadow: 0 0 0 2px rgba(255, 59, 91, 0.3);
         }
 
+
         .pr-badge {
             background-color: #FFC107;
+            /* Yellow for PR */
             color: #1E1E1E;
             font-size: 0.65rem;
+            /* Add a little glass to badge */
             backdrop-filter: blur(2px);
             -webkit-backdrop-filter: blur(2px);
         }
@@ -191,9 +232,11 @@
         .warmup-set-indicator {
             font-style: italic;
             color: #a0a0a0;
+            /* Lighter gray */
             font-size: 0.9em;
         }
 
+        /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -211,6 +254,8 @@
         ::-webkit-scrollbar-track {
             background: rgba(30, 30, 30, 0.5);
         }
+
+        /* Slightly transparent track */
 
         .char-counter-label {
             font-size: 0.7rem;
@@ -236,6 +281,7 @@
             margin-top: 8px;
             padding: 8px 12px;
             background-color: rgba(0, 172, 193, 0.15);
+            /* Glassy success */
             border: 1px solid rgba(0, 172, 193, 0.3);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
@@ -246,6 +292,7 @@
 
         .exercise-suggestion {
             background-color: rgba(0, 172, 193, 0.15);
+            /* Glassy suggestion */
             border: 1px dashed rgba(0, 172, 193, 0.4);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
@@ -261,32 +308,51 @@
             font-weight: 600;
         }
 
+
         .modal {
             display: none;
+            /* Hidden by default */
             position: fixed;
             z-index: 1001;
+            /* Above nav */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
+            /* Enable scroll if needed */
             background-color: rgba(18, 18, 18, 0.6);
+            /* Darker, slightly more transparent overlay */
             backdrop-filter: blur(3px);
+            /* Blur background behind modal */
             -webkit-backdrop-filter: blur(3px);
             align-items: center;
+            /* Vertical center */
             justify-content: center;
+            /* Horizontal center */
         }
 
         .modal-content {
+            /* background-color: #2C2C2C; */
+            /* margin: auto; */
+            /* Centering handled by flex on .modal */
             padding: 1.25rem;
+            /* border: 1px solid #383838; */
+            /* border-radius: 0.5rem; */
+            /* rounded-lg */
             width: calc(100% - 32px);
-            max-width: 400px;
+            /* Max width with padding */
+            max-width: 450px;
+            /* Max width for modal, slightly increased for set details */
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+            /* Applying glass effect to modal content */
             background-color: rgba(44, 44, 44, 0.85);
+            /* More opaque for readability */
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 0.75rem;
+            /* Slightly larger radius for modals */
         }
 
         .modal-header {
@@ -296,6 +362,7 @@
             padding-bottom: 0.75rem;
             margin-bottom: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            /* Lighter border for glass */
         }
 
         .modal-header h2 {
@@ -328,21 +395,27 @@
             background-position: right 0.7rem center;
             background-size: 0.65em auto;
             padding-right: 2.5rem;
+            /* Make space for arrow */
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
         }
 
+        /* --- Button Styles --- */
         .button {
             padding: 0.625rem 1.25rem;
+            /* py-2.5 px-5 */
             border-radius: 0.5rem;
+            /* rounded-lg */
             font-size: 0.875rem;
+            /* text-sm */
             font-weight: 600;
             transition: background-color 0.15s ease-out, transform 0.1s ease-out, border-color 0.15s ease-out, box-shadow 0.15s ease-out;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             min-height: 40px;
+            /* Base glass effect for all buttons */
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -354,38 +427,49 @@
 
         .button.filled-button {
             background-color: rgba(100, 0, 193, 0.65);
+            /* Primary color with alpha */
             color: #FFFFFF;
             border-color: rgba(100, 0, 193, 0.5);
+            /* Border matching bg but slightly more transparent or a fixed light one */
         }
 
         .button.filled-button:hover {
             background-color: rgba(0, 138, 154, 0.7);
+            /* Teal hover with alpha */
             border-color: rgba(0, 138, 154, 0.6);
         }
 
         .button.filled-button:disabled {
             background-color: rgba(74, 85, 104, 0.5);
+            /* gray-600 with alpha */
             color: #a0aec0;
+            /* gray-500 */
             cursor: not-allowed;
             border-color: rgba(74, 85, 104, 0.4);
             backdrop-filter: none;
+            /* Remove blur for disabled */
             -webkit-backdrop-filter: none;
         }
 
         .button.tonal-button {
             background-color: rgba(56, 56, 56, 0.6);
+            /* neutral-700 with alpha */
             color: #E0E0E0;
             border-color: rgba(74, 74, 74, 0.5);
+            /* neutral-600 with alpha */
         }
 
         .button.tonal-button:hover {
             background-color: rgba(74, 74, 74, 0.7);
+            /* neutral-600 with alpha */
             border-color: rgba(90, 90, 90, 0.6);
         }
 
         .button.tonal-button:disabled {
             background-color: rgba(74, 85, 104, 0.4);
+            /* gray-600 with alpha */
             color: #a0aec0;
+            /* gray-500 */
             cursor: not-allowed;
             border-color: rgba(74, 85, 104, 0.3);
             backdrop-filter: none;
@@ -395,54 +479,72 @@
         .button.text-button {
             background-color: transparent;
             color: #6400c1;
+            /* Teal-400 */
             border-color: transparent;
+            /* Text buttons typically don't have a prominent border */
             backdrop-filter: none;
+            /* Usually no blur for text buttons unless desired */
             -webkit-backdrop-filter: none;
         }
 
         .button.text-button:hover {
             background-color: rgba(0, 172, 193, 0.1);
+            /* Light teal bg on hover */
         }
 
         .button.text-button:disabled {
             color: #a0aec0;
+            /* gray-500 */
             cursor: not-allowed;
             background-color: transparent;
         }
 
         .button.destructive-button {
             background-color: rgba(74, 50, 56, 0.6);
+            /* #4a3238 with alpha */
             color: #ff848f;
+            /* Lighter red for better contrast on glass */
             border-color: rgba(255, 132, 143, 0.3);
         }
 
         .button.destructive-button:hover {
             background-color: rgba(255, 59, 91, 0.25);
+            /* Red tint on hover */
             color: #ff3b5b;
         }
 
         .button-small {
             font-size: 0.75rem;
+            /* text-xs */
             padding: 0.375rem 0.75rem;
+            /* py-1.5 px-3 */
             min-height: 32px;
         }
 
+        /* --- End Button Styles --- */
 
         .remaining-negative {
             color: #ff7b7b;
+            /* Lighter red for negative remaining */
         }
 
         .remaining-positive {
             color: #7bffd4;
+            /* Lighter teal/green for positive remaining */
         }
 
         .target-input {
             width: 6rem;
+            /* w-24 */
             background-color: transparent !important;
+            /* Keep it distinct */
             padding: 0.25rem;
+            /* p-1 */
             text-align: center;
             font-size: 0.75rem;
+            /* text-xs */
             border: 1px solid rgba(74, 85, 104, 0.6) !important;
+            /* border-neutral-600 with alpha */
         }
 
         .target-input:focus {
@@ -453,10 +555,12 @@
             display: block;
             padding: 0.5rem 0.75rem;
             border: 1px solid rgba(56, 56, 56, 0.7);
+            /* neutral-700 with alpha */
             border-radius: 0.375rem;
             cursor: pointer;
             transition: background-color 0.2s, border-color 0.2s;
             background-color: rgba(56, 56, 56, 0.4);
+            /* Base glass */
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
         }
@@ -467,13 +571,51 @@
 
         input[type="radio"]:checked+.radio-label {
             background-color: rgba(0, 172, 193, 0.6);
+            /* Teal with alpha */
             border-color: rgba(0, 172, 193, 0.8);
             color: #FFFFFF;
         }
 
         input[type="radio"] {
             display: none;
+            /* Hide the actual radio button */
         }
+
+        /* Styles for template exercise and set items */
+        .template-exercise-card {
+            /* Using list-item for the glass effect */
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+        }
+
+        .template-set-item {
+            background-color: rgba(60, 60, 60, 0.5);
+            /* Slightly different glass for inner items */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            /* rounded-md */
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .template-set-item p {
+            margin-bottom: 0.25rem;
+        }
+
+        .template-set-item strong {
+            color: #a0aec0;
+        }
+
+        /* Lighter gray for "labels" */
+        .template-set-item .value {
+            color: #E0E0E0;
+            font-weight: 500;
+        }
+
+        /* White for values */
     </style>
 </head>
 
@@ -591,8 +733,9 @@
                 Template</button>
 
             <h3 class="text-lg font-medium text-white mt-4 mb-2">Exercises in Template:</h3>
-            <div id="templateExercisesList" class="space-y-2 min-h-[50px]">
-                <p id="noTemplateExercisesMessage" class="text-neutral-400 text-sm">No exercises added yet.</p>
+            <div id="templateExercisesList" class="space-y-3">
+                <p id="noTemplateExercisesMessage" class="text-neutral-400 text-sm">No exercises added yet. Click "Add
+                    Exercise" to begin.</p>
             </div>
 
             <div class="flex space-x-3 mt-6">
@@ -962,15 +1105,13 @@
                 <h3 class="text-sm font-medium text-white mt-3 mb-1">Exercises (<span
                         id="templateDetailsExerciseCount"></span>):</h3>
                 <ul id="templateDetailsExerciseList"
-                    class="text-xs text-neutral-300 list-disc pl-5 max-h-32 overflow-y-auto mb-4"></ul>
-                <div class="grid grid-cols-2 gap-2">
-                    <button id="startWorkoutFromTemplateBtn" class="button filled-button button-small">Start
-                        Workout</button>
-                    <button id="editTemplateFromDetailsBtn" class="button tonal-button button-small">Edit</button>
-                    <button id="duplicateTemplateFromDetailsBtn"
-                        class="button tonal-button button-small">Duplicate</button>
-                    <button id="deleteTemplateFromDetailsBtn"
-                        class="button destructive-button button-small">Delete</button>
+                    class="text-xs text-neutral-300 list-disc pl-5 max-h-48 overflow-y-auto mb-4"></ul>
+                <div class="grid grid-cols-2 gap-2"><button id="startWorkoutFromTemplateBtn"
+                        class="button filled-button button-small">Start Workout</button><button
+                        id="editTemplateFromDetailsBtn" class="button tonal-button button-small">Edit</button><button
+                        id="duplicateTemplateFromDetailsBtn"
+                        class="button tonal-button button-small">Duplicate</button><button
+                        id="deleteTemplateFromDetailsBtn" class="button destructive-button button-small">Delete</button>
                 </div>
             </div>
         </div>
@@ -999,6 +1140,56 @@
                         class="button filled-button button-small">Export Data</button></div>
             </div>
         </div>
+
+        <div id="templateSetModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="templateSetModalTitle" class="text-white">Add Set to Template</h2>
+                    <button id="closeTemplateSetModalBtn" class="close-button">&times;</button>
+                </div>
+                <input type="hidden" id="editingTemplateExerciseIndexInput">
+                <input type="hidden" id="editingTemplateSetIndexInput">
+
+                <div class="space-y-3">
+                    <div>
+                        <label for="templateSetType" class="text-xs text-neutral-400">Set Type:</label>
+                        <select id="templateSetType" class="w-full input-like p-2 text-sm">
+                            <option value="warmup">Warmup</option>
+                            <option value="working" selected>Working</option>
+                            <option value="backoff">Backoff</option>
+                            <option value="dropset">Dropset</option>
+                            <option value="myorep">Myo-rep</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="templateSetReps" class="text-xs text-neutral-400">Suggested Reps (e.g., 5, 8-12,
+                            AMRAP):</label>
+                        <input type="text" id="templateSetReps" class="w-full input-like p-2 text-sm"
+                            placeholder="e.g., 8-12">
+                    </div>
+                    <div>
+                        <label for="templateSetWeight" class="text-xs text-neutral-400">Suggested Weight/Intensity
+                            (e.g., 50kg, RPE 8, BW):</label>
+                        <input type="text" id="templateSetWeight" class="w-full input-like p-2 text-sm"
+                            placeholder="e.g., 70% 1RM or RPE 8">
+                    </div>
+                    <div>
+                        <label for="templateSetRest" class="text-xs text-neutral-400">Suggested Rest (seconds):</label>
+                        <input type="number" id="templateSetRest" class="w-full input-like p-2 text-sm"
+                            placeholder="e.g., 90">
+                    </div>
+                    <div>
+                        <label for="templateSetNotes" class="text-xs text-neutral-400">Notes (Optional):</label>
+                        <textarea id="templateSetNotes" rows="2" class="w-full input-like p-2 text-sm"
+                            placeholder="e.g., Focus on tempo"></textarea>
+                    </div>
+                </div>
+                <p id="templateSetError" class="error-message mt-2"></p>
+                <button id="saveTemplateSetBtn" class="w-full button filled-button mt-4">Save Set</button>
+            </div>
+        </div>
+
 
         <nav class="bottom-nav">
             <button class="nav-item active" data-tab="workoutsTab">
@@ -1082,6 +1273,22 @@
             const saveTemplateBtn = document.getElementById('saveTemplateBtn');
             const cancelTemplateCreationBtn = document.getElementById('cancelTemplateCreationBtn');
             const saveTemplateError = document.getElementById('saveTemplateError');
+
+            // Template Set Modal Elements
+            const templateSetModal = document.getElementById('templateSetModal');
+            const templateSetModalTitle = document.getElementById('templateSetModalTitle');
+            const closeTemplateSetModalBtn = document.getElementById('closeTemplateSetModalBtn');
+            const editingTemplateExerciseIndexInput = document.getElementById('editingTemplateExerciseIndexInput');
+            const editingTemplateSetIndexInput = document.getElementById('editingTemplateSetIndexInput');
+            const templateSetTypeInput = document.getElementById('templateSetType');
+            const templateSetRepsInput = document.getElementById('templateSetReps');
+            const templateSetWeightInput = document.getElementById('templateSetWeight');
+            const templateSetRestInput = document.getElementById('templateSetRest');
+            const templateSetNotesInput = document.getElementById('templateSetNotes');
+            const templateSetError = document.getElementById('templateSetError');
+            const saveTemplateSetBtn = document.getElementById('saveTemplateSetBtn');
+
+
             const nutritionLogDateSpan = document.getElementById('nutritionLogDate');
             const nutritionMessage = document.getElementById('nutritionMessage');
             const targetCaloriesDisplay = document.getElementById('targetCaloriesDisplay');
@@ -1229,31 +1436,31 @@
             const proceedWithExportBtn = document.getElementById('proceedWithExportBtn');
 
             // --- App State Variables ---
-            let currentWorkout = null; // Stores the currently active workout object
-            let workouts = []; // Array to store all completed workout objects
-            let nutritionData = {}; // Object to store nutrition logs, keyed by date (YYYY-MM-DD)
-            let workoutTemplates = []; // Array to store workout template objects
-            let customFoods = []; // Array to store custom food items for nutrition logging
-            let currentTemplateBuilder = null; // Stores the template being created/edited
-            let workoutTimerInterval = null; // Interval ID for the workout timer
-            let workoutStartTimeEpoch = 0; // Start time of the workout in milliseconds since epoch
-            let tempDailyLoggedFoods = []; // Temporary array for foods logged in current session before saving nutrition
-            let currentExerciseAddContext = 'workout'; // 'workout' or 'template' - context for adding exercises
-            let currentViewingTemplateId = null; // ID of the template being viewed in details modal
-            let foodToLog = null; // Stores the custom food item selected for logging
-            let confirmActionCallback = null; // Callback function for the confirmation modal
-            let activeScreenKey = 'workouts'; // Key of the currently active screen
+            let currentWorkout = null;
+            let workouts = [];
+            let nutritionData = {};
+            let workoutTemplates = []; // Structure: [{ id, name, dateCreated, exercises: [{ name, sets: [{type, suggestedReps, suggestedWeight, suggestedRest, notes}] }] }]
+            let customFoods = [];
+            let currentTemplateBuilder = null; // Holds the template being created/edited, with the new structure
+            let workoutTimerInterval = null;
+            let workoutStartTimeEpoch = 0;
+            let tempDailyLoggedFoods = [];
+            let currentExerciseAddContext = 'workout';
+            let currentViewingTemplateId = null;
+            let foodToLog = null;
+            let confirmActionCallback = null;
+            let activeScreenKey = 'workouts';
 
             // --- Static Data & Utility Functions ---
             const bodyweightExercisesList = ["Push-ups", "Pull-ups", "Dips (Chest focused)", "Plank", "Crunches", "Lunges", "Squats", "Bodyweight Squats", "Glute Bridges", "Bird Dog", "Superman", "Hanging Leg Raises", "Calf Raises (Bodyweight)"];
-            const exerciseDatabase = { // Predefined list of exercises grouped by muscle
+            const exerciseDatabase = {
                 "Chest": ["Push-ups", "Bench Press", "Dumbbell Flyes", "Incline Bench Press", "Dips (Chest focused)", "Cable Crossovers"],
                 "Back": ["Pull-ups", "Bent-over Rows", "Deadlifts", "Lat Pulldowns", "Seated Cable Rows", "T-Bar Rows", "Hyperextensions"],
                 "Legs": ["Squats", "Lunges", "Leg Press", "Romanian Deadlifts", "Leg Curls", "Leg Extensions", "Calf Raises", "Bodyweight Squats", "Glute Bridges"],
                 "Shoulders": ["Overhead Press (Barbell/Dumbbell)", "Lateral Raises", "Front Raises", "Reverse Pec Deck", "Face Pulls", "Arnold Press"],
                 "Arms": ["Bicep Curls (Barbell/Dumbbell)", "Tricep Dips", "Hammer Curls", "Tricep Pushdowns", "Skullcrushers", "Preacher Curls"],
                 "Core": ["Plank", "Crunches", "Leg Raises", "Russian Twists", "Cable Woodchoppers", "Bird Dog", "Superman", "Hanging Leg Raises"],
-                "Custom": [] // User-added custom exercises
+                "Custom": []
             };
 
             const getTodayDateString = () => new Date().toISOString().split('T')[0];
@@ -1319,7 +1526,6 @@
                 else console.warn("Screen not found:", targetScreenKey);
 
                 navItems.forEach(btn => { btn.classList.remove('active'); const tabKey = btn.dataset.tab.replace('Tab', '').toLowerCase(); if (tabKey === activeScreenKey) btn.classList.add('active'); });
-                // Specific actions when switching to certain screens
                 if (activeScreenKey === 'workouts') { if (currentWorkout) switchScreen('activeWorkout'); else renderWorkoutDashboardState(); }
                 else if (activeScreenKey === 'templates') renderTemplateLibrary();
                 else if (activeScreenKey === 'nutrition') { handleDailyNutritionReset(); loadNutritionForToday(); renderCustomFoodLibrary(); renderTempDailyLoggedFoods(); updateNutritionDisplay(); }
@@ -1333,31 +1539,304 @@
             function resetWorkoutTimerDisplay() { if (workoutTimerDisplay) workoutTimerDisplay.textContent = "00:00:00"; }
             function updateCurrentTimeDisplay() { if (currentTimeDisplay) currentTimeDisplay.textContent = getCurrentTimeString(); }
 
-            // --- Exercise Suggestion Logic ---
+            // --- Exercise Suggestion Logic (To be adapted for templated sets later) ---
             function calculateExerciseSuggestion(exerciseName) { const weightUnit = tdeeUnitWeightSelect.value || 'kg'; let history = []; workouts.forEach(wo => { wo.exercises.forEach(ex => { if (ex.name === exerciseName && Array.isArray(ex.sets)) ex.sets.forEach(set => { if (!set.isWarmup && set.reps && (set.weight !== null && set.weight !== undefined && set.weight !== '')) history.push({ date: new Date(wo.date + 'T' + (wo.startTime || '00:00')), reps: parseInt(set.reps), weight: parseFloat(set.weight), isPR: !!set.isPR }); }); }); }); if (history.length === 0) { if (bodyweightExercisesList.map(b => b.toLowerCase()).includes(exerciseName.toLowerCase())) return { weight: null, reps: 8, message: `<strong>Suggestion:</strong> Bodyweight x 8 reps. Focus on form.`, type: 'bodyweight' }; const minWeight = (weightUnit === 'kg' ? 5 : 10); return { weight: minWeight, reps: 10, message: `<strong>Suggestion:</strong> Start with ~${minWeight}${weightUnit} x 10 reps. Focus on form.`, type: 'no_history_weighted' }; } history.sort((a, b) => b.date - a.date); let bestRecentSet = null; const recentPRThresholdDays = 45; const recentPR = history.find(s => s.isPR && (new Date() - s.date) < (recentPRThresholdDays * 24 * 60 * 60 * 1000)); if (recentPR) bestRecentSet = recentPR; else { const uniqueDates = [...new Set(history.map(s => s.date.toISOString().split('T')[0]))].slice(0, 3); const relevantHistory = history.filter(s => uniqueDates.includes(s.date.toISOString().split('T')[0])); if (relevantHistory.length > 0) bestRecentSet = relevantHistory.reduce((max, s) => (s.weight * s.reps) > (max.weight * max.reps) ? s : max, relevantHistory[0]); else bestRecentSet = history[0]; } if (bestRecentSet) { let suggestedWeight = bestRecentSet.weight; let suggestedReps = bestRecentSet.reps; if (bestRecentSet.isPR || Math.random() < 0.6) { suggestedWeight = parseFloat((suggestedWeight * 1.025).toFixed(1)); if (weightUnit === 'lbs') suggestedWeight = Math.max(5, Math.round(suggestedWeight / 2.5) * 2.5); else suggestedWeight = Math.max(2.5, Math.round(suggestedWeight / 0.5) * 0.5); if (bestRecentSet.reps > 8) suggestedReps = bestRecentSet.reps - 1; else suggestedReps = bestRecentSet.reps; } else suggestedReps = Math.min(15, suggestedReps + 1); suggestedReps = Math.max(5, suggestedReps); return { weight: suggestedWeight, reps: suggestedReps, message: `<strong>Suggestion:</strong> Aim for ${suggestedWeight}${weightUnit} x ${suggestedReps} reps.`, type: 'progression' }; } const lastSet = history[0]; return { weight: lastSet.weight, reps: lastSet.reps, message: `Last time: ${lastSet.weight}${weightUnit} x ${lastSet.reps} reps. Try to match or improve.`, type: 'repeat_last' }; }
 
             // --- Active Workout Screen Logic ---
-            function startNewWorkoutSession(templateExercises = []) { currentWorkout = { id: `workout_${Date.now()}`, date: getTodayDateString(), startTime: getCurrentTimeString(), endTime: null, duration: null, exercises: templateExercises.map(name => ({ name, sets: [], suggestedPerformance: { ...calculateExerciseSuggestion(name), shown: true } })), startTimeEpoch: Date.now(), elapsedSeconds: 0 }; workoutDateInput.value = currentWorkout.date; workoutStartTimeInput.value = currentWorkout.startTime; currentDateTimeSpan.textContent = `Started: ${formatDate(currentWorkout.date)} ${currentWorkout.startTime}`; saveData(); switchScreen('activeWorkout'); renderCurrentWorkoutExercises(); updateSaveWorkoutButtonState(); startWorkoutTimer(); }
-            function renderExerciseDatabaseForModal() { exerciseListContainer.innerHTML = ''; const searchTerm = exerciseSearchInput.value.toLowerCase(); const exerciseGroupsDiv = document.createElement('div'); exerciseGroupsDiv.className = 'space-y-3'; for (const groupName in exerciseDatabase) { const groupExercises = Array.isArray(exerciseDatabase[groupName]) ? exerciseDatabase[groupName] : []; const filteredExercises = groupExercises.filter(ex => ex.toLowerCase().includes(searchTerm)); if (filteredExercises.length > 0) { const groupDiv = document.createElement('div'); groupDiv.innerHTML = `<h4 class="text-sm font-medium text-neutral-400 mb-1">${groupName} (${filteredExercises.length})</h4>`; const exercisesInGroupUl = document.createElement('ul'); exercisesInGroupUl.className = 'space-y-1'; filteredExercises.forEach(exName => { const exLi = document.createElement('li'); exLi.className = 'list-item p-2 rounded-md text-sm cursor-pointer hover:bg-neutral-600'; exLi.textContent = exName; exLi.addEventListener('click', () => { if (currentExerciseAddContext === 'workout') addExerciseToCurrentWorkout(exName); else if (currentExerciseAddContext === 'template') addExerciseToCurrentTemplateBuilder(exName); closeModal(addExerciseModal); exerciseSearchInput.value = ''; }); exercisesInGroupUl.appendChild(exLi); }); groupDiv.appendChild(exercisesInGroupUl); exerciseGroupsDiv.appendChild(groupDiv); } } exerciseListContainer.appendChild(exerciseGroupsDiv); if (exerciseGroupsDiv.children.length === 0 && searchTerm) exerciseListContainer.innerHTML = '<p class="text-neutral-400 text-sm text-center">No exercises match. Add custom below.</p>'; else if (exerciseGroupsDiv.children.length === 0 && !searchTerm && exerciseDatabase.Custom.length === 0 && Object.keys(exerciseDatabase).length === 1) exerciseListContainer.innerHTML = '<p class="text-neutral-400 text-sm text-center">No exercises. Add custom below.</p>'; }
-            function addExerciseToCurrentWorkout(exerciseName) { if (currentWorkout && !currentWorkout.exercises.find(ex => ex.name === exerciseName)) { currentWorkout.exercises.push({ name: exerciseName, sets: [], suggestedPerformance: { ...calculateExerciseSuggestion(exerciseName), shown: true } }); saveData(); renderCurrentWorkoutExercises(); updateSaveWorkoutButtonState(); } }
-            function renderCurrentWorkoutExercises() { currentWorkoutExercisesDiv.innerHTML = ''; if (!currentWorkout || currentWorkout.exercises.length === 0) { currentWorkoutExercisesDiv.innerHTML = '<p class="text-neutral-400 text-center py-4">No exercises added. Tap + to begin.</p>'; if (saveCurrentWorkoutAsTemplateBtn) saveCurrentWorkoutAsTemplateBtn.style.display = 'none'; return; } if (saveCurrentWorkoutAsTemplateBtn) saveCurrentWorkoutAsTemplateBtn.style.display = currentWorkout.exercises.length > 0 ? 'block' : 'none'; currentWorkout.exercises.forEach((exercise, exerciseIndex) => { const exerciseCard = document.createElement('div'); exerciseCard.className = 'list-item p-3 rounded-lg'; exerciseCard.dataset.exerciseCardIndex = exerciseIndex; let suggestionHTML = ''; if (exercise.suggestedPerformance && exercise.suggestedPerformance.shown && (!exercise.sets || exercise.sets.length === 0)) suggestionHTML = `<div class="exercise-suggestion">${exercise.suggestedPerformance.message || ''}</div>`; let setsHTML = ''; const setsArray = Array.isArray(exercise.sets) ? exercise.sets : []; setsArray.forEach((set, setIndex) => { setsHTML += `<div class="grid grid-cols-12 gap-2 items-center mb-2 p-1.5 rounded-md hover:bg-neutral-700/50 exercise-set-item ${set.isWarmup ? 'opacity-70' : ''}" data-exercise-index="${exerciseIndex}" data-set-index="${setIndex}"><div class="col-span-1 text-center text-sm input-like py-1.5 rounded-md flex items-center justify-center">${setIndex + 1}${set.isPR ? '<span class="ml-1 pr-badge font-semibold px-1 py-0.5 rounded">PR</span>' : ''}</div><input type="number" class="col-span-3 weight-input input-like py-1.5 rounded-md text-center text-sm" value="${set.weight || ''}" placeholder="0 ${tdeeUnitWeightSelect.value || 'kg'}" step="0.1" min="0"><input type="number" class="col-span-2 reps-input input-like py-1.5 rounded-md text-center text-sm" value="${set.reps || ''}" placeholder="Reps" min="1" max="999"><textarea class="col-span-4 notes-text-input input-like py-1.5 px-2 rounded-md text-sm h-[34px] resize-none" maxlength="50" placeholder="Notes...">${set.notes || ''}</textarea><div class="col-span-2 flex items-center justify-around"><button class="toggle-warmup-btn p-1 rounded hover:bg-neutral-600 ${set.isWarmup ? 'text-teal-400' : 'text-neutral-500'}" title="Toggle Warmup"> W </button><button class="remove-set-btn p-1 rounded hover:bg-neutral-600 text-red-500/70 hover:text-red-500" title="Delete Set"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button></div></div>`; }); exerciseCard.innerHTML = `<div class="flex justify-between items-center mb-2"><h2 class="text-lg font-medium text-white">${exercise.name}</h2><button class="remove-exercise-from-workout-btn p-1 rounded-full hover:bg-neutral-600 text-red-400 hover:text-red-300" data-exercise-index="${exerciseIndex}" title="Remove Exercise"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12.56 0c1.153 0 2.242.078 3.324.214M15 5.039V4.687a2.25 2.25 0 00-2.25-2.25H11.25A2.25 2.25 0 009 4.687v.352M9 15h6" /></svg></button></div>${suggestionHTML}<div id="summary-stats-${exerciseIndex}" class="text-xs text-neutral-400 mb-2 grid grid-cols-3 gap-1"></div><div class="set-prefill-notification-area text-xs italic text-teal-500/70 mb-2" style="min-height: 1.2em;"></div><div class="grid grid-cols-12 gap-2 text-xs text-neutral-500 mb-1 px-1.5"><div class="col-span-1 text-center">Set</div> <div class="col-span-3 text-center">Weight (${tdeeUnitWeightSelect.value || 'kg'})</div><div class="col-span-2 text-center">Reps</div> <div class="col-span-4 text-center">Notes (50)</div><div class="col-span-2 text-center">Actions</div></div><div class="sets-container space-y-1">${setsHTML}</div><button class="add-set-btn w-full button tonal-button button-small mt-3" data-exercise-index="${exerciseIndex}">Add Set</button>`; currentWorkoutExercisesDiv.appendChild(exerciseCard); updateExerciseSummaryStats(exerciseIndex); }); }
-            function updateExerciseSummaryStats(exerciseIndex) { if (!currentWorkout || !currentWorkout.exercises[exerciseIndex]) return; const exercise = currentWorkout.exercises[exerciseIndex]; const setsArray = Array.isArray(exercise.sets) ? exercise.sets : []; let totalVolume = 0; let totalReps = 0; let weightedSum = 0; setsArray.forEach(set => { const reps = parseFloat(set.reps); const weight = parseFloat(set.weight); if (!isNaN(reps) && reps > 0 && (weight !== null && weight !== undefined && weight !== '') && !isNaN(weight) && weight >= 0 && !set.isWarmup) { totalVolume += reps * weight; totalReps += reps; weightedSum += weight * reps; } }); const avgWeight = totalReps > 0 ? (weightedSum / totalReps) : 0; const statsDiv = document.getElementById(`summary-stats-${exerciseIndex}`); if (statsDiv) statsDiv.innerHTML = `<span>Volume: <strong>${totalVolume.toFixed(1)}</strong></span> <span>Total Reps: <strong>${totalReps}</strong></span> <span>Avg Wt: <strong>${avgWeight.toFixed(1)}</strong></span>`; }
-            function findPreviousSetData(exerciseName, currentExerciseIndexInWorkout) { if (currentWorkout && currentWorkout.exercises[currentExerciseIndexInWorkout] && Array.isArray(currentWorkout.exercises[currentExerciseIndexInWorkout].sets)) { const currentExSets = currentWorkout.exercises[currentExerciseIndexInWorkout].sets; for (let i = currentExSets.length - 1; i >= 0; i--) { if (!currentExSets[i].isWarmup && currentExSets[i].reps && (currentExSets[i].weight !== null && currentExSets[i].weight !== undefined && currentExSets[i].weight !== '')) return { reps: currentExSets[i].reps, weight: currentExSets[i].weight, found: true }; } } if (currentWorkout && currentWorkout.exercises[currentExerciseIndexInWorkout] && currentWorkout.exercises[currentExerciseIndexInWorkout].suggestedPerformance && currentWorkout.exercises[currentExerciseIndexInWorkout].suggestedPerformance.weight !== null) { const suggestion = currentWorkout.exercises[currentExerciseIndexInWorkout].suggestedPerformance; return { reps: suggestion.reps, weight: suggestion.weight, found: true, fromSuggestion: true }; } for (let i = 0; i < workouts.length; i++) { const pastWorkout = workouts[i]; for (let j = pastWorkout.exercises.length - 1; j >= 0; j--) { if (pastWorkout.exercises[j].name === exerciseName && Array.isArray(pastWorkout.exercises[j].sets)) { const pastExSets = pastWorkout.exercises[j].sets; for (let k = pastExSets.length - 1; k >= 0; k--) if (!pastExSets[k].isWarmup && pastExSets[k].reps && (pastExSets[k].weight !== null && pastExSets[k].weight !== undefined && pastExSets[k].weight !== '')) return { reps: pastExSets[k].reps, weight: pastExSets[k].weight, found: true }; } } } return { reps: '', weight: '', found: false }; }
+            function startNewWorkoutSession(templateToUse = null) {
+                currentWorkout = {
+                    id: `workout_${Date.now()}`,
+                    date: getTodayDateString(),
+                    startTime: getCurrentTimeString(),
+                    endTime: null,
+                    duration: null,
+                    exercises: [], // Will hold { name, sets: [{ type, suggestedReps, ..., actualReps, ... }] }
+                    startTimeEpoch: Date.now(),
+                    elapsedSeconds: 0
+                };
+
+                if (templateToUse && Array.isArray(templateToUse.exercises)) {
+                    currentWorkout.exercises = templateToUse.exercises.map(templateEx => {
+                        // Deep copy sets to avoid modifying the original template
+                        const copiedSets = Array.isArray(templateEx.sets) ? templateEx.sets.map(set => ({
+                            ...set, // Copy all properties from template set
+                            actualReps: '', // Initialize actuals
+                            actualWeight: '',
+                            userNotes: '', // User notes for this specific workout set
+                            isPR: false,
+                            // isWarmup can be derived from set.type if needed, or kept if still useful
+                        })) : [];
+                        return {
+                            name: templateEx.name,
+                            sets: copiedSets,
+                            // Exercise-level suggestion might still be useful for quick add, or can be removed
+                            // suggestedPerformance: { ...calculateExerciseSuggestion(templateEx.name), shown: true }
+                        };
+                    });
+                }
+
+                workoutDateInput.value = currentWorkout.date;
+                workoutStartTimeInput.value = currentWorkout.startTime;
+                currentDateTimeSpan.textContent = `Started: ${formatDate(currentWorkout.date)} ${currentWorkout.startTime}`;
+                saveData();
+                switchScreen('activeWorkout');
+                renderCurrentWorkoutExercises(); // This will need significant update
+                updateSaveWorkoutButtonState();
+                startWorkoutTimer();
+            }
+
+            function renderExerciseDatabaseForModal() { exerciseListContainer.innerHTML = ''; const searchTerm = exerciseSearchInput.value.toLowerCase(); const exerciseGroupsDiv = document.createElement('div'); exerciseGroupsDiv.className = 'space-y-3'; for (const groupName in exerciseDatabase) { const groupExercises = Array.isArray(exerciseDatabase[groupName]) ? exerciseDatabase[groupName] : []; const filteredExercises = groupExercises.filter(ex => ex.toLowerCase().includes(searchTerm)); if (filteredExercises.length > 0) { const groupDiv = document.createElement('div'); groupDiv.innerHTML = `<h4 class="text-sm font-medium text-neutral-400 mb-1">${groupName} (${filteredExercises.length})</h4>`; const exercisesInGroupUl = document.createElement('ul'); exercisesInGroupUl.className = 'space-y-1'; filteredExercises.forEach(exName => { const exLi = document.createElement('li'); exLi.className = 'list-item p-2 rounded-md text-sm cursor-pointer hover:bg-neutral-600'; exLi.textContent = exName; exLi.addEventListener('click', () => { if (currentExerciseAddContext === 'workout') { addExerciseToCurrentWorkout(exName); } else if (currentExerciseAddContext === 'template') { addExerciseToCurrentTemplateBuilder(exName); } closeModal(addExerciseModal); exerciseSearchInput.value = ''; }); exercisesInGroupUl.appendChild(exLi); }); groupDiv.appendChild(exercisesInGroupUl); exerciseGroupsDiv.appendChild(groupDiv); } } exerciseListContainer.appendChild(exerciseGroupsDiv); if (exerciseGroupsDiv.children.length === 0 && searchTerm) exerciseListContainer.innerHTML = '<p class="text-neutral-400 text-sm text-center">No exercises match. Add custom below.</p>'; else if (exerciseGroupsDiv.children.length === 0 && !searchTerm && exerciseDatabase.Custom.length === 0 && Object.keys(exerciseDatabase).length === 1) exerciseListContainer.innerHTML = '<p class="text-neutral-400 text-sm text-center">No exercises. Add custom below.</p>'; }
+
+            function addExerciseToCurrentWorkout(exerciseName) { // This is for adding exercises ad-hoc to a workout, not from template
+                if (currentWorkout && !currentWorkout.exercises.find(ex => ex.name === exerciseName)) {
+                    currentWorkout.exercises.push({
+                        name: exerciseName,
+                        sets: [], // Ad-hoc exercises start with no predefined sets
+                        suggestedPerformance: { ...calculateExerciseSuggestion(exerciseName), shown: true } // Keep suggestion for ad-hoc
+                    });
+                    saveData();
+                    renderCurrentWorkoutExercises();
+                    updateSaveWorkoutButtonState();
+                }
+            }
+
+            function renderCurrentWorkoutExercises() {
+                currentWorkoutExercisesDiv.innerHTML = '';
+                if (!currentWorkout || currentWorkout.exercises.length === 0) {
+                    currentWorkoutExercisesDiv.innerHTML = '<p class="text-neutral-400 text-center py-4">No exercises added. Tap + to begin or start from a template.</p>';
+                    if (saveCurrentWorkoutAsTemplateBtn) saveCurrentWorkoutAsTemplateBtn.style.display = 'none';
+                    return;
+                }
+                if (saveCurrentWorkoutAsTemplateBtn) saveCurrentWorkoutAsTemplateBtn.style.display = currentWorkout.exercises.length > 0 ? 'block' : 'none';
+
+                currentWorkout.exercises.forEach((exercise, exerciseIndex) => {
+                    const exerciseCard = document.createElement('div');
+                    exerciseCard.className = 'list-item p-3 rounded-lg'; // Existing class for glass effect
+                    exerciseCard.dataset.exerciseCardIndex = exerciseIndex;
+
+                    let setsHTML = '';
+                    const setsArray = Array.isArray(exercise.sets) ? exercise.sets : [];
+
+                    if (setsArray.length > 0) { // Sets came from a template or were added
+                        setsArray.forEach((set, setIndex) => {
+                            // Display templated set info and inputs for actuals
+                            setsHTML += `
+                        <div class="grid grid-cols-12 gap-2 items-center mb-2 p-1.5 rounded-md hover:bg-neutral-700/50 exercise-set-item ${set.type === 'warmup' ? 'opacity-70' : ''}" data-exercise-index="${exerciseIndex}" data-set-index="${setIndex}">
+                            <div class="col-span-1 text-center text-xs input-like py-1 rounded-md flex items-center justify-center">${setIndex + 1}</div>
+                            <div class="col-span-11 text-xs">
+                                <div class="grid grid-cols-4 gap-1 mb-1">
+                                    <span class="text-neutral-400">Type: <strong class="text-white">${set.type || 'N/A'}</strong></span>
+                                    <span class="text-neutral-400">Sugg. Reps: <strong class="text-white">${set.suggestedReps || 'N/A'}</strong></span>
+                                    <span class="text-neutral-400">Sugg. Wt: <strong class="text-white">${set.suggestedWeight || 'N/A'}</strong></span>
+                                    <span class="text-neutral-400">Rest: <strong class="text-white">${set.suggestedRest || 'N/A'}s</strong></span>
+                                </div>
+                                ${set.notes ? `<p class="text-neutral-500 italic text-xs mb-1">Template Note: ${set.notes}</p>` : ''}
+                            </div>
+                            <input type="number" class="col-span-3 weight-input input-like py-1.5 rounded-md text-center text-sm" value="${set.actualWeight || ''}" placeholder="Actual Wt" step="0.1" min="0">
+                            <input type="number" class="col-span-2 reps-input input-like py-1.5 rounded-md text-center text-sm" value="${set.actualReps || ''}" placeholder="Actual Reps" min="1" max="999">
+                            <textarea class="col-span-5 notes-text-input input-like py-1.5 px-2 rounded-md text-sm h-[34px] resize-none" maxlength="50" placeholder="Your Notes...">${set.userNotes || ''}</textarea>
+                            <div class="col-span-2 flex items-center justify-around">
+                                <button class="remove-set-btn p-1 rounded hover:bg-neutral-600 text-red-500/70 hover:text-red-500" title="Delete Set (from this workout instance)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
+                            </div>
+                        </div>`;
+                        });
+                    } else { // No sets from template, allow ad-hoc set addition (existing logic)
+                        // Fallback to old rendering if no predefined sets (or adapt to new structure)
+                        let adHocSetsHTML = '';
+                        const adHocSetsArray = Array.isArray(exercise.adHocSets) ? exercise.adHocSets : []; // Assuming a new property for ad-hoc
+                        adHocSetsArray.forEach((set, setIndex) => {
+                            adHocSetsHTML += `<div class="grid grid-cols-12 gap-2 items-center mb-2 p-1.5 rounded-md hover:bg-neutral-700/50 exercise-set-item ${set.isWarmup ? 'opacity-70' : ''}" data-exercise-index="${exerciseIndex}" data-set-index="${setIndex}" data-adhoc="true"><div class="col-span-1 text-center text-sm input-like py-1.5 rounded-md flex items-center justify-center">${setIndex + 1}${set.isPR ? '<span class="ml-1 pr-badge font-semibold px-1 py-0.5 rounded">PR</span>' : ''}</div><input type="number" class="col-span-3 weight-input input-like py-1.5 rounded-md text-center text-sm" value="${set.weight || ''}" placeholder="0 ${tdeeUnitWeightSelect.value || 'kg'}" step="0.1" min="0"><input type="number" class="col-span-2 reps-input input-like py-1.5 rounded-md text-center text-sm" value="${set.reps || ''}" placeholder="Reps" min="1" max="999"><textarea class="col-span-4 notes-text-input input-like py-1.5 px-2 rounded-md text-sm h-[34px] resize-none" maxlength="50" placeholder="Notes...">${set.notes || ''}</textarea><div class="col-span-2 flex items-center justify-around"><button class="toggle-warmup-btn p-1 rounded hover:bg-neutral-600 ${set.isWarmup ? 'text-teal-400' : 'text-neutral-500'}" title="Toggle Warmup"> W </button><button class="remove-set-btn p-1 rounded hover:bg-neutral-600 text-red-500/70 hover:text-red-500" title="Delete Set"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button></div></div>`;
+                        });
+                        setsHTML = adHocSetsHTML;
+                        if (exercise.suggestedPerformance && exercise.suggestedPerformance.shown) {
+                            setsHTML = `<div class="exercise-suggestion">${exercise.suggestedPerformance.message || ''}</div>` + setsHTML;
+                        }
+                    }
+
+
+                    exerciseCard.innerHTML = `
+                <div class="flex justify-between items-center mb-2">
+                    <h2 class="text-lg font-medium text-white">${exercise.name}</h2>
+                    <button class="remove-exercise-from-workout-btn p-1 rounded-full hover:bg-neutral-600 text-red-400 hover:text-red-300" data-exercise-index="${exerciseIndex}" title="Remove Exercise">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12.56 0c1.153 0 2.242.078 3.324.214M15 5.039V4.687a2.25 2.25 0 00-2.25-2.25H11.25A2.25 2.25 0 009 4.687v.352M9 15h6" /></svg>
+                    </button>
+                </div>
+                <div id="summary-stats-${exerciseIndex}" class="text-xs text-neutral-400 mb-2 grid grid-cols-3 gap-1"></div>
+                <div class="set-prefill-notification-area text-xs italic text-teal-500/70 mb-2" style="min-height: 1.2em;"></div>
+                <div class="grid grid-cols-12 gap-2 text-xs text-neutral-500 mb-1 px-1.5">
+                    <div class="col-span-1 text-center">Set</div>
+                    <div class="col-span-3 text-center">Actual Wt</div>
+                    <div class="col-span-2 text-center">Actual Reps</div>
+                    <div class="col-span-5 text-center">Your Notes</div>
+                    <div class="col-span-1 text-center">Del</div>
+                </div>
+                <div class="sets-container space-y-1">${setsHTML}</div>
+                <button class="add-set-btn w-full button tonal-button button-small mt-3" data-exercise-index="${exerciseIndex}" data-context="active-workout">Add Ad-hoc Set</button>
+            `;
+                    currentWorkoutExercisesDiv.appendChild(exerciseCard);
+                    updateExerciseSummaryStats(exerciseIndex); // This function will also need update if structure changes
+                });
+            }
+
+            function updateExerciseSummaryStats(exerciseIndex) { if (!currentWorkout || !currentWorkout.exercises[exerciseIndex]) return; const exercise = currentWorkout.exercises[exerciseIndex]; const setsArray = Array.isArray(exercise.sets) ? exercise.sets : []; let totalVolume = 0; let totalReps = 0; let weightedSum = 0; setsArray.forEach(set => { const reps = parseFloat(set.actualReps); const weight = parseFloat(set.actualWeight); if (!isNaN(reps) && reps > 0 && (weight !== null && weight !== undefined && weight !== '') && !isNaN(weight) && weight >= 0 && set.type !== 'warmup') { totalVolume += reps * weight; totalReps += reps; weightedSum += weight * reps; } }); const avgWeight = totalReps > 0 ? (weightedSum / totalReps) : 0; const statsDiv = document.getElementById(`summary-stats-${exerciseIndex}`); if (statsDiv) statsDiv.innerHTML = `<span>Volume: <strong>${totalVolume.toFixed(1)}</strong></span> <span>Total Reps: <strong>${totalReps}</strong></span> <span>Avg Wt: <strong>${avgWeight.toFixed(1)}</strong></span>`; }
+            function findPreviousSetData(exerciseName, currentExerciseIndexInWorkout) { if (currentWorkout && currentWorkout.exercises[currentExerciseIndexInWorkout] && Array.isArray(currentWorkout.exercises[currentExerciseIndexInWorkout].sets)) { const currentExSets = currentWorkout.exercises[currentExerciseIndexInWorkout].sets; for (let i = currentExSets.length - 1; i >= 0; i--) { if (currentExSets[i].type !== 'warmup' && currentExSets[i].actualReps && (currentExSets[i].actualWeight !== null && currentExSets[i].actualWeight !== undefined && currentExSets[i].actualWeight !== '')) return { reps: currentExSets[i].actualReps, weight: currentExSets[i].actualWeight, found: true }; } } if (currentWorkout && currentWorkout.exercises[currentExerciseIndexInWorkout] && currentWorkout.exercises[currentExerciseIndexInWorkout].suggestedPerformance && currentWorkout.exercises[currentExerciseIndexInWorkout].suggestedPerformance.weight !== null) { const suggestion = currentWorkout.exercises[currentExerciseIndexInWorkout].suggestedPerformance; return { reps: suggestion.reps, weight: suggestion.weight, found: true, fromSuggestion: true }; } for (let i = 0; i < workouts.length; i++) { const pastWorkout = workouts[i]; for (let j = pastWorkout.exercises.length - 1; j >= 0; j--) { if (pastWorkout.exercises[j].name === exerciseName && Array.isArray(pastWorkout.exercises[j].sets)) { const pastExSets = pastWorkout.exercises[j].sets; for (let k = pastExSets.length - 1; k >= 0; k--) if (pastExSets[k].type !== 'warmup' && pastExSets[k].actualReps && (pastExSets[k].actualWeight !== null && pastExSets[k].actualWeight !== undefined && pastExSets[k].actualWeight !== '')) return { reps: pastExSets[k].actualReps, weight: pastExSets[k].actualWeight, found: true }; } } } return { reps: '', weight: '', found: false }; }
             function showSetPrefillNotification(exerciseCardIndex, fromSuggestion = false) { const exerciseCard = document.querySelector(`.list-item[data-exercise-card-index="${exerciseCardIndex}"]`); if (exerciseCard) { const notificationArea = exerciseCard.querySelector('.set-prefill-notification-area'); if (notificationArea) { notificationArea.innerHTML = ''; const message = fromSuggestion ? 'Values pre-filled from suggestion.' : 'Values pre-filled from last similar set.'; notificationArea.textContent = message; setTimeout(() => { if (notificationArea) notificationArea.textContent = ''; }, 3000); } } }
-            function validateSetInputs(exerciseIndex, setIndex) { const setItem = document.querySelector(`.exercise-set-item[data-exercise-index="${exerciseIndex}"][data-set-index="${setIndex}"]`); if (!setItem) return true; let isValid = true; const repsInput = setItem.querySelector('.reps-input'); const weightInput = setItem.querySelector('.weight-input'); const reps = parseFloat(repsInput.value); if (repsInput.value && (isNaN(reps) || reps < 1 || reps > 999 || !Number.isInteger(reps))) { repsInput.classList.add('invalid'); isValid = false; } else repsInput.classList.remove('invalid'); const weight = parseFloat(weightInput.value); if (weightInput.value && (isNaN(weight) || weight < 0 || weight > 9999.9)) { weightInput.classList.add('invalid'); isValid = false; } else { weightInput.classList.remove('invalid'); if (currentWorkout && currentWorkout.exercises[exerciseIndex] && currentWorkout.exercises[exerciseIndex].sets[setIndex]) currentWorkout.exercises[exerciseIndex].sets[setIndex].weight = (weightInput.value === '' || isNaN(weight)) ? '' : parseFloat(weight).toFixed(1); } return isValid; }
-            function updateSaveWorkoutButtonState() { let canSave = false; if (currentWorkout && currentWorkout.exercises.length > 0) canSave = currentWorkout.exercises.some(ex => Array.isArray(ex.sets) && ex.sets.length > 0 && ex.sets.some(set => set.reps && (set.weight !== '' && set.weight !== null && set.weight !== undefined))); if (saveWorkoutBtn) saveWorkoutBtn.disabled = !canSave; if (saveWorkoutError) saveWorkoutError.textContent = canSave ? '' : 'Add at least one exercise with one completed set (reps & weight) to save.'; }
+            function validateSetInputs(exerciseIndex, setIndex) { const setItem = document.querySelector(`.exercise-set-item[data-exercise-index="${exerciseIndex}"][data-set-index="${setIndex}"]`); if (!setItem) return true; let isValid = true; const repsInput = setItem.querySelector('.reps-input'); const weightInput = setItem.querySelector('.weight-input'); const reps = parseFloat(repsInput.value); if (repsInput.value && (isNaN(reps) || reps < 1 || reps > 999 || !Number.isInteger(reps))) { repsInput.classList.add('invalid'); isValid = false; } else repsInput.classList.remove('invalid'); const weight = parseFloat(weightInput.value); if (weightInput.value && (isNaN(weight) || weight < 0 || weight > 9999.9)) { weightInput.classList.add('invalid'); isValid = false; } else { weightInput.classList.remove('invalid'); if (currentWorkout && currentWorkout.exercises[exerciseIndex] && currentWorkout.exercises[exerciseIndex].sets[setIndex]) currentWorkout.exercises[exerciseIndex].sets[setIndex].actualWeight = (weightInput.value === '' || isNaN(weight)) ? '' : parseFloat(weight).toFixed(1); } return isValid; }
+            function updateSaveWorkoutButtonState() { let canSave = false; if (currentWorkout && currentWorkout.exercises.length > 0) canSave = currentWorkout.exercises.some(ex => Array.isArray(ex.sets) && ex.sets.length > 0 && ex.sets.some(set => set.actualReps && (set.actualWeight !== '' && set.actualWeight !== null && set.actualWeight !== undefined))); if (saveWorkoutBtn) saveWorkoutBtn.disabled = !canSave; if (saveWorkoutError) saveWorkoutError.textContent = canSave ? '' : 'Add at least one exercise with one completed set (actual reps & weight) to save.'; }
 
             // --- Workout History Screen Logic ---
             function renderWorkoutHistory() { pastWorkoutsListDiv.innerHTML = ''; if (workouts.length === 0) { pastWorkoutsListDiv.innerHTML = '<p class="text-neutral-400 text-sm text-center py-4">No workouts recorded yet.</p>'; return; } const searchTerm = searchWorkoutHistoryInput.value.toLowerCase(); const filteredWorkouts = workouts.filter(wo => { const dateMatch = wo.date.includes(searchTerm); const exerciseMatch = wo.exercises.some(ex => ex.name.toLowerCase().includes(searchTerm)); return dateMatch || exerciseMatch; }).sort((a, b) => new Date(b.date + 'T' + (b.startTime || '00:00')) - new Date(a.date + 'T' + (a.startTime || '00:00'))); filteredWorkouts.forEach(wo => { const item = document.createElement('div'); item.className = 'list-item p-3 rounded-lg cursor-pointer'; const durationDisplay = wo.timerDuration || wo.duration || 'N/A'; item.innerHTML = `<div class="flex justify-between items-center"><h3 class="text-md font-medium text-white">${formatDate(wo.date)} - ${wo.startTime || ''}</h3><span class="text-xs text-neutral-400">${durationDisplay}</span></div><p class="text-xs text-neutral-400">${wo.exercises.length} exercises</p><p class="text-xs text-neutral-500 truncate">Preview: ${wo.exercises.map(e => e.name).slice(0, 3).join(', ')}${wo.exercises.length > 3 ? '...' : ''}</p>`; item.addEventListener('click', () => viewWorkoutDetails(wo.id, item)); pastWorkoutsListDiv.appendChild(item); const detailsView = document.createElement('div'); detailsView.id = `details-${wo.id}`; detailsView.className = 'text-xs text-neutral-300 mt-2 p-2 bg-neutral-700/30 rounded-md'; detailsView.style.display = 'none'; pastWorkoutsListDiv.appendChild(detailsView); }); }
-            function viewWorkoutDetails(workoutId, listItemElement) { const workout = workouts.find(w => w.id === workoutId); const detailsDiv = document.getElementById(`details-${workoutId}`); if (!workout || !detailsDiv) return; const isVisible = detailsDiv.style.display === 'block'; detailsDiv.style.display = isVisible ? 'none' : 'block'; if (listItemElement) listItemElement.classList.toggle('bg-neutral-700', !isVisible); if (!isVisible) { let historyWeightUnit = tdeeUnitWeightSelect.value || 'kg'; const durationDisplay = workout.timerDuration || workout.duration || 'N/A'; let detailsHTML = `<h4 class="font-semibold text-sm mb-1 text-teal-400">Details (${durationDisplay})</h4>`; workout.exercises.forEach(ex => { detailsHTML += `<div class="mb-1"><strong class="text-neutral-200">${ex.name}:</strong><ul class="list-disc list-inside pl-2">`; const setsArray = Array.isArray(ex.sets) ? ex.sets : []; setsArray.forEach((set, i) => { let setData = `<li>Set ${i + 1}: ${set.reps || '-'} reps, ${set.weight || '0'} ${historyWeightUnit}`; if (set.isWarmup) setData += ` <span class="italic text-neutral-500">(W)</span>`; if (set.isPR) setData += ` <span class="font-bold text-yellow-400">(PR!)</span>`; if (set.notes) setData += ` - <span class="italic">"${set.notes}"</span>`; detailsHTML += `${setData}</li>`; }); detailsHTML += `</ul></div>`; }); detailsDiv.innerHTML = detailsHTML; } }
+            function viewWorkoutDetails(workoutId, listItemElement) { const workout = workouts.find(w => w.id === workoutId); const detailsDiv = document.getElementById(`details-${workoutId}`); if (!workout || !detailsDiv) return; const isVisible = detailsDiv.style.display === 'block'; detailsDiv.style.display = isVisible ? 'none' : 'block'; if (listItemElement) listItemElement.classList.toggle('bg-neutral-700', !isVisible); if (!isVisible) { let historyWeightUnit = tdeeUnitWeightSelect.value || 'kg'; const durationDisplay = workout.timerDuration || workout.duration || 'N/A'; let detailsHTML = `<h4 class="font-semibold text-sm mb-1 text-teal-400">Details (${durationDisplay})</h4>`; workout.exercises.forEach(ex => { detailsHTML += `<div class="mb-1"><strong class="text-neutral-200">${ex.name}:</strong><ul class="list-disc list-inside pl-2">`; const setsArray = Array.isArray(ex.sets) ? ex.sets : []; setsArray.forEach((set, i) => { let setData = `<li>Set ${i + 1}: ${set.actualReps || set.suggestedReps || '-'} reps, ${set.actualWeight || set.suggestedWeight || '0'} ${historyWeightUnit}`; if (set.type === 'warmup' || set.isWarmup) setData += ` <span class="italic text-neutral-500">(W)</span>`; if (set.isPR) setData += ` <span class="font-bold text-yellow-400">(PR!)</span>`; if (set.userNotes || set.notes) setData += ` - <span class="italic">"${set.userNotes || set.notes}"</span>`; detailsHTML += `${setData}</li>`; }); detailsHTML += `</ul></div>`; }); detailsDiv.innerHTML = detailsHTML; } }
 
             // --- Template Screen Logic ---
-            function renderTemplateLibrary() { templateLibraryList.innerHTML = ''; const searchTerm = searchTemplatesInput ? searchTemplatesInput.value.toLowerCase() : ""; const filteredTemplates = workoutTemplates.filter(t => t.name.toLowerCase().includes(searchTerm)).sort((a, b) => new Date(b.dateCreated) - new Date(a.dateCreated)); if (filteredTemplates.length === 0) noTemplatesMessage.style.display = 'block'; else { noTemplatesMessage.style.display = 'none'; filteredTemplates.forEach(template => { const item = document.createElement('div'); item.className = 'list-item p-3 rounded-lg cursor-pointer'; item.dataset.templateId = template.id; item.innerHTML = `<h3 class="text-md font-medium text-white mb-1">${template.name}</h3><p class="text-xs text-neutral-400">${template.exercises.length} exercises - Created: ${formatDate(template.dateCreated)}</p><p class="text-xs text-neutral-500 truncate">Preview: ${template.exercises.slice(0, 3).join(', ')}${template.exercises.length > 3 ? '...' : ''}</p>`; item.addEventListener('click', () => openTemplateDetailsModal(template.id)); templateLibraryList.appendChild(item); }); } }
-            function showTemplateCreationScreen(templateToEdit = null) { switchScreen('templateCreation'); saveTemplateError.textContent = ''; templateNameError.textContent = ''; if (templateToEdit) { templateCreationTitle.textContent = "Edit Template"; editingTemplateIdInput.value = templateToEdit.id; templateNameInput.value = templateToEdit.name; currentTemplateBuilder = { ...templateToEdit, exercises: [...templateToEdit.exercises] }; } else { templateCreationTitle.textContent = "Create New Template"; editingTemplateIdInput.value = ''; templateNameInput.value = ''; currentTemplateBuilder = { id: `template_${Date.now()}`, name: '', exercises: [], dateCreated: getTodayDateString() }; } templateNameInput.dispatchEvent(new Event('input')); renderTemplateExercisesList(); }
-            function addExerciseToCurrentTemplateBuilder(exerciseName) { if (currentTemplateBuilder && !currentTemplateBuilder.exercises.includes(exerciseName)) { currentTemplateBuilder.exercises.push(exerciseName); renderTemplateExercisesList(); } }
-            function renderTemplateExercisesList() { templateExercisesListDiv.innerHTML = ''; noTemplateExercisesMessage.style.display = (!currentTemplateBuilder || currentTemplateBuilder.exercises.length === 0) ? 'block' : 'none'; if (currentTemplateBuilder && currentTemplateBuilder.exercises.length > 0) { currentTemplateBuilder.exercises.forEach((exName, index) => { const item = document.createElement('div'); item.className = 'flex justify-between items-center p-2 list-item rounded-md'; item.innerHTML = `<span class="text-sm text-white">${exName}</span><div class="space-x-1"><button class="template-exercise-move-up button tonal-button button-small p-1 ${index === 0 ? 'opacity-50 cursor-not-allowed' : ''}" data-index="${index}" ${index === 0 ? 'disabled' : ''} title="Move Up">↑</button><button class="template-exercise-move-down button tonal-button button-small p-1 ${index === currentTemplateBuilder.exercises.length - 1 ? 'opacity-50 cursor-not-allowed' : ''}" data-index="${index}" ${index === currentTemplateBuilder.exercises.length - 1 ? 'disabled' : ''} title="Move Down">↓</button><button class="template-exercise-remove button destructive-button button-small p-1" data-index="${index}" title="Remove">X</button></div>`; templateExercisesListDiv.appendChild(item); }); attachTemplateExerciseListListeners(); } }
-            function attachTemplateExerciseListListeners() { templateExercisesListDiv.querySelectorAll('.template-exercise-remove').forEach(btn => { btn.onclick = (e) => { const index = parseInt(e.currentTarget.dataset.index); currentTemplateBuilder.exercises.splice(index, 1); renderTemplateExercisesList(); }; }); templateExercisesListDiv.querySelectorAll('.template-exercise-move-up').forEach(btn => { btn.onclick = (e) => { const index = parseInt(e.currentTarget.dataset.index); if (index > 0) { [currentTemplateBuilder.exercises[index], currentTemplateBuilder.exercises[index - 1]] = [currentTemplateBuilder.exercises[index - 1], currentTemplateBuilder.exercises[index]]; renderTemplateExercisesList(); } }; }); templateExercisesListDiv.querySelectorAll('.template-exercise-move-down').forEach(btn => { btn.onclick = (e) => { const index = parseInt(e.currentTarget.dataset.index); if (index < currentTemplateBuilder.exercises.length - 1) { [currentTemplateBuilder.exercises[index], currentTemplateBuilder.exercises[index + 1]] = [currentTemplateBuilder.exercises[index + 1], currentTemplateBuilder.exercises[index]]; renderTemplateExercisesList(); } }; }); }
-            function openTemplateDetailsModal(templateId) { const template = workoutTemplates.find(t => t.id === templateId); if (!template) return; currentViewingTemplateId = templateId; templateDetailsName.textContent = template.name; templateDetailsDate.textContent = formatDate(template.dateCreated); templateDetailsExerciseCount.textContent = template.exercises.length; templateDetailsExerciseList.innerHTML = template.exercises.map(ex => `<li class="text-sm">${ex}</li>`).join(''); showModal(templateDetailsModal); }
+            function renderTemplateLibrary() { templateLibraryList.innerHTML = ''; const searchTerm = searchTemplatesInput ? searchTemplatesInput.value.toLowerCase() : ""; const filteredTemplates = workoutTemplates.filter(t => t.name.toLowerCase().includes(searchTerm)).sort((a, b) => new Date(b.dateCreated) - new Date(a.dateCreated)); if (filteredTemplates.length === 0) { noTemplatesMessage.style.display = 'block'; templateLibraryList.innerHTML = '<p class="text-neutral-400 text-sm text-center">No templates found. Create one!</p>'; } else { noTemplatesMessage.style.display = 'none'; filteredTemplates.forEach(template => { const item = document.createElement('div'); item.className = 'list-item p-3 rounded-lg cursor-pointer'; item.dataset.templateId = template.id; let exercisePreview = "No exercises"; if (template.exercises && template.exercises.length > 0) { exercisePreview = template.exercises.map(e => e.name).slice(0, 3).join(', ') + (template.exercises.length > 3 ? '...' : ''); } item.innerHTML = `<h3 class="text-md font-medium text-white mb-1">${template.name}</h3><p class="text-xs text-neutral-400">${template.exercises ? template.exercises.length : 0} exercises - Created: ${formatDate(template.dateCreated)}</p><p class="text-xs text-neutral-500 truncate">Preview: ${exercisePreview}</p>`; item.addEventListener('click', () => openTemplateDetailsModal(template.id)); templateLibraryList.appendChild(item); }); } }
+            function showTemplateCreationScreen(templateToEdit = null) {
+                switchScreen('templateCreation'); saveTemplateError.textContent = ''; templateNameError.textContent = ''; if (templateToEdit) {
+                    templateCreationTitle.textContent = "Edit Template"; editingTemplateIdInput.value = templateToEdit.id; templateNameInput.value = templateToEdit.name; currentTemplateBuilder = JSON.parse(JSON.stringify(templateToEdit)); // Deep copy
+                } else { templateCreationTitle.textContent = "Create New Template"; editingTemplateIdInput.value = ''; templateNameInput.value = ''; currentTemplateBuilder = { id: `template_${Date.now()}`, name: '', exercises: [], dateCreated: getTodayDateString() }; } templateNameInput.dispatchEvent(new Event('input')); renderTemplateExercisesList();
+            }
+
+            function addExerciseToCurrentTemplateBuilder(exerciseName) {
+                if (currentTemplateBuilder && !currentTemplateBuilder.exercises.find(ex => ex.name === exerciseName)) {
+                    currentTemplateBuilder.exercises.push({ name: exerciseName, sets: [] }); // Add as object with empty sets array
+                    renderTemplateExercisesList();
+                }
+            }
+
+            function renderTemplateExercisesList() {
+                templateExercisesListDiv.innerHTML = '';
+                noTemplateExercisesMessage.style.display = (!currentTemplateBuilder || !currentTemplateBuilder.exercises || currentTemplateBuilder.exercises.length === 0) ? 'block' : 'none';
+
+                if (currentTemplateBuilder && currentTemplateBuilder.exercises && currentTemplateBuilder.exercises.length > 0) {
+                    currentTemplateBuilder.exercises.forEach((exercise, exerciseIndex) => {
+                        const exerciseCard = document.createElement('div');
+                        exerciseCard.className = 'list-item template-exercise-card p-3 rounded-lg mb-3'; // Added mb-3 for spacing
+                        exerciseCard.dataset.exerciseIndex = exerciseIndex;
+
+                        let setsHTML = '<div class="space-y-2 mt-2">';
+                        if (exercise.sets && exercise.sets.length > 0) {
+                            exercise.sets.forEach((set, setIndex) => {
+                                setsHTML += `
+                                    <div class="template-set-item flex justify-between items-center">
+                                        <div>
+                                            <p><strong class="capitalize">${set.type} Set:</strong> <span class="value">${set.suggestedReps || 'N/A'} reps</span> @ <span class="value">${set.suggestedWeight || 'N/A'}</span></p>
+                                            <p><strong>Rest:</strong> <span class="value">${set.suggestedRest || 'N/A'}s</span></p>
+                                            ${set.notes ? `<p class="text-xs italic text-neutral-400">Note: ${set.notes}</p>` : ''}
+                                        </div>
+                                        <div class="space-x-1">
+                                            <button class="edit-template-set-btn button tonal-button button-small p-1" data-exercise-index="${exerciseIndex}" data-set-index="${setIndex}" title="Edit Set">✎</button>
+                                            <button class="remove-template-set-btn button destructive-button button-small p-1" data-exercise-index="${exerciseIndex}" data-set-index="${setIndex}" title="Remove Set">X</button>
+                                        </div>
+                                    </div>`;
+                            });
+                        } else {
+                            setsHTML += '<p class="text-xs text-neutral-400 italic">No sets defined for this exercise.</p>';
+                        }
+                        setsHTML += '</div>';
+
+                        exerciseCard.innerHTML = `
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-md font-medium text-white">${exercise.name}</h4>
+                                <button class="remove-exercise-from-template-btn button destructive-button button-small p-1" data-exercise-index="${exerciseIndex}" title="Remove Exercise from Template">Remove Exercise</button>
+                            </div>
+                            ${setsHTML}
+                            <button class="add-set-to-template-exercise-btn w-full button tonal-button button-small mt-3" data-exercise-index="${exerciseIndex}">Add Set to ${exercise.name}</button>
+                        `;
+                        templateExercisesListDiv.appendChild(exerciseCard);
+                    });
+                }
+                attachTemplateExerciseListListeners(); // Re-attach listeners
+            }
+
+
+            function attachTemplateExerciseListListeners() {
+                templateExercisesListDiv.querySelectorAll('.remove-exercise-from-template-btn').forEach(btn => {
+                    btn.onclick = (e) => {
+                        const exerciseIndex = parseInt(e.currentTarget.dataset.exerciseIndex);
+                        currentTemplateBuilder.exercises.splice(exerciseIndex, 1);
+                        renderTemplateExercisesList();
+                    };
+                });
+                templateExercisesListDiv.querySelectorAll('.add-set-to-template-exercise-btn').forEach(btn => {
+                    btn.onclick = (e) => {
+                        const exerciseIndex = parseInt(e.currentTarget.dataset.exerciseIndex);
+                        openTemplateSetModal(exerciseIndex); // Pass exercise index, no set index for new set
+                    };
+                });
+                templateExercisesListDiv.querySelectorAll('.edit-template-set-btn').forEach(btn => {
+                    btn.onclick = (e) => {
+                        const exerciseIndex = parseInt(e.currentTarget.dataset.exerciseIndex);
+                        const setIndex = parseInt(e.currentTarget.dataset.setIndex);
+                        openTemplateSetModal(exerciseIndex, setIndex);
+                    };
+                });
+                templateExercisesListDiv.querySelectorAll('.remove-template-set-btn').forEach(btn => {
+                    btn.onclick = (e) => {
+                        const exerciseIndex = parseInt(e.currentTarget.dataset.exerciseIndex);
+                        const setIndex = parseInt(e.currentTarget.dataset.setIndex);
+                        currentTemplateBuilder.exercises[exerciseIndex].sets.splice(setIndex, 1);
+                        renderTemplateExercisesList();
+                    };
+                });
+            }
+
+            function openTemplateSetModal(exerciseIndex, setIndex = -1) { // setIndex -1 for new set
+                editingTemplateExerciseIndexInput.value = exerciseIndex;
+                editingTemplateSetIndexInput.value = setIndex;
+                templateSetError.textContent = '';
+
+                if (setIndex > -1 && currentTemplateBuilder.exercises[exerciseIndex] && currentTemplateBuilder.exercises[exerciseIndex].sets[setIndex]) {
+                    const set = currentTemplateBuilder.exercises[exerciseIndex].sets[setIndex];
+                    templateSetModalTitle.textContent = `Edit Set for ${currentTemplateBuilder.exercises[exerciseIndex].name}`;
+                    templateSetTypeInput.value = set.type || 'working';
+                    templateSetRepsInput.value = set.suggestedReps || '';
+                    templateSetWeightInput.value = set.suggestedWeight || '';
+                    templateSetRestInput.value = set.suggestedRest || '';
+                    templateSetNotesInput.value = set.notes || '';
+                } else {
+                    templateSetModalTitle.textContent = `Add New Set to ${currentTemplateBuilder.exercises[exerciseIndex].name}`;
+                    templateSetTypeInput.value = 'working';
+                    templateSetRepsInput.value = '';
+                    templateSetWeightInput.value = '';
+                    templateSetRestInput.value = '';
+                    templateSetNotesInput.value = '';
+                }
+                showModal(templateSetModal);
+            }
+
+
+            function openTemplateDetailsModal(templateId) {
+                const template = workoutTemplates.find(t => t.id === templateId);
+                if (!template) return;
+                currentViewingTemplateId = templateId;
+                templateDetailsName.textContent = template.name;
+                templateDetailsDate.textContent = formatDate(template.dateCreated);
+                templateDetailsExerciseCount.textContent = template.exercises ? template.exercises.length : 0;
+
+                let exerciseListHTML = '';
+                if (template.exercises && template.exercises.length > 0) {
+                    template.exercises.forEach(ex => {
+                        exerciseListHTML += `<li class="text-sm mb-2"><strong class="text-neutral-100">${ex.name}</strong>`;
+                        if (ex.sets && ex.sets.length > 0) {
+                            exerciseListHTML += `<ul class="list-disc pl-5 text-xs text-neutral-300">`;
+                            ex.sets.forEach(set => {
+                                exerciseListHTML += `<li>${set.type || 'Set'}: ${set.suggestedReps || 'N/A'} @ ${set.suggestedWeight || 'N/A'}, Rest: ${set.suggestedRest || 'N/A'}s ${set.notes ? `(${set.notes})` : ''}</li>`;
+                            });
+                            exerciseListHTML += `</ul>`;
+                        } else {
+                            exerciseListHTML += `<p class="text-xs text-neutral-400 italic pl-5">No sets defined.</p>`;
+                        }
+                        exerciseListHTML += `</li>`;
+                    });
+                } else {
+                    exerciseListHTML = '<li class="text-sm text-neutral-400 italic">No exercises in this template.</li>';
+                }
+                templateDetailsExerciseList.innerHTML = exerciseListHTML;
+                showModal(templateDetailsModal);
+            }
+
 
             // --- Nutrition Screen (Continued) ---
             function handleDailyNutritionReset() { const today = getTodayDateString(); if (nutritionLogDateSpan) nutritionLogDateSpan.textContent = `Date: ${formatDate(today)}`; const lastOpenedDate = localStorage.getItem('fitnessApp_lastNutritionDate'); if (lastOpenedDate !== today) { clearNutritionInputs(); tempDailyLoggedFoods = []; renderTempDailyLoggedFoods(); localStorage.setItem('fitnessApp_lastNutritionDate', today); if (lastOpenedDate) displayTemporaryMessage(nutritionMessage, "New day. Nutrition log reset.", 'success', 4000); } }
@@ -1393,7 +1872,7 @@
             // --- Event Listener Initialization ---
             function initializeAppEventListeners() {
                 navItems.forEach(item => item.addEventListener('click', () => { const targetScreenKey = item.dataset.tab.replace('Tab', '').toLowerCase(); switchScreen(targetScreenKey); }));
-                if (startNewWorkoutBtn) startNewWorkoutBtn.addEventListener('click', () => startNewWorkoutSession());
+                if (startNewWorkoutBtn) startNewWorkoutBtn.addEventListener('click', () => startNewWorkoutSession()); // Pass null for no template
                 if (viewWorkoutHistoryBtn) viewWorkoutHistoryBtn.addEventListener('click', () => switchScreen('workoutHistory'));
                 if (resumeWorkoutBtn) resumeWorkoutBtn.addEventListener('click', () => { if (currentWorkout) { workoutDateInput.value = currentWorkout.date; workoutStartTimeInput.value = currentWorkout.startTime; currentDateTimeSpan.textContent = `Resumed: ${formatDate(currentWorkout.date)} ${currentWorkout.startTime}`; switchScreen('activeWorkout'); renderCurrentWorkoutExercises(); startWorkoutTimer(); } });
                 if (backToWorkoutsDashboardBtn) backToWorkoutsDashboardBtn.addEventListener('click', () => switchScreen('workouts'));
@@ -1402,16 +1881,47 @@
                 if (cancelWorkoutBtn) cancelWorkoutBtn.addEventListener('click', () => { showConfirmation("Cancel Workout", "Are you sure you want to cancel? All unsaved progress for this workout will be lost.", () => { currentWorkout = null; saveData(); switchScreen('workouts'); if (saveWorkoutError) saveWorkoutError.textContent = ''; stopWorkoutTimer(); resetWorkoutTimerDisplay(); }); });
                 if (saveCurrentWorkoutAsTemplateBtn) saveCurrentWorkoutAsTemplateBtn.addEventListener('click', () => { if (!currentWorkout || currentWorkout.exercises.length === 0) { displayTemporaryMessage(workoutDashboardMessage, "Add exercises to the current workout first.", 'error'); return; } saveAsTemplateNameInput.value = `My Workout - ${formatDate(getTodayDateString())}`; saveAsTemplateNameInput.dispatchEvent(new Event('input')); saveAsTemplateExercisePreview.innerHTML = currentWorkout.exercises.map(ex => `<li>${ex.name}</li>`).join(''); saveAsTemplateNameError.textContent = ''; saveAsTemplateError.textContent = ''; showModal(saveAsTemplateModal); });
                 currentWorkoutExercisesDiv.addEventListener('click', function (e) { const target = e.target.closest('button'); if (!target) return; if (handleWorkoutAddSet(target)) return; if (handleWorkoutRemoveExercise(target)) return; if (handleWorkoutSetActions(target)) return; });
-                currentWorkoutExercisesDiv.addEventListener('input', function (e) { const target = e.target; const setItem = target.closest('.exercise-set-item'); if (!setItem) return; const exerciseIndex = parseInt(setItem.dataset.exerciseIndex); const setIndex = parseInt(setItem.dataset.setIndex); if (!currentWorkout || !currentWorkout.exercises[exerciseIndex] || !Array.isArray(currentWorkout.exercises[exerciseIndex].sets) || !currentWorkout.exercises[exerciseIndex].sets[setIndex]) { console.error("Data inconsistency in set input event."); return; } const set = currentWorkout.exercises[exerciseIndex].sets[setIndex]; if (target.classList.contains('reps-input')) set.reps = target.value; else if (target.classList.contains('weight-input')) set.weight = target.value; else if (target.classList.contains('notes-text-input')) { set.notes = target.value.substring(0, 50); target.value = set.notes; } validateSetInputs(exerciseIndex, setIndex); updateExerciseSummaryStats(exerciseIndex); saveData(); updateSaveWorkoutButtonState(); });
+                currentWorkoutExercisesDiv.addEventListener('input', function (e) { const target = e.target; const setItem = target.closest('.exercise-set-item'); if (!setItem) return; const exerciseIndex = parseInt(setItem.dataset.exerciseIndex); const setIndex = parseInt(setItem.dataset.setIndex); if (!currentWorkout || !currentWorkout.exercises[exerciseIndex] || !Array.isArray(currentWorkout.exercises[exerciseIndex].sets) || !currentWorkout.exercises[exerciseIndex].sets[setIndex]) { console.error("Data inconsistency in set input event."); return; } const set = currentWorkout.exercises[exerciseIndex].sets[setIndex]; if (target.classList.contains('reps-input')) set.actualReps = target.value; else if (target.classList.contains('weight-input')) set.actualWeight = target.value; else if (target.classList.contains('notes-text-input')) { set.userNotes = target.value.substring(0, 50); target.value = set.userNotes; } validateSetInputs(exerciseIndex, setIndex); updateExerciseSummaryStats(exerciseIndex); saveData(); updateSaveWorkoutButtonState(); });
                 if (backToWorkoutsFromHistoryBtn) backToWorkoutsFromHistoryBtn.addEventListener('click', () => switchScreen('workouts'));
                 if (searchWorkoutHistoryInput) searchWorkoutHistoryInput.addEventListener('input', debounce(renderWorkoutHistory, 300));
                 if (fabCreateTemplate) fabCreateTemplate.addEventListener('click', () => showTemplateCreationScreen());
                 if (searchTemplatesInput) searchTemplatesInput.addEventListener('input', debounce(renderTemplateLibrary, 300));
                 if (backToTemplatesFromCreateBtn) backToTemplatesFromCreateBtn.addEventListener('click', () => switchScreen('templates'));
                 if (templateAddExerciseBtn) templateAddExerciseBtn.addEventListener('click', () => { currentExerciseAddContext = 'template'; addExerciseModalTitle.textContent = "Add Exercise to Template"; exerciseSearchInput.value = ''; renderExerciseDatabaseForModal(); showModal(addExerciseModal); exerciseSearchInput.focus(); });
-                if (saveTemplateBtn) saveTemplateBtn.addEventListener('click', () => { const name = templateNameInput.value.trim(); const isEditing = !!editingTemplateIdInput.value; const idToCheck = isEditing ? editingTemplateIdInput.value : null; templateNameError.textContent = ''; saveTemplateError.textContent = ''; if (!name) { templateNameError.textContent = "Template name is required."; return; } if (name.length > 50) { templateNameError.textContent = "Name cannot exceed 50 characters."; return; } if (workoutTemplates.some(t => t.name.toLowerCase() === name.toLowerCase() && t.id !== idToCheck)) { templateNameError.textContent = "A template with this name already exists."; return; } if (!currentTemplateBuilder || currentTemplateBuilder.exercises.length === 0) { saveTemplateError.textContent = "Add at least one exercise to the template."; return; } currentTemplateBuilder.name = name; if (isEditing) { const index = workoutTemplates.findIndex(t => t.id === currentTemplateBuilder.id); if (index !== -1) workoutTemplates[index] = { ...currentTemplateBuilder }; } else workoutTemplates.unshift({ ...currentTemplateBuilder }); saveData(); displayTemporaryMessage(screens.templates.querySelector('header'), `Template "${name}" saved!`, 'success'); switchScreen('templates'); });
+                if (saveTemplateBtn) saveTemplateBtn.addEventListener('click', () => { const name = templateNameInput.value.trim(); const isEditing = !!editingTemplateIdInput.value; const idToCheck = isEditing ? editingTemplateIdInput.value : null; templateNameError.textContent = ''; saveTemplateError.textContent = ''; if (!name) { templateNameError.textContent = "Template name is required."; return; } if (name.length > 50) { templateNameError.textContent = "Name cannot exceed 50 characters."; return; } if (workoutTemplates.some(t => t.name.toLowerCase() === name.toLowerCase() && t.id !== idToCheck)) { templateNameError.textContent = "A template with this name already exists."; return; } if (!currentTemplateBuilder || !currentTemplateBuilder.exercises || currentTemplateBuilder.exercises.length === 0) { saveTemplateError.textContent = "Add at least one exercise to the template."; return; } const hasAtLeastOneSet = currentTemplateBuilder.exercises.some(ex => ex.sets && ex.sets.length > 0); if (!hasAtLeastOneSet) { saveTemplateError.textContent = "Each exercise in the template must have at least one set defined."; return; } currentTemplateBuilder.name = name; currentTemplateBuilder.dateCreated = getTodayDateString(); if (isEditing) { const index = workoutTemplates.findIndex(t => t.id === currentTemplateBuilder.id); if (index !== -1) workoutTemplates[index] = { ...currentTemplateBuilder }; else workoutTemplates.unshift({ ...currentTemplateBuilder }); /* Safety if ID somehow got lost */ } else workoutTemplates.unshift({ ...currentTemplateBuilder }); saveData(); displayTemporaryMessage(screens.templates.querySelector('header'), `Template "${name}" saved!`, 'success'); switchScreen('templates'); });
                 if (cancelTemplateCreationBtn) cancelTemplateCreationBtn.addEventListener('click', () => switchScreen('templates'));
                 if (templateNameInput) templateNameInput.addEventListener('input', () => { if (templateNameCharCounter) templateNameCharCounter.textContent = `${templateNameInput.value.length}/50`; });
+
+                // Template Set Modal Listeners
+                if (closeTemplateSetModalBtn) closeTemplateSetModalBtn.addEventListener('click', () => closeModal(templateSetModal));
+                if (saveTemplateSetBtn) saveTemplateSetBtn.addEventListener('click', () => {
+                    const exIndex = parseInt(editingTemplateExerciseIndexInput.value);
+                    let setIndex = parseInt(editingTemplateSetIndexInput.value);
+
+                    const type = templateSetTypeInput.value;
+                    const reps = templateSetRepsInput.value.trim();
+                    const weight = templateSetWeightInput.value.trim();
+                    const rest = parseInt(templateSetRestInput.value);
+                    const notes = templateSetNotesInput.value.trim();
+
+                    if (!reps) { templateSetError.textContent = "Suggested reps are required."; return; }
+                    // Add more validation as needed (e.g., for rest time being a number)
+                    if (isNaN(rest) && templateSetRestInput.value) { templateSetError.textContent = "Rest time must be a number (seconds)."; return; }
+
+
+                    templateSetError.textContent = '';
+
+                    const newSetData = { type, suggestedReps: reps, suggestedWeight: weight, suggestedRest: isNaN(rest) ? '' : rest, notes };
+
+                    if (setIndex > -1) { // Editing existing set
+                        currentTemplateBuilder.exercises[exIndex].sets[setIndex] = newSetData;
+                    } else { // Adding new set
+                        currentTemplateBuilder.exercises[exIndex].sets.push(newSetData);
+                    }
+                    renderTemplateExercisesList();
+                    closeModal(templateSetModal);
+                });
+
 
                 [caloriesInput, proteinInput, carbsInput, fatsInput, targetProteinInput, targetCarbsInput, targetFatsInput].forEach(input => {
                     if (input) input.addEventListener('input', updateNutritionDisplay);
@@ -1445,7 +1955,7 @@
                 if (logFromLibraryBtn) logFromLibraryBtn.addEventListener('click', () => { renderCustomFoodsForLoggingModal(); selectedFoodForLoggingDetailsDiv.style.display = 'none'; foodToLog = null; numServingsInput.value = 1; logCustomFoodError.textContent = ''; showModal(logCustomFoodModal); searchLogCustomFoodInput.value = ''; searchLogCustomFoodInput.focus(); });
                 if (closeExerciseModalBtn) closeExerciseModalBtn.addEventListener('click', () => closeModal(addExerciseModal));
                 if (exerciseSearchInput) exerciseSearchInput.addEventListener('input', debounce(renderExerciseDatabaseForModal, 300));
-                if (addCustomExerciseToListBtn) addCustomExerciseToListBtn.addEventListener('click', () => { const userInputName = customExerciseNameInput.value.trim(); if (!userInputName) { if (customExerciseNameModalError) displayTemporaryMessage(customExerciseNameModalError, "Exercise name is required.", 'error', 3000); customExerciseNameInput.focus(); return; } if (customExerciseNameModalError) customExerciseNameModalError.textContent = ''; let finalExerciseName = userInputName; let foundInPredefined = false; let foundInCustomDb = false; for (const groupKey in exerciseDatabase) { if (groupKey === "Custom") continue; const groupArray = exerciseDatabase[groupKey]; if (Array.isArray(groupArray)) { const predefinedMatch = groupArray.find(ex => ex.toLowerCase() === userInputName.toLowerCase()); if (predefinedMatch) { finalExerciseName = predefinedMatch; foundInPredefined = true; break; } } } if (!foundInPredefined) { const customMatch = exerciseDatabase.Custom.find(ex => ex.toLowerCase() === userInputName.toLowerCase()); if (customMatch) { finalExerciseName = customMatch; foundInCustomDb = true; } } if (!foundInPredefined && !foundInCustomDb) { exerciseDatabase.Custom.push(userInputName); saveData(); } if (currentExerciseAddContext === 'workout') addExerciseToCurrentWorkout(finalExerciseName); else if (currentExerciseAddContext === 'template') addExerciseToCurrentTemplateBuilder(finalExerciseName); customExerciseNameInput.value = ''; closeModal(addExerciseModal); });
+                if (addCustomExerciseToListBtn) addCustomExerciseToListBtn.addEventListener('click', () => { const userInputName = customExerciseNameInput.value.trim(); if (!userInputName) { if (customExerciseNameModalError) displayTemporaryMessage(customExerciseNameModalError, "Exercise name is required.", 'error', 3000); customExerciseNameInput.focus(); return; } if (customExerciseNameModalError) customExerciseNameModalError.textContent = ''; let finalExerciseName = userInputName; let foundInPredefined = false; let foundInCustomDb = false; for (const groupKey in exerciseDatabase) { if (groupKey === "Custom") continue; const groupArray = exerciseDatabase[groupKey]; if (Array.isArray(groupArray)) { const predefinedMatch = groupArray.find(ex => ex.toLowerCase() === userInputName.toLowerCase()); if (predefinedMatch) { finalExerciseName = predefinedMatch; foundInPredefined = true; break; } } } if (!foundInPredefined) { const customMatch = exerciseDatabase.Custom.find(ex => ex.toLowerCase() === userInputName.toLowerCase()); if (customMatch) { finalExerciseName = customMatch; foundInCustomDb = true; } } if (!foundInPredefined && !foundInCustomDb) { exerciseDatabase.Custom.push(userInputName); saveData(); } if (currentExerciseAddContext === 'workout') { addExerciseToCurrentWorkout(finalExerciseName); } else if (currentExerciseAddContext === 'template') { addExerciseToCurrentTemplateBuilder(finalExerciseName); } customExerciseNameInput.value = ''; closeModal(addExerciseModal); });
                 if (closeCustomFoodModalBtn) closeCustomFoodModalBtn.addEventListener('click', () => closeModal(customFoodModal));
                 if (saveCustomFoodBtn) saveCustomFoodBtn.addEventListener('click', () => { let isValid = true; const foodNameVal = foodNameInput.value.trim(); if (!foodNameVal) { foodNameError.textContent = "Food name is required."; foodNameInput.classList.add('invalid'); isValid = false; } else { foodNameError.textContent = ""; foodNameInput.classList.remove('invalid'); } isValid &= validateNutritionInput(foodCaloriesInput, foodCaloriesError, 0, 99999, false, false, "Calories"); isValid &= validateNutritionInput(foodProteinInput, foodProteinError, 0, 9999, false, true, "Protein"); isValid &= validateNutritionInput(foodCarbsInput, foodCarbsError, 0, 9999, false, true, "Carbs"); isValid &= validateNutritionInput(foodFatsInput, foodFatsError, 0, 9999, false, true, "Fats"); if (!isValid) { customFoodSaveError.textContent = "Please correct the errors in the form."; return; } customFoodSaveError.textContent = ""; const foodItem = { id: foodEditingIdInput.value || `food_${Date.now()}`, name: foodNameVal, servingSize: foodServingSizeInput.value.trim() || "1 serving", calories: parseFloat(foodCaloriesInput.value) || 0, protein: parseFloat(foodProteinInput.value) || 0, carbs: parseFloat(foodCarbsInput.value) || 0, fats: parseFloat(foodFatsInput.value) || 0 }; if (foodEditingIdInput.value) { const index = customFoods.findIndex(f => f.id === foodEditingIdInput.value); if (index > -1) customFoods[index] = foodItem; } else customFoods.unshift(foodItem); saveData(); renderCustomFoodLibrary(); closeModal(customFoodModal); displayTemporaryMessage(nutritionMessage, `"${foodItem.name}" saved to library.`, 'success'); });
                 if (closeLogCustomFoodModalBtn) closeLogCustomFoodModalBtn.addEventListener('click', () => closeModal(logCustomFoodModal));
@@ -1456,12 +1966,12 @@
                 if (closeSaveAsTemplateModalBtn) closeSaveAsTemplateModalBtn.addEventListener('click', () => closeModal(saveAsTemplateModal));
                 if (cancelSaveAsTemplateBtn) cancelSaveAsTemplateBtn.addEventListener('click', () => closeModal(saveAsTemplateModal));
                 if (saveAsTemplateNameInput) saveAsTemplateNameInput.addEventListener('input', () => { if (saveAsTemplateNameCharCounter) saveAsTemplateNameCharCounter.textContent = `${saveAsTemplateNameInput.value.length}/50`; });
-                if (confirmSaveAsTemplateBtn) confirmSaveAsTemplateBtn.addEventListener('click', () => { const name = saveAsTemplateNameInput.value.trim(); saveAsTemplateNameError.textContent = ''; saveAsTemplateError.textContent = ''; if (!name) { saveAsTemplateNameError.textContent = "Template name is required."; return; } if (name.length > 50) { saveAsTemplateNameError.textContent = "Name cannot exceed 50 characters."; return; } if (workoutTemplates.some(t => t.name.toLowerCase() === name.toLowerCase())) { saveAsTemplateNameError.textContent = "A template with this name already exists."; return; } const newTemplate = { id: `template_${Date.now()}`, name, exercises: currentWorkout.exercises.map(ex => ex.name), dateCreated: getTodayDateString() }; workoutTemplates.unshift(newTemplate); saveData(); closeModal(saveAsTemplateModal); displayTemporaryMessage(workoutDashboardMessage, `Template "${name}" saved!`, 'success'); if (activeScreenKey === 'templates') renderTemplateLibrary(); });
+                if (confirmSaveAsTemplateBtn) confirmSaveAsTemplateBtn.addEventListener('click', () => { const name = saveAsTemplateNameInput.value.trim(); saveAsTemplateNameError.textContent = ''; saveAsTemplateError.textContent = ''; if (!name) { saveAsTemplateNameError.textContent = "Template name is required."; return; } if (name.length > 50) { saveAsTemplateNameError.textContent = "Name cannot exceed 50 characters."; return; } if (workoutTemplates.some(t => t.name.toLowerCase() === name.toLowerCase())) { saveAsTemplateNameError.textContent = "A template with this name already exists."; return; } const newTemplate = { id: `template_${Date.now()}`, name, exercises: currentWorkout.exercises.map(ex => ({ name: ex.name, sets: ex.sets.map(s => ({ type: s.type || 'working', suggestedReps: s.actualReps || s.suggestedReps, suggestedWeight: s.actualWeight || s.suggestedWeight, suggestedRest: s.suggestedRest || 60, notes: s.userNotes || s.notes })) })), dateCreated: getTodayDateString() }; workoutTemplates.unshift(newTemplate); saveData(); closeModal(saveAsTemplateModal); displayTemporaryMessage(workoutDashboardMessage, `Template "${name}" saved!`, 'success'); if (activeScreenKey === 'templates') renderTemplateLibrary(); });
                 if (closeTemplateDetailsModalBtn) closeTemplateDetailsModalBtn.addEventListener('click', () => closeModal(templateDetailsModal));
-                if (startWorkoutFromTemplateBtn) startWorkoutFromTemplateBtn.addEventListener('click', () => { if (!currentViewingTemplateId) return; const template = workoutTemplates.find(t => t.id === currentViewingTemplateId); if (template) { closeModal(templateDetailsModal); startNewWorkoutSession(template.exercises); } });
+                if (startWorkoutFromTemplateBtn) startWorkoutFromTemplateBtn.addEventListener('click', () => { if (!currentViewingTemplateId) return; const template = workoutTemplates.find(t => t.id === currentViewingTemplateId); if (template) { closeModal(templateDetailsModal); startNewWorkoutSession(template); } });
                 if (editTemplateFromDetailsBtn) editTemplateFromDetailsBtn.addEventListener('click', () => { if (!currentViewingTemplateId) return; const template = workoutTemplates.find(t => t.id === currentViewingTemplateId); if (template) { closeModal(templateDetailsModal); showTemplateCreationScreen(template); } });
                 if (deleteTemplateFromDetailsBtn) deleteTemplateFromDetailsBtn.addEventListener('click', () => { if (!currentViewingTemplateId) return; const template = workoutTemplates.find(t => t.id === currentViewingTemplateId); if (template) showConfirmation("Delete Template", `Are you sure you want to delete the template "${template.name}"? This cannot be undone.`, () => { workoutTemplates = workoutTemplates.filter(t => t.id !== template.id); saveData(); closeModal(templateDetailsModal); renderTemplateLibrary(); displayTemporaryMessage(screens.templates.querySelector('header'), `Template "${template.name}" deleted.`, 'success'); }); });
-                if (duplicateTemplateFromDetailsBtn) duplicateTemplateFromDetailsBtn.addEventListener('click', () => { if (!currentViewingTemplateId) return; const originalTemplate = workoutTemplates.find(t => t.id === currentViewingTemplateId); if (originalTemplate) { let newName = `Copy of ${originalTemplate.name}`; let counter = 1; while (workoutTemplates.some(t => t.name.toLowerCase() === newName.toLowerCase())) { counter++; newName = `Copy of ${originalTemplate.name} (${counter})`; } const newTemplate = { ...originalTemplate, id: `template_${Date.now()}`, name: newName, dateCreated: getTodayDateString() }; workoutTemplates.unshift(newTemplate); saveData(); closeModal(templateDetailsModal); showTemplateCreationScreen(newTemplate); displayTemporaryMessage(screens.templateCreation.querySelector('header'), `Template duplicated. You are now editing the copy.`, 'success', 5000); } });
+                if (duplicateTemplateFromDetailsBtn) duplicateTemplateFromDetailsBtn.addEventListener('click', () => { if (!currentViewingTemplateId) return; const originalTemplate = workoutTemplates.find(t => t.id === currentViewingTemplateId); if (originalTemplate) { let newName = `Copy of ${originalTemplate.name}`; let counter = 1; while (workoutTemplates.some(t => t.name.toLowerCase() === newName.toLowerCase())) { counter++; newName = `Copy of ${originalTemplate.name} (${counter})`; } const newTemplate = JSON.parse(JSON.stringify(originalTemplate)); newTemplate.id = `template_${Date.now()}`; newTemplate.name = newName; newTemplate.dateCreated = getTodayDateString(); workoutTemplates.unshift(newTemplate); saveData(); closeModal(templateDetailsModal); showTemplateCreationScreen(newTemplate); displayTemporaryMessage(screens.templateCreation.querySelector('header'), `Template duplicated. You are now editing the copy.`, 'success', 5000); } });
                 if (openTdeeCalcBtn) openTdeeCalcBtn.addEventListener('click', () => { if (tdeeBmrResult) tdeeBmrResult.textContent = ''; if (tdeeMultiplierResult) tdeeMultiplierResult.textContent = ''; if (tdeeFinalResult) tdeeFinalResult.textContent = ''; if (tdeeObjectiveResult) tdeeObjectiveResult.textContent = ''; if (openMacroBuilderBtn) openMacroBuilderBtn.style.display = 'none'; showModal(tdeeCalculatorModal); });
                 if (tdeeCloseBtn) tdeeCloseBtn.addEventListener('click', () => closeModal(tdeeCalculatorModal));
                 if (calculateTdeeBtn) calculateTdeeBtn.addEventListener('click', () => {
@@ -1546,9 +2056,9 @@
                                 } else {
                                     throw new Error("Invalid JSON structure for import.");
                                 }
-                            } catch (error) { // Added catch block
+                            } catch (error) {
                                 displayTemporaryMessage(dataManagementMessage, `Import error: ${error.message}. Data not imported.`, 'error', 7000);
-                            } finally { // Added finally block
+                            } finally {
                                 importFileInput.value = null; // Clear file input regardless of success or failure
                             }
                         });
@@ -1562,9 +2072,47 @@
             }
 
             // --- Workout Set/Exercise Action Handlers (Refactored from initializeAppEventListeners) ---
-            function handleWorkoutAddSet(target) { if (target.classList.contains('add-set-btn')) { const exerciseIndex = parseInt(target.dataset.exerciseIndex); if (currentWorkout && currentWorkout.exercises[exerciseIndex]) { const exercise = currentWorkout.exercises[exerciseIndex]; const exerciseName = exercise.name; const prevData = findPreviousSetData(exerciseName, exerciseIndex); let newSet = { reps: '', weight: '', notes: '', isWarmup: false, isPR: false, isPrefilled: false, editedSincePrefill: false }; if (prevData.found) { newSet.reps = prevData.reps; newSet.weight = prevData.weight; newSet.isPrefilled = true; showSetPrefillNotification(exerciseIndex, prevData.fromSuggestion); } if (!Array.isArray(exercise.sets)) exercise.sets = []; exercise.sets.push(newSet); if (exercise.suggestedPerformance) exercise.suggestedPerformance.shown = false; saveData(); renderCurrentWorkoutExercises(); updateSaveWorkoutButtonState(); } return true; } return false; }
+            function handleWorkoutAddSet(target) {
+                if (target.classList.contains('add-set-btn') && target.dataset.context === 'active-workout') {
+                    const exerciseIndex = parseInt(target.dataset.exerciseIndex);
+                    if (currentWorkout && currentWorkout.exercises[exerciseIndex]) {
+                        const exercise = currentWorkout.exercises[exerciseIndex];
+                        // If exercise.sets is not an array (e.g. from an old workout before this change), initialize it
+                        if (!Array.isArray(exercise.sets)) {
+                            exercise.sets = [];
+                        }
+                        // For ad-hoc sets in active workout, we create a simpler structure or one that matches template sets but with empty suggestions
+                        const newAdHocSet = {
+                            type: 'working', // Default type for ad-hoc
+                            suggestedReps: '',
+                            suggestedWeight: '',
+                            suggestedRest: '',
+                            notes: '', // Template notes would be empty here
+                            actualReps: '',
+                            actualWeight: '',
+                            userNotes: '',
+                            isPR: false,
+                            isWarmup: false // Old flag, can be derived from type
+                        };
+                        exercise.sets.push(newAdHocSet);
+
+                        if (exercise.suggestedPerformance) exercise.suggestedPerformance.shown = false; // Hide general suggestion
+                        saveData();
+                        renderCurrentWorkoutExercises();
+                        updateSaveWorkoutButtonState();
+                    }
+                    return true;
+                }
+                return false;
+            }
             function handleWorkoutRemoveExercise(target) { if (target.classList.contains('remove-exercise-from-workout-btn')) { const exerciseIndex = parseInt(target.dataset.exerciseIndex); if (currentWorkout && currentWorkout.exercises[exerciseIndex]) { showConfirmation("Remove Exercise?", `Remove "${currentWorkout.exercises[exerciseIndex].name}" from this workout?`, () => { currentWorkout.exercises.splice(exerciseIndex, 1); saveData(); renderCurrentWorkoutExercises(); updateSaveWorkoutButtonState(); }); } return true; } return false; }
-            function handleWorkoutSetActions(target) { const setItem = target.closest('.exercise-set-item'); if (!setItem) return false; const exerciseIndex = parseInt(setItem.dataset.exerciseIndex); const setIndex = parseInt(setItem.dataset.setIndex); let actionPerformed = false; if (currentWorkout && currentWorkout.exercises[exerciseIndex] && Array.isArray(currentWorkout.exercises[exerciseIndex].sets) && currentWorkout.exercises[exerciseIndex].sets[setIndex]) { const currentSet = currentWorkout.exercises[exerciseIndex].sets[setIndex]; if (target.classList.contains('remove-set-btn')) { currentWorkout.exercises[exerciseIndex].sets.splice(setIndex, 1); actionPerformed = true; } else if (target.classList.contains('toggle-warmup-btn')) { currentSet.isWarmup = !currentSet.isWarmup; if (!currentSet.isWarmup && currentSet.reps && currentSet.weight) { const allHistoryForExercise = []; workouts.forEach(wo => wo.exercises.forEach(ex => { if (ex.name === currentWorkout.exercises[exerciseIndex].name) ex.sets.forEach(s => { if (!s.isWarmup && s.reps && s.weight) allHistoryForExercise.push(s); }); })); const currentPerformance = parseFloat(currentSet.reps) * parseFloat(currentSet.weight); const isNewPR = !allHistoryForExercise.some(s => (parseFloat(s.reps) * parseFloat(s.weight)) >= currentPerformance && s !== currentSet); currentSet.isPR = isNewPR; } else if (currentSet.isWarmup) currentSet.isPR = false; actionPerformed = true; } } if (actionPerformed) { saveData(); renderCurrentWorkoutExercises(); updateSaveWorkoutButtonState(); return true; } return false; }
+            function handleWorkoutSetActions(target) {
+                const setItem = target.closest('.exercise-set-item'); if (!setItem) return false; const exerciseIndex = parseInt(setItem.dataset.exerciseIndex); const setIndex = parseInt(setItem.dataset.setIndex); let actionPerformed = false; if (currentWorkout && currentWorkout.exercises[exerciseIndex] && Array.isArray(currentWorkout.exercises[exerciseIndex].sets) && currentWorkout.exercises[exerciseIndex].sets[setIndex]) {
+                    const currentSet = currentWorkout.exercises[exerciseIndex].sets[setIndex]; if (target.classList.contains('remove-set-btn')) { currentWorkout.exercises[exerciseIndex].sets.splice(setIndex, 1); actionPerformed = true; } else if (target.classList.contains('toggle-warmup-btn')) { // This might be deprecated if relying on set.type currentSet.isWarmup = !currentSet.isWarmup;
+                        if (currentSet.isWarmup) currentSet.type = 'warmup'; else if (currentSet.type === 'warmup') currentSet.type = 'working'; /* Basic toggle */ if (!currentSet.isWarmup && currentSet.actualReps && currentSet.actualWeight) { const allHistoryForExercise = []; workouts.forEach(wo => wo.exercises.forEach(ex => { if (ex.name === currentWorkout.exercises[exerciseIndex].name) ex.sets.forEach(s => { if (s.type !== 'warmup' && s.actualReps && s.actualWeight) allHistoryForExercise.push(s); }); })); const currentPerformance = parseFloat(currentSet.actualReps) * parseFloat(currentSet.actualWeight); const isNewPR = !allHistoryForExercise.some(s => (parseFloat(s.actualReps) * parseFloat(s.actualWeight)) >= currentPerformance && s !== currentSet); currentSet.isPR = isNewPR; } else if (currentSet.isWarmup) currentSet.isPR = false; actionPerformed = true;
+                    }
+                } if (actionPerformed) { saveData(); renderCurrentWorkoutExercises(); updateSaveWorkoutButtonState(); return true; } return false;
+            }
 
             // --- Macro Builder Logic ---
             function openMacroBuilderModal() {
@@ -1660,11 +2208,8 @@
                 nutritionData[today].targets.fats = parseFloat(resultFat.textContent) || 0;
                 nutritionData[today].targets.carbs = parseFloat(resultCarbs.textContent) || 0;
 
-                // Update the global TDEE in localStorage if the user accepts these calorie targets
-                // This makes the accepted calorie goal the new "TDEE" for display purposes on nutrition tab
                 localStorage.setItem('fitnessApp_userTDEE', acceptedCalories);
 
-                // Populate the target input fields on the nutrition tab
                 targetProteinInput.value = nutritionData[today].targets.protein;
                 targetCarbsInput.value = nutritionData[today].targets.carbs;
                 targetFatsInput.value = nutritionData[today].targets.fats;
@@ -1679,8 +2224,6 @@
                 targetProteinInput.value = parseFloat(resultProtein.textContent) || '';
                 targetCarbsInput.value = parseFloat(resultCarbs.textContent) || '';
                 targetFatsInput.value = parseFloat(resultFat.textContent) || '';
-                // The TDEE (which drives target calories display) is not changed here,
-                // allowing users to set custom macros against the TDEE they calculated.
                 updateNutritionDisplay();
                 closeModal(macroBuilderModal);
                 switchScreen('nutrition');

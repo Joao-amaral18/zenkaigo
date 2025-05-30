@@ -1,0 +1,1318 @@
+{
+    "workouts": [],
+    "nutritionData": {
+        "2025-05-29": {
+            "targets": {
+                "calories": 1600,
+                "protein": 200,
+                "fats": 50,
+                "carbs": 88
+            },
+            "loggedFoods": []
+        },
+        "2025-05-30": {
+            "calories": "458",
+            "protein": "62.2",
+            "carbs": "36.0",
+            "fats": "7.2",
+            "targets": {
+                "protein": "200",
+                "carbs": "188",
+                "fats": "57",
+                "calories": 2066
+            },
+            "loggedFoods": [
+                {
+                    "name": "Peito de Frango Assado (sem pele)",
+                    "servings": 2,
+                    "servingSize": "100g",
+                    "calories": 312.8,
+                    "protein": 62,
+                    "carbs": 0,
+                    "fats": 7.2
+                },
+                {
+                    "name": "Goma de Tapioca (hidratada)",
+                    "servings": 0.5,
+                    "servingSize": "100g",
+                    "calories": 144.6,
+                    "protein": 0.2,
+                    "carbs": 35.95,
+                    "fats": 0
+                }
+            ]
+        }
+    },
+    "exerciseDatabase": {
+        "Chest": [
+            "Push-ups",
+            "Bench Press",
+            "Dumbbell Flyes",
+            "Incline Bench Press",
+            "Dips (Chest focused)",
+            "Cable Crossovers"
+        ],
+        "Back": [
+            "Pull-ups",
+            "Bent-over Rows",
+            "Deadlifts",
+            "Lat Pulldowns",
+            "Seated Cable Rows",
+            "T-Bar Rows",
+            "Hyperextensions"
+        ],
+        "Legs": [
+            "Squats",
+            "Lunges",
+            "Leg Press",
+            "Romanian Deadlifts",
+            "Leg Curls",
+            "Leg Extensions",
+            "Calf Raises",
+            "Bodyweight Squats",
+            "Glute Bridges"
+        ],
+        "Shoulders": [
+            "Overhead Press (Barbell/Dumbbell)",
+            "Lateral Raises",
+            "Front Raises",
+            "Reverse Pec Deck",
+            "Face Pulls",
+            "Arnold Press"
+        ],
+        "Arms": [
+            "Bicep Curls (Barbell/Dumbbell)",
+            "Tricep Dips",
+            "Hammer Curls",
+            "Tricep Pushdowns",
+            "Skullcrushers",
+            "Preacher Curls"
+        ],
+        "Core": [
+            "Plank",
+            "Crunches",
+            "Leg Raises",
+            "Russian Twists",
+            "Cable Woodchoppers",
+            "Bird Dog",
+            "Superman",
+            "Hanging Leg Raises"
+        ],
+        "Custom": []
+    },
+    "workoutTemplates": [
+        {
+            "id": "1",
+            "name": "CBUM Olympia Day 1: Quadzilla",
+            "exercises": [
+                {
+                    "name": "Leg Extensions",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "20",
+                            "suggestedWeight": "Light",
+                            "suggestedRest": 45,
+                            "notes": "Focus on quad contraction, blood flow."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "15",
+                            "suggestedWeight": "Light-Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Pre-exhaust quads."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Full range of motion."
+                        }
+                    ]
+                },
+                {
+                    "name": "Squats",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10",
+                            "suggestedWeight": "Bar only / Light",
+                            "suggestedRest": 60,
+                            "notes": "Focus on form and depth. Can be Barbell Squats or Hack Squats."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "8",
+                            "suggestedWeight": "50% of working weight",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-10",
+                            "suggestedWeight": "Heavy / RPE 8",
+                            "suggestedRest": 120,
+                            "notes": "Primary compound lift for quads."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-10",
+                            "suggestedWeight": "Heavy / RPE 8-9",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "6-8",
+                            "suggestedWeight": "Heavier / RPE 9",
+                            "suggestedRest": 150,
+                            "notes": "Push for strength."
+                        },
+                        {
+                            "type": "backoff",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "70% of heaviest working set",
+                            "suggestedRest": 90,
+                            "notes": "Volume set, focus on reps and pump."
+                        }
+                    ]
+                },
+                {
+                    "name": "Leg Press",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 90,
+                            "notes": "High volume pressing."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 90,
+                            "notes": "Focus on continuous tension."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 1 of 7. Constant pump."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 2 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 3 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 4 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 5 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 6 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 7 of 7. Maximize pump."
+                        }
+                    ]
+                },
+                {
+                    "name": "Lunges",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12 per leg",
+                            "suggestedWeight": "Bodyweight or Light Dumbbells",
+                            "suggestedRest": 75,
+                            "notes": "Walking lunges if space permits. Focus on stability and quad drive."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12 per leg",
+                            "suggestedWeight": "Bodyweight or Light Dumbbells",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP per leg",
+                            "suggestedWeight": "Bodyweight",
+                            "suggestedRest": 75,
+                            "notes": "Finisher set, push to failure."
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        },
+        {
+            "id": "2",
+            "name": "CBUM Olympia Day 2: Chest & Triceps",
+            "exercises": [
+                {
+                    "name": "Incline Bench Press",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "15",
+                            "suggestedWeight": "Light",
+                            "suggestedRest": 60,
+                            "notes": "Focus on upper chest activation. Barbell or Dumbbells."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Heavy / RPE 8",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Heavy / RPE 8-9",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "6-10",
+                            "suggestedWeight": "Heavy / RPE 9",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Bench Press",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Moderate-Heavy / RPE 8",
+                            "suggestedRest": 120,
+                            "notes": "Flat bench, can use dumbbells for variation."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Moderate-Heavy / RPE 8",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        },
+                        {
+                            "type": "dropset",
+                            "suggestedReps": "AMRAP",
+                            "suggestedWeight": "Start RPE 9, drop 20-30%",
+                            "suggestedRest": 90,
+                            "notes": "Perform one drop after reaching failure on the main set."
+                        }
+                    ]
+                },
+                {
+                    "name": "Dumbbell Flyes",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 75,
+                            "notes": "Focus on stretch and squeeze. Incline or flat."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Cable Crossovers",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 1 of 7. Squeeze hard at peak contraction."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 2 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 3 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 4 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 5 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 6 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 7 of 7."
+                        }
+                    ]
+                },
+                {
+                    "name": "Skullcrushers",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 75,
+                            "notes": "Focus on triceps extension. EZ Bar or Dumbbells."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tricep Pushdowns",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Use rope or bar attachment."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Burnout set."
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        },
+        {
+            "id": "3",
+            "name": "CBUM Olympia Day 3: Back & Biceps",
+            "exercises": [
+                {
+                    "name": "Pull-ups",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "AMRAP (or Lat Pulldowns 15 reps)",
+                            "suggestedWeight": "Bodyweight (or Light)",
+                            "suggestedRest": 75,
+                            "notes": "Focus on lat activation."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP (target 8-12)",
+                            "suggestedWeight": "Bodyweight or Assisted",
+                            "suggestedRest": 90,
+                            "notes": "If strong, add weight."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP (target 8-12)",
+                            "suggestedWeight": "Bodyweight or Assisted",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP (target 6-10)",
+                            "suggestedWeight": "Bodyweight or Assisted",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Bent-over Rows",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "12",
+                            "suggestedWeight": "Light",
+                            "suggestedRest": 60,
+                            "notes": "Barbell or dumbbell. Focus on form."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Heavy / RPE 8",
+                            "suggestedRest": 120,
+                            "notes": "Focus on squeezing the back."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Heavy / RPE 8-9",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "6-10",
+                            "suggestedWeight": "Heavy / RPE 9",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "T-Bar Rows",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 90,
+                            "notes": "Focus on mid-back thickness."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Seated Cable Rows",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 1 of 7. Controlled pulls, full stretch and contraction."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 2 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 3 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 4 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 5 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 6 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 7 of 7."
+                        }
+                    ]
+                },
+                {
+                    "name": "Hyperextensions",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight or Light Plate",
+                            "suggestedRest": 60,
+                            "notes": "Focus on lower back and glute/ham tie-in."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight or Light Plate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Bicep Curls (Barbell/Dumbbell)",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "15",
+                            "suggestedWeight": "Light",
+                            "suggestedRest": 45,
+                            "notes": "Alternating dumbbell curls or light barbell curls."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Preacher Curls",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Focus on peak contraction."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        },
+        {
+            "id": "4",
+            "name": "CBUM Olympia Day 4: Shoulders",
+            "exercises": [
+                {
+                    "name": "Overhead Press (Barbell/Dumbbell)",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "15",
+                            "suggestedWeight": "Light",
+                            "suggestedRest": 60,
+                            "notes": "Focus on form and shoulder activation."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Heavy / RPE 8",
+                            "suggestedRest": 120,
+                            "notes": "Primary compound for shoulders."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Heavy / RPE 8-9",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "6-10",
+                            "suggestedWeight": "Heavy / RPE 9",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Lateral Raises",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Very Light",
+                            "suggestedRest": 45,
+                            "notes": "Focus on medial delt activation."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 1 of 7. Strict form, no swinging."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 2 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 3 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 4 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 5 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 6 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 7 of 7. Aim for intense burn."
+                        }
+                    ]
+                },
+                {
+                    "name": "Front Raises",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Dumbbell or cable. Alternate arms or both."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Reverse Pec Deck",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Light-Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Focus on rear delt contraction."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Light-Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Light-Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Face Pulls",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Light-Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Focus on external rotation and rear delt/upper back."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Light-Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        },
+        {
+            "id": "5",
+            "name": "CBUM Olympia Day 5: Hamstrings & Calves",
+            "exercises": [
+                {
+                    "name": "Leg Curls",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Light",
+                            "suggestedRest": 45,
+                            "notes": "Lying or Seated. Focus on hamstring contraction."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "15",
+                            "suggestedWeight": "Light-Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Heavy / RPE 9",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Romanian Deadlifts",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "12",
+                            "suggestedWeight": "Light",
+                            "suggestedRest": 60,
+                            "notes": "Focus on form, hip hinge, and hamstring stretch."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Moderate-Heavy / RPE 8",
+                            "suggestedRest": 120,
+                            "notes": "Maintain slight knee bend, control eccentric."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Moderate-Heavy / RPE 8-9",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Moderate-Heavy / RPE 8-9",
+                            "suggestedRest": 120,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Glute Bridges",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight or Barbell",
+                            "suggestedRest": 75,
+                            "notes": "Focus on glute and hamstring contraction at the top."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight or Barbell",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Calf Raises",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "20-25",
+                            "suggestedWeight": "Light",
+                            "suggestedRest": 30,
+                            "notes": "Standing or Seated. Full range of motion."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 1 of 7. Focus on peak contraction and stretch."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 2 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 3 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 4 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 5 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 6 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 7 of 7. Intense burn."
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        },
+        {
+            "id": "6",
+            "name": "CBUM Olympia Day 6: Armageddon (Dedicated Arms)",
+            "exercises": [
+                {
+                    "name": "Bicep Curls (Barbell/Dumbbell)",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "15",
+                            "suggestedWeight": "Light (EZ Bar or Dumbbells)",
+                            "suggestedRest": 60,
+                            "notes": "Focus on form and bicep contraction."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 75,
+                            "notes": "Standing Barbell Curls."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Moderate-Heavy",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tricep Dips",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Bodyweight (or assisted)",
+                            "suggestedRest": 60,
+                            "notes": "Bench dips or parallel bar dips (triceps focused)."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP (target 10-15)",
+                            "suggestedWeight": "Bodyweight or Weighted",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP (target 10-15)",
+                            "suggestedWeight": "Bodyweight or Weighted",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP (target 8-12)",
+                            "suggestedWeight": "Bodyweight or Weighted",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Hammer Curls",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Focus on brachialis and forearm."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tricep Pushdowns",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style (Rope Attachment): Set 1 of 7. Squeeze triceps hard."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 2 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 3 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 4 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 5 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 6 of 7."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "FST-7 Style: Set 7 of 7."
+                        }
+                    ]
+                },
+                {
+                    "name": "Preacher Curls",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Machine or dumbbell. Focus on isolating the bicep peak."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Skullcrushers",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 75,
+                            "notes": "EZ bar or dumbbells. Focus on long head of triceps."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 75,
+                            "notes": ""
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        }
+    ],
+    "customFoods": [
+        {
+            "id": "food_1748626346118",
+            "name": "Batata inglesa",
+            "servingSize": "100g",
+            "calories": 89,
+            "protein": 2.5,
+            "carbs": 19.2,
+            "fats": 0
+        },
+        {
+            "id": "food_1748559067781",
+            "name": "Peito de Frango Assado (sem pele)",
+            "servingSize": "100g",
+            "calories": 156.4,
+            "protein": 31,
+            "carbs": 0,
+            "fats": 3.6
+        },
+        {
+            "id": "food_1748559067782",
+            "name": "Arroz Cozido (branco)",
+            "servingSize": "100g",
+            "calories": 126.3,
+            "protein": 2.7,
+            "carbs": 28.2,
+            "fats": 0.3
+        },
+        {
+            "id": "food_1748559067783",
+            "name": "Feijão Cozido (carioca)",
+            "servingSize": "100g",
+            "calories": 79.3,
+            "protein": 4.8,
+            "carbs": 13.9,
+            "fats": 0.5
+        },
+        {
+            "id": "food_1748559067784",
+            "name": "Requeijão Cremoso (tradicional)",
+            "servingSize": "100g",
+            "calories": 253,
+            "protein": 9,
+            "carbs": 2.5,
+            "fats": 23
+        },
+        {
+            "id": "food_1748559067785",
+            "name": "Queijo Mussarela",
+            "servingSize": "100g",
+            "calories": 311,
+            "protein": 24,
+            "carbs": 2,
+            "fats": 23
+        },
+        {
+            "id": "food_1748559067786",
+            "name": "Queijo Cheddar",
+            "servingSize": "100g",
+            "calories": 401,
+            "protein": 24,
+            "carbs": 2,
+            "fats": 33
+        },
+        {
+            "id": "food_1748559067787",
+            "name": "Carne de Boi Assada (patinho)",
+            "servingSize": "100g",
+            "calories": 184.5,
+            "protein": 31.5,
+            "carbs": 0,
+            "fats": 6.5
+        },
+        {
+            "id": "food_1748559067788",
+            "name": "Ovo Cozido (inteiro)",
+            "servingSize": "1 unit",
+            "calories": 0,
+            "protein": 6,
+            "carbs": 0,
+            "fats": 5
+        },
+        {
+            "id": "food_1748559067789",
+            "name": "Goma de Tapioca (hidratada)",
+            "servingSize": "100g",
+            "calories": 289.2,
+            "protein": 0.4,
+            "carbs": 71.9,
+            "fats": 0
+        },
+        {
+            "id": "food_1748559067790",
+            "name": "Pão de Forma (branco tradicional)",
+            "servingSize": "100g",
+            "calories": 257.5,
+            "protein": 9.5,
+            "carbs": 47,
+            "fats": 3.5
+        }
+    ]
+}

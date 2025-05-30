@@ -1,0 +1,1650 @@
+{
+    "workouts": [],
+    "nutritionData": {
+        "2025-05-29": {
+            "targets": {
+                "calories": 1600,
+                "protein": 200,
+                "fats": 50,
+                "carbs": 88
+            },
+            "loggedFoods": []
+        },
+        "2025-05-30": {
+            "calories": "458",
+            "protein": "62.2",
+            "carbs": "36.0",
+            "fats": "7.2",
+            "targets": {
+                "protein": "200",
+                "carbs": "188",
+                "fats": "57",
+                "calories": 2066
+            },
+            "loggedFoods": [
+                {
+                    "name": "Peito de Frango Assado (sem pele)",
+                    "servings": 2,
+                    "servingSize": "100g",
+                    "calories": 312.8,
+                    "protein": 62,
+                    "carbs": 0,
+                    "fats": 7.2
+                },
+                {
+                    "name": "Goma de Tapioca (hidratada)",
+                    "servings": 0.5,
+                    "servingSize": "100g",
+                    "calories": 144.6,
+                    "protein": 0.2,
+                    "carbs": 35.95,
+                    "fats": 0
+                }
+            ]
+        }
+    },
+    "exerciseDatabase": {
+        "Chest": [
+            "Push-ups",
+            "Bench Press",
+            "Dumbbell Flyes",
+            "Incline Bench Press",
+            "Dips (Chest focused)",
+            "Cable Crossovers"
+        ],
+        "Back": [
+            "Pull-ups",
+            "Bent-over Rows",
+            "Deadlifts",
+            "Lat Pulldowns",
+            "Seated Cable Rows",
+            "T-Bar Rows",
+            "Hyperextensions"
+        ],
+        "Legs": [
+            "Squats",
+            "Lunges",
+            "Leg Press",
+            "Romanian Deadlifts",
+            "Leg Curls",
+            "Leg Extensions",
+            "Calf Raises",
+            "Bodyweight Squats",
+            "Glute Bridges"
+        ],
+        "Shoulders": [
+            "Overhead Press (Barbell/Dumbbell)",
+            "Lateral Raises",
+            "Front Raises",
+            "Reverse Pec Deck",
+            "Face Pulls",
+            "Arnold Press"
+        ],
+        "Arms": [
+            "Bicep Curls (Barbell/Dumbbell)",
+            "Tricep Dips",
+            "Hammer Curls",
+            "Tricep Pushdowns",
+            "Skullcrushers",
+            "Preacher Curls"
+        ],
+        "Core": [
+            "Plank",
+            "Crunches",
+            "Leg Raises",
+            "Russian Twists",
+            "Cable Woodchoppers",
+            "Bird Dog",
+            "Superman",
+            "Hanging Leg Raises"
+        ],
+        "Custom": []
+    },
+    "workoutTemplates": [
+        {
+            "id": "jay_cutler_template_1",
+            "name": "Jay Cutler - Day 1: Chest & Calves",
+            "exercises": [
+                {
+                    "name": "Calf Raises",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": "Standing Calf Raises variation. Focus on full stretch and contraction."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Calf Raises",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": "Seated Calf Raises variation. Focus on full range of motion."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Calf Raises",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": "Leg Press Calf Raises variation."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Incline Bench Press",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Lighter weight",
+                            "suggestedRest": 60,
+                            "notes": "Feel set 1, focus on form and muscle activation."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate weight",
+                            "suggestedRest": 60,
+                            "notes": "Feel set 2, prepare for working sets."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Focus on controlled movement."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Bench Press",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Dumbbell variation for flat press. Focus on stretch and squeeze, avoid full lockout."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Bench Press",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Decline Barbell Press variation."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Dumbbell Flyes",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": "Incline variation. Maintain tension, don't let dumbbells touch at the top."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Cable Crossovers",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": "Mid pulley. Focus on peak contraction. FST-7 optional: 7 sets of 10-12 reps."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        },
+        {
+            "id": "jay_cutler_template_2",
+            "name": "Jay Cutler - Day 2: Back (Thickness Focus)",
+            "exercises": [
+                {
+                    "name": "Pull-ups",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "AMRAP",
+                            "suggestedWeight": "Bodyweight",
+                            "suggestedRest": 60,
+                            "notes": "Or Lat Pulldowns 2-3 sets x 10-12 reps."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "AMRAP",
+                            "suggestedWeight": "Bodyweight",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Bent-over Rows",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Lighter weight",
+                            "suggestedRest": 60,
+                            "notes": "Barbell, Underhand Grip. Feel set 1."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate weight",
+                            "suggestedRest": 60,
+                            "notes": "Feel set 2."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Focus on squeezing the lats."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "T-Bar Rows",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Chest Supported if possible."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Bent-over Rows",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12 per arm",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "One-Arm Dumbbell Row variation."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12 per arm",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12 per arm",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Seated Cable Rows",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": "Close Grip Attachment. Emphasize squeeze."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Deadlifts",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "6-10",
+                            "suggestedWeight": "Heavy",
+                            "suggestedRest": 90,
+                            "notes": "Rack Pulls from below knee variation. Focus on back, not legs. Cycle this exercise or do not perform every week if recovery is an issue."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "6-10",
+                            "suggestedWeight": "Heavy",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "6-10",
+                            "suggestedWeight": "Heavy",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Hyperextensions",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Bodyweight or light weight",
+                            "suggestedRest": 45,
+                            "notes": "Controlled motion."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Bodyweight or light weight",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Bodyweight or light weight",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        },
+        {
+            "id": "jay_cutler_template_3",
+            "name": "Jay Cutler - Day 3: Shoulders & Abs",
+            "exercises": [
+                {
+                    "name": "Overhead Press (Barbell/Dumbbell)",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Lighter weight",
+                            "suggestedRest": 60,
+                            "notes": "Seated Dumbbell Press. Feel set 1."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate weight",
+                            "suggestedRest": 60,
+                            "notes": "Feel set 2."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Focus on controlled movement."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Lateral Raises",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": "Standing, Dumbbell. Lead with elbows, strict form."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Reverse Pec Deck",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": "Or Bent-Over Dumbbell Rear Delt Raises."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Front Raises",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": "Alternating Dumbbell or Barbell."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Shrugs",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Heavy",
+                            "suggestedRest": 60,
+                            "notes": "Barbell or Heavy Dumbbell. Focus on contraction. FST-7 optional for Machine Lateral Raises: 7 sets of 10-12 reps (perform after main shoulder work)."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Heavy",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Heavy",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Heavy",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Crunches",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": "Cable Crunches variation."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Hanging Leg Raises",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight",
+                            "suggestedRest": 45,
+                            "notes": "Or Captain's Chair Leg Raises."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Crunches",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight",
+                            "suggestedRest": 45,
+                            "notes": "Decline Bench Crunches variation."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        },
+        {
+            "id": "jay_cutler_template_4",
+            "name": "Jay Cutler - Day 4: Legs (Quads & Hamstrings)",
+            "exercises": [
+                {
+                    "name": "Leg Extensions",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Lighter weight",
+                            "suggestedRest": 45,
+                            "notes": "Feel set 1, pre-exhaust."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate weight",
+                            "suggestedRest": 45,
+                            "notes": "Feel set 2, pre-exhaust."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": "Focus on peak contraction."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Squats",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Lighter weight",
+                            "suggestedRest": 60,
+                            "notes": "Barbell Squats. Feel set 1."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate weight",
+                            "suggestedRest": 60,
+                            "notes": "Feel set 2."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 90,
+                            "notes": "Aim for depth, control."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 90,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Leg Press",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Vary foot placement for emphasis."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Hack Squats",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Focus on quads."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Leg Curls",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": "Lying Leg Curls variation."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Romanian Deadlifts",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Focus on hamstring stretch and glute contraction."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Leg Curls",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": "Seated Leg Curls variation. Can be done unilaterally. FST-7 optional for Leg Extensions or Leg Curls: 7 sets of 10-12 reps."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        },
+        {
+            "id": "jay_cutler_template_5",
+            "name": "Jay Cutler - Day 5: Arms (Triceps, Biceps, Forearms)",
+            "exercises": [
+                {
+                    "name": "Bench Press",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Lighter weight",
+                            "suggestedRest": 60,
+                            "notes": "Close-Grip Barbell Press for triceps. Feel set 1."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate weight",
+                            "suggestedRest": 60,
+                            "notes": "Feel set 2."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Focus on triceps."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Overhead Dumbbell Extension",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "One or Two-Arm."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tricep Pushdowns",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": "Rope Attachment. Focus on peak contraction. FST-7 optional: 7 sets of 10-12 reps."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tricep Dips",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP",
+                            "suggestedWeight": "Bodyweight or weighted",
+                            "suggestedRest": 60,
+                            "notes": "Triceps-focused, on bench or parallel bars. (AMRAP means As Many Reps As Possible)"
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP",
+                            "suggestedWeight": "Bodyweight or weighted",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "AMRAP",
+                            "suggestedWeight": "Bodyweight or weighted",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Bicep Curls (Barbell/Dumbbell)",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Lighter weight",
+                            "suggestedRest": 60,
+                            "notes": "Standing Barbell Curls. Feel set 1."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate weight",
+                            "suggestedRest": 60,
+                            "notes": "Feel set 2."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Focus on bicep peak."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "8-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Bicep Curls (Barbell/Dumbbell)",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12 per arm",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Alternating Dumbbell Curls, seated or incline."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12 per arm",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12 per arm",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Preacher Curls",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": "Machine, Barbell or Dumbbell. FST-7 optional for Cable Curls: 7 sets of 10-12 reps."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Hammer Curls",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": "Dumbbell or Rope Attachment."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Barbell Wrist Curls",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "Palms Up."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Reverse Barbell Wrist Curls",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": "Palms Down."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 30,
+                            "notes": ""
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        },
+        {
+            "id": "jay_cutler_template_6",
+            "name": "Jay Cutler - Day 6: Back (Width Focus) & Calves",
+            "exercises": [
+                {
+                    "name": "Lat Pulldowns",
+                    "sets": [
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Lighter weight",
+                            "suggestedRest": 60,
+                            "notes": "Wide-Grip Front. Feel set 1. Or Wide-Grip Pull-ups: 4 sets AMRAP."
+                        },
+                        {
+                            "type": "warmup",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Moderate weight",
+                            "suggestedRest": 60,
+                            "notes": "Feel set 2."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Focus on lat stretch."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Lat Pulldowns",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Close-Grip Front variation (Underhand or Neutral grip)."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Barbell Pullovers",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": "Cross-Bench with Dumbbell or Barbell, or Machine Pullovers. Focus on stretch across lats."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Seated Cable Rows",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": "Machine Row variation (e.g., Hammer Strength) with wide grip, focusing on stretch and width."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-12",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 60,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Lat Pulldowns",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": "Straight-Arm Cable Pulldowns variation. Strict isolation for lats."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "12-15",
+                            "suggestedWeight": "Moderate",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Calf Raises",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15 per leg",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": "Single Leg Standing Calf Raises variation (holding a dumbbell)."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15 per leg",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "10-15 per leg",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Calf Raises",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": "Donkey Calf Raises variation (or Machine Equivalent)."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Challenging",
+                            "suggestedRest": 45,
+                            "notes": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tibialis Raises",
+                    "sets": [
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight or light resistance",
+                            "suggestedRest": 30,
+                            "notes": "For muscles on the front of the shin."
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight or light resistance",
+                            "suggestedRest": 30,
+                            "notes": ""
+                        },
+                        {
+                            "type": "working",
+                            "suggestedReps": "15-20",
+                            "suggestedWeight": "Bodyweight or light resistance",
+                            "suggestedRest": 30,
+                            "notes": ""
+                        }
+                    ]
+                }
+            ],
+            "dateCreated": "2025-05-30"
+        }
+    ],
+    "customFoods": [
+        {
+            "id": "food_1748626346118",
+            "name": "Batata inglesa",
+            "servingSize": "100g",
+            "calories": 89,
+            "protein": 2.5,
+            "carbs": 19.2,
+            "fats": 0
+        },
+        {
+            "id": "food_1748559067781",
+            "name": "Peito de Frango Assado (sem pele)",
+            "servingSize": "100g",
+            "calories": 156.4,
+            "protein": 31,
+            "carbs": 0,
+            "fats": 3.6
+        },
+        {
+            "id": "food_1748559067782",
+            "name": "Arroz Cozido (branco)",
+            "servingSize": "100g",
+            "calories": 126.3,
+            "protein": 2.7,
+            "carbs": 28.2,
+            "fats": 0.3
+        },
+        {
+            "id": "food_1748559067783",
+            "name": "Feijão Cozido (carioca)",
+            "servingSize": "100g",
+            "calories": 79.3,
+            "protein": 4.8,
+            "carbs": 13.9,
+            "fats": 0.5
+        },
+        {
+            "id": "food_1748559067784",
+            "name": "Requeijão Cremoso (tradicional)",
+            "servingSize": "100g",
+            "calories": 253,
+            "protein": 9,
+            "carbs": 2.5,
+            "fats": 23
+        },
+        {
+            "id": "food_1748559067785",
+            "name": "Queijo Mussarela",
+            "servingSize": "100g",
+            "calories": 311,
+            "protein": 24,
+            "carbs": 2,
+            "fats": 23
+        },
+        {
+            "id": "food_1748559067786",
+            "name": "Queijo Cheddar",
+            "servingSize": "100g",
+            "calories": 401,
+            "protein": 24,
+            "carbs": 2,
+            "fats": 33
+        },
+        {
+            "id": "food_1748559067787",
+            "name": "Carne de Boi Assada (patinho)",
+            "servingSize": "100g",
+            "calories": 184.5,
+            "protein": 31.5,
+            "carbs": 0,
+            "fats": 6.5
+        },
+        {
+            "id": "food_1748559067788",
+            "name": "Ovo Cozido (inteiro)",
+            "servingSize": "1 unit",
+            "calories": 0,
+            "protein": 6,
+            "carbs": 0,
+            "fats": 5
+        },
+        {
+            "id": "food_1748559067789",
+            "name": "Goma de Tapioca (hidratada)",
+            "servingSize": "100g",
+            "calories": 289.2,
+            "protein": 0.4,
+            "carbs": 71.9,
+            "fats": 0
+        },
+        {
+            "id": "food_1748559067790",
+            "name": "Pão de Forma (branco tradicional)",
+            "servingSize": "100g",
+            "calories": 257.5,
+            "protein": 9.5,
+            "carbs": 47,
+            "fats": 3.5
+        }
+    ]
+}
