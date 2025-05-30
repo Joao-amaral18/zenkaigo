@@ -640,6 +640,8 @@
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             font-weight: 600;
+            cursor: pointer;
+            /* Add cursor pointer to indicate it's clickable */
         }
 
         /* Styles for collapsible exercises */
@@ -680,12 +682,29 @@
             /* Consider a more dynamic max-height if content varies greatly, or use display: block/none without animation */
             transition: max-height 0.4s ease-in;
         }
+
+        /* Message area for timer notifications */
+        #timerNotificationMessage {
+            position: fixed;
+            top: 75px;
+            /* Position below the timer */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1051;
+            /* Above timer but below modals if any */
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.375rem;
+            /* rounded-md */
+            font-size: 0.75rem;
+            /* text-xs */
+            text-align: center;
+        }
     </style>
 </head>
 
 <body class="bg-neutral-800">
     <div class="app-container">
-
+        <span id="timerNotificationMessage" style="display: none;"></span>
         <div id="screen-workouts" class="screen">
             <header class="flex justify-between items-center mb-6">
                 <h1 class="text-2xl font-semibold text-white">Workouts</h1>
@@ -1310,6 +1329,7 @@
             const viewWorkoutHistoryBtn = document.getElementById('viewWorkoutHistoryBtn');
             const backToWorkoutsDashboardBtn = document.getElementById('backToWorkoutsDashboardBtn');
             const workoutTimerDisplay = document.getElementById('workoutTimerDisplay');
+            const timerNotificationMessage = document.getElementById('timerNotificationMessage'); // Added
             const workoutDateInput = document.getElementById('workoutDate');
             const workoutStartTimeInput = document.getElementById('workoutStartTime');
             const currentDateTimeSpan = document.getElementById('currentDateTime');
@@ -1534,7 +1554,7 @@
             function showModal(modalElement) { if (modalElement) modalElement.style.display = 'flex'; }
             function closeModal(modalElement) { if (modalElement) modalElement.style.display = 'none'; }
             function showConfirmation(title, message, callback) { confirmationTitle.textContent = title; confirmationMessage.textContent = message; confirmActionCallback = callback; showModal(confirmationModal); }
-            function displayTemporaryMessage(element, message, type = 'success', duration = 3000) { if (!element) return; element.textContent = message; element.className = ''; element.classList.add(type === 'success' ? 'success-message' : 'error-message', 'text-xs', 'p-2', 'rounded-md', 'my-2'); element.style.display = 'block'; setTimeout(() => { if (element) { element.style.display = 'none'; element.textContent = ''; } }, duration); }
+            function displayTemporaryMessage(element, message, type = 'success', duration = 3000) { if (!element) return; element.textContent = message; element.className = ''; element.classList.add(type === 'success' ? 'success-message' : 'error-message'); /* Keep existing styles, add specific type */ if (type === 'success') element.classList.add('bg-teal-500/20', 'text-teal-300'); else element.classList.add('bg-red-500/20', 'text-red-300'); element.style.display = 'block'; setTimeout(() => { if (element) { element.style.display = 'none'; element.textContent = ''; } }, duration); }
             function saveData() { localStorage.setItem('fitnessApp_workouts', JSON.stringify(workouts)); localStorage.setItem('fitnessApp_nutritionData', JSON.stringify(nutritionData)); localStorage.setItem('fitnessApp_currentWorkout', JSON.stringify(currentWorkout)); localStorage.setItem('fitnessApp_exerciseDatabase', JSON.stringify(exerciseDatabase)); localStorage.setItem('fitnessApp_workoutTemplates', JSON.stringify(workoutTemplates)); localStorage.setItem('fitnessApp_customFoods', JSON.stringify(customFoods)); }
             function loadData() { workouts = JSON.parse(localStorage.getItem('fitnessApp_workouts')) || []; nutritionData = JSON.parse(localStorage.getItem('fitnessApp_nutritionData')) || {}; currentWorkout = JSON.parse(localStorage.getItem('fitnessApp_currentWorkout')) || null; const storedDB = JSON.parse(localStorage.getItem('fitnessApp_exerciseDatabase')); if (storedDB && storedDB.Custom) exerciseDatabase.Custom = storedDB.Custom; else exerciseDatabase.Custom = []; workoutTemplates = JSON.parse(localStorage.getItem('fitnessApp_workoutTemplates')) || []; customFoods = JSON.parse(localStorage.getItem('fitnessApp_customFoods')) || []; }
 
@@ -1657,7 +1677,7 @@
                     currentWorkout.exercises.push({
                         name: exerciseName,
                         sets: [],
-                        isCollapsed: false, // Default to not collapsed
+                        isCollapsed: true, // Default to not collapsed
                         suggestedPerformance: { ...calculateExerciseSuggestion(exerciseName), shown: true }
                     });
                     saveData();
@@ -2169,6 +2189,18 @@
                     };
                     reader.readAsText(file);
                 });
+                // Event listener for timer click to request notification permission
+                if (workoutTimerDisplay) {
+                    workoutTimerDisplay.addEventListener('click', () => {
+                        showConfirmation("Enable Timer Notifications?",
+                            "Allow this app to send notifications for timer events (e.g., end of rest period)?",
+                            (confirmed) => {
+                                if (confirmed) {
+                                    requestNotificationPermission();
+                                }
+                            });
+                    });
+                }
             }
 
             // --- Workout Set/Exercise Action Handlers (Refactored from initializeAppEventListeners) ---
@@ -2335,53 +2367,49 @@
             initializeAppEventListeners();
             switchScreen('workouts'); // Start on workouts screen
             updateCurrentTimeDisplay();
-            setInterval(updateCurrentTimeDisplay, 1000); // Update time every 1s
+            setInterval(updateCurrentTimeDisplay, 10000); // Update time every 10s
             if (currentWorkout) startWorkoutTimer(); else resetWorkoutTimerDisplay();
             updateSaveWorkoutButtonState();
 
-            // --- Notifications (Placeholder for lock screen functionality) ---
-            // To implement web notifications (which *might* show on lock screen depending on OS/browser):
-            // 1. Request permission (ideally on a user action, not on page load):
-
+            // --- Notifications ---
             function requestNotificationPermission() {
                 if (!("Notification" in window)) {
                     console.log("This browser does not support desktop notification");
+                    displayTemporaryMessage(timerNotificationMessage, "Notifications not supported by this browser.", 'error');
                 } else if (Notification.permission === "granted") {
-                    // If permission is already granted, you can create a notification
-                    // new Notification("Hi there - permission already granted!");
+                    displayTemporaryMessage(timerNotificationMessage, "Timer notifications are active.", 'success');
+                    showTimerNotification("Zenkai Go!", "Timer notifications enabled.");
                 } else if (Notification.permission !== "denied") {
                     Notification.requestPermission().then(function (permission) {
                         if (permission === "granted") {
-                            // new Notification("Thanks for the permission!");
+                            displayTemporaryMessage(timerNotificationMessage, "Permission granted! Timer notifications active.", 'success');
+                            showTimerNotification("Zenkai Go!", "Timer notifications now active!");
+                        } else {
+                            displayTemporaryMessage(timerNotificationMessage, "Timer notifications permission denied.", 'error');
                         }
                     });
+                } else {
+                    displayTemporaryMessage(timerNotificationMessage, "Timer notifications permission denied.", 'error');
                 }
             }
-            // Call requestNotificationPermission() when appropriate, e.g., from a settings button.
-
-
-            // 2. To show a notification (e.g., when timer ends, or a rest period is over):
 
             function showTimerNotification(title, body) {
                 if (Notification.permission === "granted") {
-                    navigator.serviceWorker.ready.then(function (registration) {
+                    // Using direct Notification API as Service Worker isn't set up
+                    new Notification(title, { body: body, icon: 'https://placehold.co/48x48/00ACC1/FFFFFF?text=ZG' }); // Simple placeholder icon
+
+                    // If you were to use a Service Worker (more robust for background):
+                    /*
+                    navigator.serviceWorker.ready.then(function(registration) {
                         registration.showNotification(title, {
                             body: body,
-                            icon: '<svg viewBox="-5.5 0 247 247" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style> .cls-3 { fill: #ff1b3f; } .cls-4 { fill: #000000; } .cls-5 { fill: #000000; } .cls-6 { fill: #e14747; } .cls-7 { fill: #ffffff; } </style> </defs> <g id="stopwatch"> <path d="M227.730,51.039 C227.730,51.039 221.945,57.933 221.945,57.933 C221.945,57.933 172.918,16.795 172.918,16.795 C172.918,16.795 178.703,9.900 178.703,9.900 C184.383,3.131 194.475,2.248 201.244,7.928 C201.244,7.928 225.758,28.497 225.758,28.497 C232.527,34.178 233.410,44.270 227.730,51.039 ZM89.500,16.000 C89.500,7.163 96.663,-0.000 105.500,-0.000 C105.500,-0.000 128.500,-0.000 128.500,-0.000 C137.336,-0.000 144.500,7.163 144.500,16.000 C144.500,16.000 144.500,26.000 144.500,26.000 C144.500,26.000 89.500,26.000 89.500,26.000 C89.500,26.000 89.500,16.000 89.500,16.000 ZM7.270,51.039 C1.590,44.270 2.473,34.178 9.242,28.497 C9.242,28.497 33.755,7.928 33.755,7.928 C40.525,2.248 50.617,3.131 56.297,9.900 C56.297,9.900 62.082,16.795 62.082,16.795 C62.082,16.795 13.055,57.933 13.055,57.933 C13.055,57.933 7.270,51.039 7.270,51.039 Z" id="path-1" class="cls-3" fill-rule="evenodd"></path> <path d="M220.210,70.000 C230.250,87.356 236.000,107.506 236.000,129.000 C236.000,194.170 183.169,247.000 118.000,247.000 C52.830,247.000 -0.000,194.170 -0.000,129.000 C-0.000,107.506 5.749,87.356 15.790,70.000 C15.790,70.000 220.210,70.000 220.210,70.000 Z" id="path-2" class="cls-4" fill-rule="evenodd"></path> <path d="M222.358,94.225 C226.002,105.158 228.000,116.842 228.000,129.000 C228.000,189.751 178.751,239.000 118.000,239.000 C57.249,239.000 8.000,189.751 8.000,129.000 C8.000,116.842 9.998,105.158 13.641,94.225 C14.627,89.875 16.542,81.429 12.849,71.860 C11.041,67.177 9.477,62.363 13.928,56.235 C26.665,38.700 43.164,23.865 62.905,14.563 C69.755,11.336 73.699,13.975 76.388,15.099 C89.174,20.446 102.680,24.879 117.501,24.982 C132.344,24.879 146.826,20.446 159.612,15.099 C162.301,13.975 166.245,11.336 173.094,14.563 C192.835,23.865 209.335,38.700 222.072,56.235 C226.523,62.363 224.958,67.177 223.151,71.860 C219.457,81.429 221.373,89.875 222.358,94.225 Z" id="path-3" class="cls-5" fill-rule="evenodd"></path> <path d="M62.000,92.000 C62.000,92.000 174.000,92.000 174.000,92.000 C182.837,92.000 190.000,99.163 190.000,108.000 C190.000,108.000 190.000,150.000 190.000,150.000 C190.000,158.836 182.837,166.000 174.000,166.000 C174.000,166.000 62.000,166.000 62.000,166.000 C53.163,166.000 46.000,158.836 46.000,150.000 C46.000,150.000 46.000,108.000 46.000,108.000 C46.000,99.163 53.163,92.000 62.000,92.000 Z" id="path-4" class="cls-6" fill-rule="evenodd"></path> <path d="M155.500,152.000 C147.492,152.000 141.000,145.508 141.000,137.500 C141.000,137.500 141.000,120.500 141.000,120.500 C141.000,112.492 147.492,106.000 155.500,106.000 C163.508,106.000 170.000,112.492 170.000,120.500 C170.000,120.500 170.000,137.500 170.000,137.500 C170.000,145.508 163.508,152.000 155.500,152.000 ZM162.000,120.500 C162.000,116.910 159.090,114.000 155.500,114.000 C151.910,114.000 149.000,116.910 149.000,120.500 C149.000,120.500 149.000,137.500 149.000,137.500 C149.000,141.090 151.910,144.000 155.500,144.000 C159.090,144.000 162.000,141.090 162.000,137.500 C162.000,137.500 162.000,120.500 162.000,120.500 ZM118.500,152.000 C110.492,152.000 104.000,145.508 104.000,137.500 C104.000,137.500 104.000,120.500 104.000,120.500 C104.000,112.492 110.492,106.000 118.500,106.000 C126.508,106.000 133.000,112.492 133.000,120.500 C133.000,120.500 133.000,137.500 133.000,137.500 C133.000,145.508 126.508,152.000 118.500,152.000 ZM125.000,120.500 C125.000,116.910 122.090,114.000 118.500,114.000 C114.910,114.000 112.000,116.910 112.000,120.500 C112.000,120.500 112.000,137.500 112.000,137.500 C112.000,141.090 114.910,144.000 118.500,144.000 C122.090,144.000 125.000,141.090 125.000,137.500 C125.000,137.500 125.000,120.500 125.000,120.500 ZM81.500,152.000 C73.492,152.000 67.000,145.508 67.000,137.500 C67.000,137.500 67.000,120.500 67.000,120.500 C67.000,112.492 73.492,106.000 81.500,106.000 C89.508,106.000 96.000,112.492 96.000,120.500 C96.000,120.500 96.000,137.500 96.000,137.500 C96.000,145.508 89.508,152.000 81.500,152.000 ZM88.000,120.500 C88.000,116.910 85.090,114.000 81.500,114.000 C77.910,114.000 75.000,116.910 75.000,120.500 C75.000,120.500 75.000,137.500 75.000,137.500 C75.000,141.090 77.910,144.000 81.500,144.000 C85.090,144.000 88.000,141.090 88.000,137.500 C88.000,137.500 88.000,120.500 88.000,120.500 Z" id="path-5" class="cls-7" fill-rule="evenodd"></path> </g> </g></svg>', // Optional icon
-                            vibrate: [200, 100, 200] // Optional vibration pattern
+                            icon: 'path/to/your/icon.png',
+                            vibrate: [200, 100, 200]
                         });
                     });
-                    // Or, for simpler non-service-worker notifications (less reliable for background/lock screen):
-                    // new Notification(title, { body: body });
+                    */
                 }
             }
-            // Example usage: showTimerNotification("Workout Timer", "Your rest is over!");
-
-            // Note: True lock screen display and control are limited for web apps.
-            // The above uses the Web Notifications API. For more robust background behavior,
-            // a Service Worker would be necessary. The "sticky timer" style addresses the
-            // "bigger, centralized, sticky" parts of the request for on-screen visibility.
-
         });
     </script>
 </body>
