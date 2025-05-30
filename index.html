@@ -2194,10 +2194,8 @@
                     workoutTimerDisplay.addEventListener('click', () => {
                         showConfirmation("Enable Timer Notifications?",
                             "Allow this app to send notifications for timer events (e.g., end of rest period)?",
-                            (confirmed) => {
-                                if (confirmed) {
-                                    requestNotificationPermission();
-                                }
+                            (isConfirmed) => {
+                                requestNotificationPermission();
                             });
                     });
                 }
