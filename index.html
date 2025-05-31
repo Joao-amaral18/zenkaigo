@@ -1651,7 +1651,7 @@
                 if (templateToUse && Array.isArray(templateToUse.exercises)) {
                     currentWorkout.exercises = templateToUse.exercises.map(templateEx => {
                         const copiedSets = Array.isArray(templateEx.sets) ? templateEx.sets.map(set => ({ ...set, actualReps: '', actualWeight: '', userNotes: '', isPR: false })) : [];
-                        return { name: templateEx.name, sets: copiedSets, isCollapsed: false };
+                        return { name: templateEx.name, sets: copiedSets, isCollapsed: true };
                     });
                 }
                 workoutDateInput.value = currentWorkout.date; workoutStartTimeInput.value = currentWorkout.startTime; currentDateTimeSpan.textContent = `Started: ${formatDate(currentWorkout.date)} ${currentWorkout.startTime}`; saveData(); switchScreen('activeWorkout'); renderCurrentWorkoutExercises(); updateSaveWorkoutButtonState(); startWorkoutTimer();
@@ -1784,7 +1784,7 @@
                         setsHTML = `<div class="exercise-suggestion mb-2">${exercise.suggestedPerformance.message || ''}</div>`;
                     }
 
-                    const isCollapsed = exercise.isCollapsed || false;
+                    const isCollapsed = exercise.isCollapsed || true;
                     exerciseCard.innerHTML = `
                         <div class="exercise-header-toggle" data-exercise-index="${exerciseIndex}">
                             <h2 class="text-lg font-medium text-white exercise-name">${exercise.name}</h2>
