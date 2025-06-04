@@ -1784,7 +1784,7 @@
                         setsHTML = `<div class="exercise-suggestion mb-2">${exercise.suggestedPerformance.message || ''}</div>`;
                     }
 
-                    const isCollapsed = exercise.isCollapsed || true;
+                    const isCollapsed = exercise.isCollapsed || false;
                     exerciseCard.innerHTML = `
                         <div class="exercise-header-toggle" data-exercise-index="${exerciseIndex}">
                             <h2 class="text-lg font-medium text-white exercise-name">${exercise.name}</h2>
